@@ -43,6 +43,9 @@
             width: 60px; height: 60px; transition: all 0.3s ease;
         }
         .whatsapp-float:hover { background-color: #128C7E; transform: scale(1.1); box-shadow: 0 0 15px #25D366; }
+        
+        .contact-link:hover { color: #D4AF37; padding-left: 10px; }
+        .contact-link { transition: all 0.3s ease; }
     </style>
 </head>
 <body class="bg-black-900 text-white font-sans antialiased overflow-x-hidden selection:bg-gold-500 selection:text-black">
@@ -68,7 +71,7 @@
     <section class="py-20 bg-black-800 border-t border-white/5">
         <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
             <div class="relative order-2 md:order-1">
-                <img src="founder.jpg" class="founder-img border border-white/10 p-2 bg-black-900 shadow-2xl">
+                <img src="founder.jpg" class="founder-img border border-white/10 p-2 bg-black-900 shadow-2xl" alt="Kaleb Nunes CEO">
                 <div class="absolute -bottom-4 -right-4 bg-gold-400 text-black font-bold px-6 py-2 text-xs uppercase tracking-tighter">CEO & Founder</div>
             </div>
             <div class="order-1 md:order-2 space-y-6">
@@ -183,9 +186,34 @@
         </div>
     </section>
 
-    <footer class="py-12 bg-black-900 border-t border-white/5 text-center">
+    <section class="py-20 bg-black-900 border-t border-white/5">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h3 class="text-gold-400 tracking-widest text-xs font-bold uppercase mb-8" data-key="contact-label">Private Office</h3>
+            <div class="grid md:grid-cols-2 gap-8 items-center justify-center">
+                <div class="p-6 border border-white/5 hover:border-gold-400/30 transition bg-black-800">
+                    <p class="text-xs text-gray-500 uppercase tracking-widest mb-2">Comercial & Parcerias</p>
+                    <a href="mailto:kaleb@knsconsultoria.com.br" class="text-white font-serif text-lg md:text-xl contact-link">
+                        kaleb@knsconsultoria.com.br
+                    </a>
+                </div>
+                <div class="p-6 border border-white/5 hover:border-gold-400/30 transition bg-black-800">
+                    <p class="text-xs text-gray-500 uppercase tracking-widest mb-2">Direct Contact</p>
+                    <a href="mailto:kalebdossantos59924@gmail.com" class="text-white font-serif text-lg md:text-xl contact-link">
+                        kalebdossantos59924@gmail.com
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 bg-black-800 border-t border-white/5 text-center">
         <h4 class="font-serif text-xl text-white tracking-widest">KALEB <span class="text-gold-400">STUDIO</span></h4>
-        <p class="text-gray-700 text-xs uppercase mt-4">&copy; 2026 Kaleb Studio Digital.</p>
+        <div class="flex justify-center space-x-6 my-6 text-gray-500 text-sm">
+            <a href="#" class="hover:text-gold-400 transition">Instagram</a>
+            <a href="#" class="hover:text-gold-400 transition">LinkedIn</a>
+            <a href="#" class="hover:text-gold-400 transition">KNS Consultoria</a>
+        </div>
+        <p class="text-gray-700 text-xs uppercase">&copy; 2026 Kaleb Studio Digital.</p>
     </footer>
 
     <a href="https://wa.me/5547988901616?text=Ol%C3%A1%20Kaleb%2C%20vim%20pelo%20site%20Studio%20KNS." class="whatsapp-float animate-pulse-slow" target="_blank">
@@ -202,7 +230,8 @@
                 'case3-title': 'Inovação em Biotech', 'case3-desc': 'Interface de alta performance para laboratório de bioeconomia amazônico.',
                 'price-label': 'Modelos de Negócio', 'price-title': 'Aceleração Digital',
                 'p1-sub': 'Autônomos e Comércio Local', 'p2-sub': 'Clínicas e Gastronomia',
-                'p3-sub': 'Imobiliárias e Construtoras', 'p3-consult': 'Sob Consulta'
+                'p3-sub': 'Imobiliárias e Construtoras', 'p3-consult': 'Sob Consulta',
+                'contact-label': 'Private Office'
             },
             'en': { 
                 'hero-title': 'High-End Digital Architecture.', 'cta-button': 'See Plans',
@@ -212,7 +241,8 @@
                 'case3-title': 'Biotech Innovation', 'case3-desc': 'High-performance interface for Amazonian bioeconomy lab.',
                 'price-label': 'Business Models', 'price-title': 'Digital Acceleration',
                 'p1-sub': 'Freelancers and Local Trade', 'p2-sub': 'Clinics and Gastronomy',
-                'p3-sub': 'Real Estate and Construction', 'p3-consult': 'By Quote'
+                'p3-sub': 'Real Estate and Construction', 'p3-consult': 'By Quote',
+                'contact-label': 'Private Office'
             },
             'es': { 
                 'hero-title': 'Arquitectura Digital de Alto Nivel.', 'cta-button': 'Ver Planes',
@@ -222,7 +252,8 @@
                 'case3-title': 'Innovación en Biotech', 'case3-desc': 'Interfaz de alto rendimiento para laboratorio de bioeconomía amazónico.',
                 'price-label': 'Modelos de Negocio', 'price-title': 'Aceleración Digital',
                 'p1-sub': 'Autónomos y Comercio Local', 'p2-sub': 'Clínicas y Gastronomía',
-                'p3-sub': 'Inmobiliarias y Constructoras', 'p3-consult': 'Bajo Consulta'
+                'p3-sub': 'Inmobiliarias y Constructoras', 'p3-consult': 'Bajo Consulta',
+                'contact-label': 'Oficina Privada'
             }
         };
         function changeLanguage(lang) {
