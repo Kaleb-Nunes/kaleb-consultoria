@@ -40,7 +40,7 @@
         }
     </style>
 </head>
-<body class="bg-black-900 text-white font-sans antialiased overflow-x-hidden">
+<body class="bg-black-900 text-white font-sans antialiased overflow-x-hidden selection:bg-gold-500 selection:text-black">
 
     <div class="fixed top-4 right-4 md:top-6 md:right-6 z-50 flex space-x-3 bg-black-900/80 backdrop-blur-md p-2 rounded-lg border border-white/10">
         <img src="https://flagcdn.com/w40/br.png" width="24" class="flag-btn active" onclick="changeLanguage('pt')" id="btn-pt">
@@ -55,7 +55,7 @@
             <h1 class="font-serif text-5xl md:text-8xl gold-glow">KALEB <span class="text-gold-400">STUDIO</span></h1>
             <p class="text-gray-300 text-lg md:text-xl font-light max-w-2xl mx-auto" data-key="hero-title">Arquitetura Digital de Alto Padrão.</p>
             <div class="pt-8">
-                <a href="https://wa.me/5547988901616" class="px-8 py-4 bg-gold-400 text-black font-bold uppercase tracking-widest hover:bg-white transition-all text-sm" data-key="cta-button">Agendar Consultoria</a>
+                <a href="#investimento" class="px-8 py-4 bg-gold-400 text-black font-bold uppercase tracking-widest hover:bg-white transition-all text-sm" data-key="cta-button">Ver Planos</a>
             </div>
         </div>
     </header>
@@ -68,42 +68,76 @@
             </div>
             <div class="order-1 md:order-2 space-y-6">
                 <h2 class="font-serif text-4xl" data-key="bio-label">Kaleb Nunes</h2>
-                <p class="text-gray-400 leading-relaxed text-justify" data-key="bio-p1">Foco em robustez técnica para o mercado de luxo.</p>
-                <blockquote class="border-l-2 border-gold-500 pl-6 italic text-gray-200" data-key="bio-quote">"Arquitetura digital que posiciona sua marca no topo."</blockquote>
+                <p class="text-gray-400 leading-relaxed text-justify" data-key="bio-p1">Engenheiro de Software e Investidor focado em viabilizar ativos digitais de alto valor.</p>
+                <blockquote class="border-l-2 border-gold-500 pl-6 italic text-gray-200" data-key="bio-quote">"Não é sobre sites. É sobre arquitetura de poder e autoridade."</blockquote>
             </div>
         </div>
     </section>
 
-    <section class="py-20 bg-black-900">
+    <section id="investimento" class="py-24 bg-black-900 border-t border-white/5">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
-                <h3 class="text-gold-400 tracking-widest text-xs font-bold uppercase" data-key="cases-label">Track Record</h3>
-                <h2 class="font-serif text-3xl md:text-4xl text-white" data-key="cases-title">Projetos Exclusivos</h2>
+                <h3 class="text-gold-400 tracking-widest text-xs font-bold uppercase mb-4" data-key="price-label">Modelos de Negócio</h3>
+                <h2 class="font-serif text-3xl md:text-5xl text-white" data-key="price-title">Aceleração Digital</h2>
             </div>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="relative h-96 overflow-hidden border border-white/5 bg-black-800 case-card">
-                    <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7')] bg-cover bg-center opacity-10 transition-all duration-700 case-bg"></div>
-                    <div class="absolute bottom-0 p-8">
-                        <p class="text-gold-400 text-xs font-bold uppercase mb-2">São Paulo • SP</p>
-                        <h3 class="font-serif text-xl text-white mb-2" data-key="case1-title">Ecossistema de Equity</h3>
-                        <p class="text-gray-400 text-sm font-light" data-key="case1-desc">Arquitetura de dados para boutique de investimentos privada. Foco em segurança off-market e governança digital.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+                <div class="border border-white/10 bg-black-800 p-8 flex flex-col hover:border-gold-400/50 transition">
+                    <h3 class="text-xl font-bold text-white uppercase tracking-tighter">Essential</h3>
+                    <p class="text-gray-400 text-sm mt-2" data-key="p1-sub">Autônomos e Comércio Local</p>
+                    <div class="my-8">
+                        <span class="text-3xl font-bold text-gold-400">R$ 1.900</span>
+                        <span class="text-gray-500 text-xs block uppercase mt-1">Setup Único</span>
                     </div>
+                    <ul class="space-y-4 text-sm text-gray-300 mb-8 flex-grow">
+                        <li class="flex items-center"><span class="text-gold-400 mr-2">✓</span> Landing Page de Alta Performance</li>
+                        <li class="flex items-center"><span class="text-gold-400 mr-2">✓</span> Design Responsivo & Premium</li>
+                        <li class="flex items-center"><span class="text-gold-400 mr-2">✓</span> Integração WhatsApp Direct</li>
+                    </ul>
+                    <div class="border-t border-white/10 pt-6">
+                        <p class="text-[10px] text-gray-500 uppercase tracking-widest" data-key="p1-sustent">Sustentação (Mensal)</p>
+                        <p class="text-xl font-bold text-white">R$ 250,00</p>
+                    </div>
+                    <a href="https://wa.me/5547988901616?text=Quero%20o%20plano%20Essential" target="_blank" class="mt-8 block w-full py-4 bg-white/5 border border-white/10 text-white font-bold text-center hover:bg-gold-400 hover:text-black transition uppercase tracking-widest text-xs">Começar Agora</a>
                 </div>
-                <div class="relative h-96 overflow-hidden border border-white/5 bg-black-800 case-card">
-                    <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1517048676732-d65bc937f952')] bg-cover bg-center opacity-10 transition-all duration-700 case-bg"></div>
-                    <div class="absolute bottom-0 p-8">
-                        <p class="text-gold-400 text-xs font-bold uppercase mb-2">Brasília • DF</p>
-                        <h3 class="font-serif text-xl text-white mb-2" data-key="case2-title">Inteligência Estratégica</h3>
-                        <p class="text-gray-400 text-sm font-light" data-key="case2-desc">Plataforma de monitoramento de dados para consultoria governamental. Otimização de processos complexos.</p>
+
+                <div class="relative bg-black-800 p-8 flex flex-col border-2 border-gold-400 shadow-[0_0_40px_rgba(212,175,55,0.1)] transform md:-translate-y-4">
+                    <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gold-400 text-black text-[10px] font-black px-4 py-1 tracking-tighter uppercase">Mais Procurado</div>
+                    <h3 class="text-xl font-bold text-white uppercase tracking-tighter">Business</h3>
+                    <p class="text-gray-400 text-sm mt-2" data-key="p2-sub">Clínicas, Gastronomia e Serviços</p>
+                    <div class="my-8">
+                        <span class="text-4xl font-bold text-white">R$ 4.500</span>
+                        <span class="text-gold-400 text-xs block uppercase mt-1">Setup Único</span>
                     </div>
+                    <ul class="space-y-4 text-sm text-gray-300 mb-8 flex-grow">
+                        <li class="flex items-center"><span class="text-gold-400 mr-2">✓</span> Site Institucional (Até 5 páginas)</li>
+                        <li class="flex items-center"><span class="text-gold-400 mr-2">✓</span> Estratégia de SEO Local</li>
+                        <li class="flex items-center"><span class="text-gold-400 mr-2">✓</span> Painel de Gestão de Conteúdo</li>
+                    </ul>
+                    <div class="border-t border-white/10 pt-6">
+                        <p class="text-[10px] text-gray-500 uppercase tracking-widest" data-key="p2-sustent">Sustentação & Performance</p>
+                        <p class="text-2xl font-bold text-gold-400">R$ 600,00 <span class="text-xs text-gray-500">/mês</span></p>
+                    </div>
+                    <a href="https://wa.me/5547988901616?text=Quero%20o%20plano%20Business" target="_blank" class="mt-8 block w-full py-4 bg-gold-400 text-black font-bold text-center hover:bg-white transition uppercase tracking-widest text-xs">Solicitar Proposta</a>
                 </div>
-                <div class="relative h-96 overflow-hidden border border-white/5 bg-black-800 case-card">
-                    <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1518173946687-a4c8892bbd9f')] bg-cover bg-center opacity-10 transition-all duration-700 case-bg"></div>
-                    <div class="absolute bottom-0 p-8">
-                        <p class="text-gold-400 text-xs font-bold uppercase mb-2">Manaus • AM</p>
-                        <h3 class="font-serif text-xl text-white mb-2" data-key="case3-title">Inovação em Biotech</h3>
-                        <p class="text-gray-400 text-sm font-light" data-key="case3-desc">Interface de alta performance para laboratório de bioeconomia. Tecnologia blockchain para rastreio de insumos.</p>
+
+                <div class="border border-white/10 bg-black-800 p-8 flex flex-col hover:border-gold-400/50 transition">
+                    <h3 class="text-xl font-bold text-white uppercase tracking-tighter">High-End</h3>
+                    <p class="text-gray-400 text-sm mt-2" data-key="p3-sub">Imobiliárias e Construtoras</p>
+                    <div class="my-8">
+                        <span class="text-3xl font-bold text-gold-400" data-key="p3-consult">Sob Consulta</span>
+                        <span class="text-gray-500 text-xs block uppercase mt-1">A partir de R$ 9.000</span>
                     </div>
+                    <ul class="space-y-4 text-sm text-gray-300 mb-8 flex-grow">
+                        <li class="flex items-center"><span class="text-gold-400 mr-2">✓</span> Engenharia de Software Customizada</li>
+                        <li class="flex items-center"><span class="text-gold-400 mr-2">✓</span> Sistemas Multi-idiomas (Global)</li>
+                        <li class="flex items-center"><span class="text-gold-400 mr-2">✓</span> Dashboards & BI Integrados</li>
+                    </ul>
+                    <div class="border-t border-white/10 pt-6">
+                        <p class="text-[10px] text-gray-500 uppercase tracking-widest" data-key="p3-sustent">Gestão Full-Service</p>
+                        <p class="text-xl font-bold text-white">Customizado</p>
+                    </div>
+                    <a href="https://wa.me/5547988901616?text=Quero%20o%20plano%20High-End" target="_blank" class="mt-8 block w-full py-4 bg-white/5 border border-white/10 text-white font-bold text-center hover:bg-gold-400 hover:text-black transition uppercase tracking-widest text-xs">Agendar Reunião</a>
                 </div>
             </div>
         </div>
@@ -120,9 +154,27 @@
 
     <script>
         const translations = {
-            'pt': { 'hero-title': 'Arquitetura Digital de Alto Padrão.', 'cta-button': 'Agendar Consultoria', 'cases-title': 'Projetos Exclusivos', 'case1-title': 'Ecossistema de Equity', 'case1-desc': 'Arquitetura de dados para boutique de investimentos privada.', 'case2-title': 'Inteligência Estratégica', 'case2-desc': 'Plataforma de monitoramento de dados para consultoria governamental.', 'case3-title': 'Inovação em Biotech', 'case3-desc': 'Interface de alta performance para laboratório de bioeconomia.' },
-            'en': { 'hero-title': 'High-End Digital Architecture.', 'cta-button': 'Book Consultation', 'cases-title': 'Exclusive Projects', 'case1-title': 'Equity Ecosystem', 'case1-desc': 'Data architecture for a private investment boutique.', 'case2-title': 'Strategic Intelligence', 'case2-desc': 'Data monitoring platform for government consulting.', 'case3-title': 'Biotech Innovation', 'case3-desc': 'High-performance interface for bioeconomy lab.' },
-            'es': { 'hero-title': 'Arquitectura Digital de Alto Nivel.', 'cta-button': 'Agendar Consultoría', 'cases-title': 'Proyectos Exclusivos', 'case1-title': 'Ecosistema de Equity', 'case1-desc': 'Arquitectura de datos para boutique de inversión privada.', 'case2-title': 'Inteligencia Estratégica', 'case2-desc': 'Plataforma de monitoreo de datos para consultoría gubernamental.', 'case3-title': 'Innovación en Biotech', 'case3-desc': 'Interfaz de alto rendimiento para laboratorio de bioeconomía.' }
+            'pt': { 
+                'hero-title': 'Arquitetura Digital de Alto Padrão.', 'cta-button': 'Ver Planos',
+                'price-label': 'Modelos de Negócio', 'price-title': 'Aceleração Digital',
+                'p1-sub': 'Autônomos e Comércio Local', 'p1-sustent': 'Sustentação (Mensal)',
+                'p2-sub': 'Clínicas, Gastronomia e Serviços', 'p2-sustent': 'Sustentação & Performance',
+                'p3-sub': 'Imobiliárias e Construtoras', 'p3-consult': 'Sob Consulta', 'p3-sustent': 'Gestão Full-Service'
+            },
+            'en': { 
+                'hero-title': 'High-End Digital Architecture.', 'cta-button': 'See Plans',
+                'price-label': 'Business Models', 'price-title': 'Digital Acceleration',
+                'p1-sub': 'Freelancers and Local Trade', 'p1-sustent': 'Sustainment (Monthly)',
+                'p2-sub': 'Clinics, Gastronomy and Services', 'p2-sustent': 'Sustainment & Performance',
+                'p3-sub': 'Real Estate and Construction', 'p3-consult': 'By Quote', 'p3-sustent': 'Full-Service Management'
+            },
+            'es': { 
+                'hero-title': 'Arquitectura Digital de Alto Nivel.', 'cta-button': 'Ver Planes',
+                'price-label': 'Modelos de Negocio', 'price-title': 'Aceleración Digital',
+                'p1-sub': 'Autónomos y Comercio Local', 'p1-sustent': 'Sustentación (Mensual)',
+                'p2-sub': 'Clínicas, Gastronomía y Servicios', 'p2-sustent': 'Sustentación y Performance',
+                'p3-sub': 'Inmobiliarias y Constructoras', 'p3-consult': 'Bajo Consulta', 'p3-sustent': 'Gestión Full-Service'
+            }
         };
         function changeLanguage(lang) {
             document.querySelectorAll('[data-key]').forEach(elem => { const key = elem.getAttribute('data-key'); if (translations[lang][key]) elem.innerHTML = translations[lang][key]; });
