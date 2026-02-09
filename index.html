@@ -1,209 +1,90 @@
-<!DOCTYPE html>
-<html lang="pt-br" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kaleb Studio | Arquitetura Digital</title>
-    
-    <link rel="icon" type="image/png" href="logo.png?v=2">
-    <link rel="apple-touch-icon" href="logo.png?v=2">
-    <link rel="shortcut icon" href="logo.png?v=2">
+<section class="py-24 bg-black-900 border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+            <p class="text-gold-400 tracking-[0.3em] text-[10px] uppercase font-bold mb-2">Track Record</p>
+            <h2 class="font-serif text-3xl md:text-5xl text-white uppercase tracking-widest">Projetos Seletos</h2>
+        </div>
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        gold: { 400: '#D4AF37', 500: '#C5A028', 600: '#B08D22' },
-                        black: { 900: '#050505', 800: '#0a0a0a', 700: '#111111' }
-                    },
-                    fontFamily: { serif: ['Cinzel', 'serif'], sans: ['Montserrat', 'sans-serif'] },
-                    animation: { 'pulse-slow': 'pulse 3s infinite' }
-                }
-            }
-        }
-    </script>
-    <style>
-        .text-shadow { text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
-        .gold-glow { text-shadow: 0 0 20px rgba(212, 175, 55, 0.3); }
-        .founder-img { filter: grayscale(100%); transition: 0.5s ease; }
-        .founder-img:hover { filter: grayscale(0%); transform: scale(1.02); }
-        .case-card:hover .case-bg { transform: scale(1.1); filter: grayscale(0%); opacity: 0.4; }
-        .flag-btn { cursor: pointer; transition: 0.2s; filter: grayscale(100%); opacity: 0.7; }
-        .flag-btn.active { filter: grayscale(0%); opacity: 1; border: 1px solid #D4AF37; }
-        
-        .whatsapp-float {
-            position: fixed; bottom: 30px; right: 30px;
-            background-color: #25D366; color: white;
-            border-radius: 50px; text-align: center;
-            font-size: 30px; box-shadow: 2px 2px 3px #999;
-            z-index: 100; display: flex; align-items: center; justify-content: center;
-            width: 60px; height: 60px; transition: all 0.3s ease;
-        }
-        .whatsapp-float:hover { background-color: #128C7E; transform: scale(1.1); box-shadow: 0 0 15px #25D366; }
-        
-        .stealth-link { color: #6b7280; transition: color 0.3s ease; text-decoration: none; }
-        .stealth-link:hover { color: #ffffff; }
-        
-        .social-icon { fill: #4b5563; transition: all 0.3s ease; }
-        .social-icon:hover { fill: #ffffff; transform: translateY(-2px); }
-    </style>
-</head>
-<body class="bg-black-900 text-white font-sans antialiased overflow-x-hidden selection:bg-gold-500 selection:text-black">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="group relative overflow-hidden aspect-[4/5] border border-white/10 bg-black-800">
+                <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80')] bg-cover bg-center opacity-20 group-hover:scale-110 transition-transform duration-700 case-bg"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black-900 via-black-900/40 to-transparent"></div>
+                <div class="absolute bottom-0 p-8">
+                    <p class="text-gold-400 text-[10px] font-bold tracking-widest uppercase mb-2">São Paulo • SP</p>
+                    <h3 class="text-white font-serif text-xl mb-3 uppercase">Ecossistema de Equity</h3>
+                    <p class="text-gray-400 text-xs leading-relaxed">Arquitetura de dados para boutique de investimentos privada.</p>
+                </div>
+            </div>
 
-    <div class="fixed top-4 right-4 md:top-6 md:right-6 z-50 flex space-x-3 bg-black-900/80 backdrop-blur-md p-2 rounded-lg border border-white/10">
-        <img src="https://flagcdn.com/w40/br.png" width="24" class="flag-btn active" onclick="changeLanguage('pt')" id="btn-pt">
-        <img src="https://flagcdn.com/w40/us.png" width="24" class="flag-btn" onclick="changeLanguage('en')" id="btn-en">
-        <img src="https://flagcdn.com/w40/es.png" width="24" class="flag-btn" onclick="changeLanguage('es')" id="btn-es">
+            <div class="group relative overflow-hidden aspect-[4/5] border border-white/10 bg-black-800">
+                <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1554469384-e58fac16e23a?q=80')] bg-cover bg-center opacity-20 group-hover:scale-110 transition-transform duration-700 case-bg"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black-900 via-black-900/40 to-transparent"></div>
+                <div class="absolute bottom-0 p-8">
+                    <p class="text-gold-400 text-[10px] font-bold tracking-widest uppercase mb-2">Brasília • DF</p>
+                    <h3 class="text-white font-serif text-xl mb-3 uppercase">Inteligência Estratégica</h3>
+                    <p class="text-gray-400 text-xs leading-relaxed">Plataforma de monitoramento governamental.</p>
+                </div>
+            </div>
+
+            <div class="group relative overflow-hidden aspect-[4/5] border border-white/10 bg-black-800">
+                <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80')] bg-cover bg-center opacity-20 group-hover:scale-110 transition-transform duration-700 case-bg"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black-900 via-black-900/40 to-transparent"></div>
+                <div class="absolute bottom-0 p-8">
+                    <p class="text-gold-400 text-[10px] font-bold tracking-widest uppercase mb-2">Manaus • AM</p>
+                    <h3 class="text-white font-serif text-xl mb-3 uppercase">Inovação em Biotech</h3>
+                    <p class="text-gray-400 text-xs leading-relaxed">Interface de alta performance para bioeconomia.</p>
+                </div>
+            </div>
+        </div>
     </div>
+</section>
 
-    <header class="relative h-screen flex flex-col items-center justify-center text-center px-4">
-        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80')] bg-cover bg-center opacity-30"></div>
-        <div class="relative z-10 space-y-6">
-            <p class="text-gold-400 tracking-[0.4em] text-xs uppercase font-bold animate-pulse">Balneário Camboriú • SC</p>
-            <h1 class="font-serif text-5xl md:text-8xl gold-glow">KALEB <span class="text-gold-400">STUDIO</span></h1>
-            <p class="text-gray-300 text-lg md:text-xl font-light max-w-2xl mx-auto" data-key="hero-title">Arquitetura Digital de Alto Padrão.</p>
-            <div class="pt-8">
-                <a href="#investimento" class="px-8 py-4 bg-gold-400 text-black font-bold uppercase tracking-widest hover:bg-white transition-all text-sm" data-key="cta-button">Ver Planos</a>
-            </div>
+<div class="border border-white/10 bg-black-800 rounded-lg p-8 flex flex-col hover:border-gold-400/50 transition duration-300">
+    <h3 class="text-xl font-bold text-white uppercase tracking-tighter">High-End</h3>
+    <p class="text-gray-400 text-sm mt-2">Imobiliárias e Construtoras</p>
+    <div class="my-8">
+        <span class="text-3xl font-bold text-gold-400">Sob Consulta</span>
+        <span class="text-gray-500 text-xs block uppercase mt-1">Projetos Customizados</span>
+    </div>
+    <ul class="space-y-4 text-sm text-gray-300 mb-8 flex-grow">
+        <li class="flex items-center"><span class="text-gold-400 mr-2">✓</span> Infraestrutura Internacional (i18n)</li>
+        <li class="flex items-center"><span class="text-gold-400 mr-2">✓</span> Integração CRM & API</li>
+        <li class="flex items-center"><span class="text-gold-400 mr-2">✓</span> <strong class="text-white ml-1">Due Diligence Técnica</strong></li>
+    </ul>
+    <div class="border-t border-white/10 pt-6">
+        <p class="text-[10px] text-gray-500 uppercase tracking-widest">Governança Digital Full</p>
+        <p class="text-xl font-bold text-white">Personalizado</p>
+        <p class="text-[10px] text-gray-600 mt-1">Gestão de risco jurídico e técnico.</p>
+    </div>
+    <a href="https://wa.me/5547988901616?text=Interesse%20em%20High-End" target="_blank" class="mt-8 block w-full py-4 bg-white/5 border border-white/10 text-white font-bold text-center hover:bg-gold-400 hover:text-black transition uppercase tracking-widest text-xs">Agendar Reunião</a>
+</div>
+
+<footer class="py-12 bg-black-900 border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+        <div class="text-center md:text-left">
+            <span class="text-lg font-bold text-white font-serif">Kaleb <span class="text-gold-400">Studio</span></span>
+            <p class="text-[10px] text-gray-600 uppercase tracking-widest mt-1">Equity & Software Architecture</p>
         </div>
-    </header>
 
-    <section class="py-20 bg-black-800 border-t border-white/5">
-        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
-            <div class="relative order-2 md:order-1">
-                <img src="founder.jpg" class="founder-img border border-white/10 p-2 bg-black-900 shadow-2xl" alt="Kaleb Nunes CEO">
-                <div class="absolute -bottom-4 -right-4 bg-gold-400 text-black font-bold px-6 py-2 text-xs uppercase tracking-tighter">CEO & Founder</div>
+        <div class="flex flex-col items-center md:items-end gap-4">
+            <div class="flex space-x-6">
+                <a href="https://www.linkedin.com/in/kalebnunes" target="_blank" class="text-gray-600 hover:text-white transition-colors">
+                    <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+                <a href="https://www.instagram.com/kalebnunes.tech/" target="_blank" class="text-gray-600 hover:text-white transition-colors">
+                    <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 5.771 1.688 6.335 5.235.124 1.08.196 2.37.196 3.798 0 1.429-.072 2.718-.196 3.799-.46 2.903-2.316 4.814-5.228 5.093-.905.088-2.36.142-3.798.142-1.439 0-2.894-.054-3.799-.142-2.904-.279-4.767-2.19-5.227-5.093-.125-1.081-.197-2.37-.197-3.799 0-1.429.072-2.718.197-3.798.563-3.551 3.085-5.088 6.335-5.235 1.266-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                </a>
+                <a href="https://www.youtube.com/@KalebNunesIT" target="_blank" class="text-gray-600 hover:text-white transition-colors">
+                    <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+                </a>
+                <a href="https://github.com/Kaleb-Nunes" target="_blank" class="text-gray-600 hover:text-white transition-colors">
+                    <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                </a>
+                <a href="https://www.facebook.com/kalebnunessantos/" target="_blank" class="text-gray-600 hover:text-white transition-colors">
+                    <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
+                </a>
             </div>
-            <div class="order-1 md:order-2 space-y-6">
-                <h2 class="font-serif text-4xl" data-key="bio-label">Kaleb Nunes</h2>
-                <p class="text-gray-400 leading-relaxed text-justify" data-key="bio-p1">Engenheiro de Software e Investidor focado em viabilizar ativos digitais de alto valor.</p>
-                <blockquote class="border-l-2 border-gold-500 pl-6 italic text-gray-200" data-key="bio-quote">"Não entregamos apenas pixels. Entregamos a arquitetura digital que posiciona sua marca no topo."</blockquote>
-            </div>
+            <p class="text-[10px] text-gray-800 uppercase tracking-widest">© 2026 Kaleb Studio. Private & Confidential.</p>
         </div>
-    </section>
-
-    <section id="investimento" class="py-24 bg-black-900 border-t border-white/5">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h3 class="text-gold-400 tracking-widest text-xs font-bold uppercase mb-4" data-key="price-label">Governança & Performance</h3>
-                <h2 class="font-serif text-3xl md:text-5xl text-white" data-key="price-title">Infraestrutura Jurídica e Técnica</h2>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-                
-                <div class="border border-white/10 bg-black-800 rounded-lg p-8 hover:border-gold-400/50 transition duration-300">
-                    <h3 class="text-xl font-bold text-white uppercase tracking-tighter">Essential</h3>
-                    <p class="text-gray-400 text-sm mt-2" data-key="p1-sub">Autônomos e Comércio Local</p>
-                    <div class="my-8">
-                        <span class="text-3xl font-bold text-gold-400">R$ 1.900</span>
-                        <span class="text-gray-500 text-xs block uppercase mt-1">Setup Único</span>
-                    </div>
-                    <ul class="space-y-4 text-sm text-gray-300 mb-8 flex-grow">
-                        <li class="flex items-center"><span class="text-gold-400 mr-2">✓</span> Landing Page One-Page</li>
-                        <li class="flex items-center"><span class="text-gold-400 mr-2">✓</span> Botão WhatsApp Direct</li>
-                        <li class="flex items-center"><span class="text-gold-400 mr-2">✓</span> Hospedagem Cloudflare (CDN)</li>
-                    </ul>
-                    <a href="https://wa.me/5547988901616?text=Tenho%20interesse%20no%20plano%20Essential" target="_blank" class="mt-8 block w-full py-4 bg-white/5 border border-white/10 text-white font-bold text-center hover:bg-gold-400 hover:text-black transition uppercase tracking-widest text-xs">Iniciar Projeto</a>
-                </div>
-
-                <div class="relative bg-black-800 rounded-lg p-8 flex flex-col border-2 border-gold-400 shadow-[0_0_40px_rgba(212,175,55,0.1)] transform md:-translate-y-4">
-                    <div class="absolute top-0 right-0 bg-gold-400 text-black text-[10px] font-black px-4 py-1 rounded-bl-lg rounded-tr-lg tracking-tighter uppercase">Recomendado</div>
-                    <h3 class="text-xl font-bold text-white uppercase tracking-tighter">Business</h3>
-                    <p class="text-gray-400 text-sm mt-2" data-key="p2-sub">Clínicas e Gastronomia</p>
-                    <div class="my-8">
-                        <span class="text-4xl font-bold text-white">R$ 4.500</span>
-                        <span class="text-gold-400 text-xs block uppercase mt-1">Setup Único</span>
-                    </div>
-                    <ul class="space-y-4 text-sm text-gray-300 mb-8 flex-grow">
-                        <li class="flex items-center"><span class="text-gold-400 mr-2">✓</span> Até 5 Páginas Institucionais</li>
-                        <li class="flex items-center"><span class="text-gold-400 mr-2">✓</span> Otimização SEO Local (Google)</li>
-                        <li class="flex items-center"><span class="text-gold-400 mr-2">✓</span> Painel Administrativo</li>
-                        <li class="flex items-center"><span class="text-gold-400 mr-2">✓</span> <strong class="text-white ml-1">Adequação LGPD (Cookies)</strong></li>
-                    </ul>
-                    <a href="https://wa.me/5547988901616?text=Quero%20proposta%20do%20plano%20Business" target="_blank" class="mt-8 block w-full py-4 bg-gold-400 text-black font-bold text-center hover:bg-white transition uppercase tracking-widest text-xs shadow-lg shadow-gold-400/20">Solicitar Consultoria</a>
-                </div>
-
-                <div class="border border-white/10 bg-black-800 rounded-lg p-8 flex flex-col hover:border-gold-400/50 transition duration-300">
-                    <h3 class="text-xl font-bold text-white uppercase tracking-tighter">High-End</h3>
-                    <p class="text-gray-400 text-sm mt-2" data-key="p3-sub">Imobiliárias e Construtoras</p>
-                    <div class="my-8">
-                        <span class="text-3xl font-bold text-gold-400" data-key="p3-consult">Sob Consulta</span>
-                        <span class="text-gray-500 text-xs block uppercase mt-1">Projetos Customizados</span>
-                    </div>
-                    <ul class="space-y-4 text-sm text-gray-300 mb-8 flex-grow">
-                        <li class="flex items-center"><span class="text-gold-400 mr-2">✓</span> Infraestrutura Internacional (i18n)</li>
-                        <li class="flex items-center"><span class="text-gold-400 mr-2">✓</span> Integração CRM & API</li>
-                        <li class="flex items-center"><span class="text-gold-400 mr-2">✓</span> <strong class="text-white ml-1">Due Diligence Técnica</strong></li>
-                    </ul>
-                    <div class="border-t border-white/10 pt-6">
-                        <p class="text-[10px] text-gray-500 uppercase tracking-widest">Governança Digital Full</p>
-                        <p class="text-xl font-bold text-white">Personalizado</p>
-                        <p class="text-[10px] text-gray-600 mt-1">Gestão de risco jurídico e técnico.</p>
-                    </div>
-                    <a href="https://wa.me/5547988901616?text=Interesse%20em%20High-End" target="_blank" class="mt-8 block w-full py-4 bg-white/5 border border-white/10 text-white font-bold text-center hover:bg-gold-400 hover:text-black transition uppercase tracking-widest text-xs">Agendar Reunião</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="py-12 bg-black-900 border-t border-white/5">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
-            
-            <div class="text-center md:text-left">
-                <span class="text-lg font-bold text-white tracking-tight font-serif">Kaleb <span class="text-gold-400">Consultoria</span></span>
-                <p class="text-[10px] text-gray-600 mt-1 uppercase tracking-widest">Infraestrutura Digital de Alta Performance.</p>
-            </div>
-
-            <div class="flex flex-col items-center md:items-end">
-                <div class="flex flex-col text-xs space-y-1 text-right mb-4">
-                    <a href="mailto:kaleb@knsconsultoria.com.br" class="stealth-link">kaleb@knsconsultoria.com.br</a>
-                    <a href="mailto:kalebdossantos59924@gmail.com" class="stealth-link">kalebdossantos59924@gmail.com</a>
-                </div>
-                
-                <div class="flex space-x-5">
-                    <a href="https://www.linkedin.com/in/kalebnunes" target="_blank" class="group">
-                        <svg class="h-5 w-5 social-icon" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                    </a>
-                    <a href="https://github.com/Kaleb-Nunes" target="_blank" class="group">
-                        <svg class="h-5 w-5 social-icon" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                    </a>
-                    <a href="https://www.youtube.com/@KalebNunesIT" target="_blank" class="group">
-                        <svg class="h-5 w-5 social-icon" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
-                    </a>
-                    <a href="https://www.instagram.com/kalebnunes.tech/" target="_blank" class="group">
-                        <svg class="h-5 w-5 social-icon" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 5.771 1.688 6.335 5.235.124 1.08.196 2.37.196 3.798 0 1.429-.072 2.718-.196 3.799-.46 2.903-2.316 4.814-5.228 5.093-.905.088-2.36.142-3.798.142-1.439 0-2.894-.054-3.799-.142-2.904-.279-4.767-2.19-5.227-5.093-.125-1.081-.197-2.37-.197-3.799 0-1.429.072-2.718.197-3.798.563-3.551 3.085-5.088 6.335-5.235 1.266-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                    </a>
-                    <a href="https://www.facebook.com/kalebnunessantos/" target="_blank" class="group">
-                        <svg class="h-5 w-5 social-icon" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
-                    </a>
-                </div>
-            </div>
-            
-        </div>
-        <div class="mt-8 pt-8 border-t border-white/5 text-center md:flex md:justify-between md:text-left max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <p class="text-[10px] text-gray-700">© 2026 Kaleb Consultoria. Balneário Camboriú, SC.</p>
-            <p class="text-[10px] text-gray-800 mt-2 md:mt-0">Protocolo 09 Core | v2.1.0</p>
-        </div>
-    </footer>
-
-    <a href="https://wa.me/5547988901616?text=Ol%C3%A1%20Kaleb%2C%20vim%20pelo%20site%20Studio%20KNS." class="whatsapp-float animate-pulse-slow" target="_blank">
-        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/></svg>
-    </a>
-
-    <script>
-        const translations = {
-            'pt': { 'hero-title': 'Arquitetura Digital de Alto Padrão.', 'cta-button': 'Ver Planos', 'price-label': 'Governança & Performance', 'price-title': 'Infraestrutura Jurídica e Técnica', 'p1-sub': 'Autônomos e Comércio Local', 'p2-sub': 'Clínicas e Gastronomia', 'p3-sub': 'Imobiliárias e Construtoras', 'p3-consult': 'Sob Consulta' },
-            'en': { 'hero-title': 'High-End Digital Architecture.', 'cta-button': 'See Plans', 'price-label': 'Governance & Performance', 'price-title': 'Legal and Technical Infrastructure', 'p1-sub': 'Freelancers and Local Trade', 'p2-sub': 'Clinics and Gastronomy', 'p3-sub': 'Real Estate and Construction', 'p3-consult': 'By Quote' },
-            'es': { 'hero-title': 'Arquitectura Digital de Alto Nivel.', 'cta-button': 'Ver Planes', 'price-label': 'Gobernanza y Rendimiento', 'price-title': 'Infraestructura Jurídica e Técnica', 'p1-sub': 'Autónomos y Comercio Local', 'p2-sub': 'Clínicas y Gastronomía', 'p3-sub': 'Inmobiliarias y Constructoras', 'p3-consult': 'Bajo Consulta' }
-        };
-        function changeLanguage(lang) {
-            document.querySelectorAll('[data-key]').forEach(elem => { const key = elem.getAttribute('data-key'); if (translations[lang][key]) elem.innerHTML = translations[lang][key]; });
-            document.querySelectorAll('.flag-btn').forEach(btn => btn.classList.remove('active'));
-            document.getElementById('btn-' + lang).classList.add('active');
-        }
-    </script>
-</body>
-</html>
+    </div>
+</footer>
