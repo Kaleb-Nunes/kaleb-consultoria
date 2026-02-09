@@ -44,8 +44,13 @@
         }
         .whatsapp-float:hover { background-color: #128C7E; transform: scale(1.1); box-shadow: 0 0 15px #25D366; }
         
-        .contact-link:hover { color: #D4AF37; padding-left: 10px; }
-        .contact-link { transition: all 0.3s ease; }
+        /* Stealth Links */
+        .stealth-link { color: #6b7280; transition: color 0.3s ease; text-decoration: none; }
+        .stealth-link:hover { color: #ffffff; }
+        
+        /* Social Icons Transition */
+        .social-icon { fill: #4b5563; transition: all 0.3s ease; }
+        .social-icon:hover { fill: #ffffff; transform: translateY(-2px); }
     </style>
 </head>
 <body class="bg-black-900 text-white font-sans antialiased overflow-x-hidden selection:bg-gold-500 selection:text-black">
@@ -120,12 +125,13 @@
     <section id="investimento" class="py-24 bg-black-800 border-t border-white/5">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
-                <h3 class="text-gold-400 tracking-widest text-xs font-bold uppercase mb-4" data-key="price-label">Modelos de Negócio</h3>
-                <h2 class="font-serif text-3xl md:text-5xl text-white" data-key="price-title">Aceleração Digital</h2>
+                <h3 class="text-gold-400 tracking-widest text-xs font-bold uppercase mb-4" data-key="price-label">Governança & Performance</h3>
+                <h2 class="font-serif text-3xl md:text-5xl text-white" data-key="price-title">Infraestrutura Jurídica e Técnica</h2>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
-                <div class="border border-white/10 bg-black-900 p-8 flex flex-col hover:border-gold-400/50 transition">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+                
+                <div class="border border-white/10 bg-black-900 rounded-lg p-8 hover:border-gold-400/50 transition duration-300">
                     <h3 class="text-xl font-bold text-white uppercase tracking-tighter">Essential</h3>
                     <p class="text-gray-400 text-sm mt-2" data-key="p1-sub">Autônomos e Comércio Local</p>
                     <div class="my-8">
@@ -133,19 +139,20 @@
                         <span class="text-gray-500 text-xs block uppercase mt-1">Setup Único</span>
                     </div>
                     <ul class="space-y-4 text-sm text-gray-300 mb-8 flex-grow">
-                        <li class="flex items-center"><span class="text-gold-400 mr-2">✓</span> Landing Page de Alta Performance</li>
-                        <li class="flex items-center"><span class="text-gold-400 mr-2">✓</span> Design Responsivo & Premium</li>
+                        <li class="flex items-center"><span class="text-gold-400 mr-2">✓</span> Landing Page One-Page</li>
                         <li class="flex items-center"><span class="text-gold-400 mr-2">✓</span> Botão WhatsApp Direct</li>
+                        <li class="flex items-center"><span class="text-gold-400 mr-2">✓</span> Hospedagem Cloudflare (CDN)</li>
                     </ul>
                     <div class="border-t border-white/10 pt-6">
-                        <p class="text-[10px] text-gray-500 uppercase tracking-widest">Sustentação (Mensal)</p>
-                        <p class="text-xl font-bold text-white">R$ 250,00</p>
+                        <p class="text-[10px] text-gray-500 uppercase tracking-widest">Manutenção Básica</p>
+                        <p class="text-xl font-bold text-white">R$ 250<span class="text-xs font-normal text-gray-500">/mês</span></p>
+                        <p class="text-[10px] text-gray-600 mt-1">Atualizações de segurança.</p>
                     </div>
-                    <a href="https://wa.me/5547988901616?text=Quero%20o%20plano%20Essential" target="_blank" class="mt-8 block w-full py-4 bg-white/5 border border-white/10 text-white font-bold text-center hover:bg-gold-400 hover:text-black transition uppercase tracking-widest text-xs">Começar Agora</a>
+                    <a href="https://wa.me/5547988901616?text=Tenho%20interesse%20no%20plano%20Essential" target="_blank" class="mt-8 block w-full py-4 bg-white/5 border border-white/10 text-white font-bold text-center hover:bg-gold-400 hover:text-black transition uppercase tracking-widest text-xs">Iniciar Projeto</a>
                 </div>
 
-                <div class="relative bg-black-900 p-8 flex flex-col border-2 border-gold-400 shadow-[0_0_40px_rgba(212,175,55,0.1)] transform md:-translate-y-4">
-                    <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gold-400 text-black text-[10px] font-black px-4 py-1 tracking-tighter uppercase">Mais Procurado</div>
+                <div class="relative bg-black-900 rounded-lg p-8 flex flex-col border-2 border-gold-400 shadow-[0_0_40px_rgba(212,175,55,0.1)] transform md:-translate-y-4">
+                    <div class="absolute top-0 right-0 bg-gold-400 text-black text-[10px] font-black px-4 py-1 rounded-bl-lg rounded-tr-lg tracking-tighter uppercase">Recomendado</div>
                     <h3 class="text-xl font-bold text-white uppercase tracking-tighter">Business</h3>
                     <p class="text-gray-400 text-sm mt-2" data-key="p2-sub">Clínicas e Gastronomia</p>
                     <div class="my-8">
@@ -154,66 +161,103 @@
                     </div>
                     <ul class="space-y-4 text-sm text-gray-300 mb-8 flex-grow">
                         <li class="flex items-center"><span class="text-gold-400 mr-2">✓</span> Até 5 Páginas Institucionais</li>
-                        <li class="flex items-center"><span class="text-gold-400 mr-2">✓</span> SEO Local (Google Maps)</li>
+                        <li class="flex items-center"><span class="text-gold-400 mr-2">✓</span> Otimização SEO Local (Google)</li>
                         <li class="flex items-center"><span class="text-gold-400 mr-2">✓</span> Painel Administrativo</li>
+                        <li class="flex items-center"><span class="text-gold-400 mr-2">✓</span> <strong class="text-white ml-1">Adequação LGPD (Cookies)</strong></li>
                     </ul>
-                    <div class="border-t border-white/10 pt-6">
-                        <p class="text-[10px] text-gray-500 uppercase tracking-widest">Sustentação & Performance</p>
-                        <p class="text-2xl font-bold text-gold-400">R$ 600,00 <span class="text-xs text-gray-500">/mês</span></p>
+                    
+                    <div class="border-t border-white/10 pt-6 bg-white/5 -mx-8 px-8 pb-4">
+                        <p class="text-[10px] text-gold-400 uppercase tracking-widest font-bold mb-1">Seguro de Performance (SLA)</p>
+                        <p class="text-2xl font-bold text-white">R$ 600<span class="text-xs font-normal text-gray-400">/mês</span></p>
+                        <ul class="mt-3 space-y-2">
+                            <li class="text-xs text-gray-300 flex items-center">
+                                <svg class="w-3 h-3 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>
+                                Monitoramento 24/7 (Anti-Downtime)
+                            </li>
+                            <li class="text-xs text-gray-300 flex items-center">
+                                <svg class="w-3 h-3 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>
+                                Relatório Mensal de Dados e Uptime
+                            </li>
+                        </ul>
                     </div>
-                    <a href="https://wa.me/5547988901616?text=Quero%20o%20plano%20Business" target="_blank" class="mt-8 block w-full py-4 bg-gold-400 text-black font-bold text-center hover:bg-white transition uppercase tracking-widest text-xs">Solicitar Proposta</a>
+
+                    <a href="https://wa.me/5547988901616?text=Quero%20proposta%20do%20plano%20Business" target="_blank" class="mt-8 block w-full py-4 bg-gold-400 text-black font-bold text-center hover:bg-white transition uppercase tracking-widest text-xs shadow-lg shadow-gold-400/20">Solicitar Consultoria</a>
                 </div>
 
-                <div class="border border-white/10 bg-black-900 p-8 flex flex-col hover:border-gold-400/50 transition">
+                <div class="border border-white/10 bg-black-900 rounded-lg p-8 flex flex-col hover:border-gold-400/50 transition duration-300">
                     <h3 class="text-xl font-bold text-white uppercase tracking-tighter">High-End</h3>
                     <p class="text-gray-400 text-sm mt-2" data-key="p3-sub">Imobiliárias e Construtoras</p>
                     <div class="my-8">
                         <span class="text-3xl font-bold text-gold-400" data-key="p3-consult">Sob Consulta</span>
-                        <span class="text-gray-500 text-xs block uppercase mt-1">A partir de R$ 9.000</span>
+                        <span class="text-gray-500 text-xs block uppercase mt-1">Projetos Customizados</span>
                     </div>
                     <ul class="space-y-4 text-sm text-gray-300 mb-8 flex-grow">
-                        <li class="flex items-center"><span class="text-gold-400 mr-2">✓</span> Infraestrutura Customizada</li>
-                        <li class="flex items-center"><span class="text-gold-400 mr-2">✓</span> Sistema Multi-idiomas</li>
-                        <li class="flex items-center"><span class="text-gold-400 mr-2">✓</span> Dashboards de Dados</li>
+                        <li class="flex items-center"><span class="text-gold-400 mr-2">✓</span> Infraestrutura Internacional (i18n)</li>
+                        <li class="flex items-center"><span class="text-gold-400 mr-2">✓</span> Integração CRM & API</li>
+                        <li class="flex items-center"><span class="text-gold-400 mr-2">✓</span> <strong class="text-white ml-1">Due Diligence Técnica</strong></li>
                     </ul>
                     <div class="border-t border-white/10 pt-6">
-                        <p class="text-[10px] text-gray-500 uppercase tracking-widest">Gestão Full-Service</p>
-                        <p class="text-xl font-bold text-white">Customizado</p>
+                        <p class="text-[10px] text-gray-500 uppercase tracking-widest">Governança Digital Full</p>
+                        <p class="text-xl font-bold text-white">Personalizado</p>
+                        <p class="text-[10px] text-gray-600 mt-1">Gestão de risco jurídico e técnico.</p>
                     </div>
-                    <a href="https://wa.me/5547988901616?text=Quero%20o%20plano%20High-End" target="_blank" class="mt-8 block w-full py-4 bg-white/5 border border-white/10 text-white font-bold text-center hover:bg-gold-400 hover:text-black transition uppercase tracking-widest text-xs">Agendar Reunião</a>
+                    <a href="https://wa.me/5547988901616?text=Interesse%20em%20High-End" target="_blank" class="mt-8 block w-full py-4 bg-white/5 border border-white/10 text-white font-bold text-center hover:bg-gold-400 hover:text-black transition uppercase tracking-widest text-xs">Agendar Reunião</a>
+                </div>
+            </div>
+
+            <div class="mt-16 text-center border-t border-white/5 pt-8">
+                <p class="text-[10px] text-gray-600 uppercase tracking-widest mb-4">Technical & Legal Compliance</p>
+                <div class="flex flex-wrap justify-center gap-6 text-gray-500 text-xs md:text-sm">
+                    <span class="flex items-center hover:text-gold-400 transition"><svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> Adequação LGPD</span>
+                    <span class="flex items-center hover:text-gold-400 transition"><svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg> SSL Bancário</span>
+                    <span class="flex items-center hover:text-gold-400 transition"><svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg> Uptime 99.9%</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-20 bg-black-900 border-t border-white/5">
-        <div class="max-w-4xl mx-auto px-6 text-center">
-            <h3 class="text-gold-400 tracking-widest text-xs font-bold uppercase mb-8" data-key="contact-label">Private Office</h3>
-            <div class="grid md:grid-cols-2 gap-8 items-center justify-center">
-                <div class="p-6 border border-white/5 hover:border-gold-400/30 transition bg-black-800">
-                    <p class="text-xs text-gray-500 uppercase tracking-widest mb-2">Comercial & Parcerias</p>
-                    <a href="mailto:kaleb@knsconsultoria.com.br" class="text-white font-serif text-lg md:text-xl contact-link">
+    <footer class="py-12 bg-black-900 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            
+            <div class="text-center md:text-left">
+                <span class="text-lg font-bold text-white tracking-tight font-serif">Kaleb <span class="text-gold-400">Consultoria</span></span>
+                <p class="text-[10px] text-gray-600 mt-1 uppercase tracking-widest">Infraestrutura Digital de Alta Performance.</p>
+            </div>
+
+            <div class="flex flex-col items-center md:items-end">
+                <div class="flex flex-col text-xs space-y-1 text-right">
+                    <a href="mailto:kaleb@knsconsultoria.com.br" class="stealth-link">
                         kaleb@knsconsultoria.com.br
                     </a>
-                </div>
-                <div class="p-6 border border-white/5 hover:border-gold-400/30 transition bg-black-800">
-                    <p class="text-xs text-gray-500 uppercase tracking-widest mb-2">Direct Contact</p>
-                    <a href="mailto:kalebdossantos59924@gmail.com" class="text-white font-serif text-lg md:text-xl contact-link">
+                    <a href="mailto:kalebdossantos59924@gmail.com" class="stealth-link">
                         kalebdossantos59924@gmail.com
                     </a>
                 </div>
+                
+                <div class="flex space-x-6 mt-4">
+                    <a href="#" class="group">
+                        <svg class="h-5 w-5 social-icon" viewBox="0 0 24 24">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="group">
+                        <svg class="h-5 w-5 social-icon" viewBox="0 0 24 24">
+                            <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="group">
+                        <svg class="h-5 w-5 social-icon" viewBox="0 0 24 24">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 5.771 1.688 6.335 5.235.124 1.08.196 2.37.196 3.798 0 1.429-.072 2.718-.196 3.799-.46 2.903-2.316 4.814-5.228 5.093-.905.088-2.36.142-3.798.142-1.439 0-2.894-.054-3.799-.142-2.904-.279-4.767-2.19-5.227-5.093-.125-1.081-.197-2.37-.197-3.799 0-1.429.072-2.718.197-3.798.563-3.551 3.085-5.088 6.335-5.235 1.266-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </a>
+                </div>
             </div>
+            
         </div>
-    </section>
-
-    <footer class="py-12 bg-black-800 border-t border-white/5 text-center">
-        <h4 class="font-serif text-xl text-white tracking-widest">KALEB <span class="text-gold-400">STUDIO</span></h4>
-        <div class="flex justify-center space-x-6 my-6 text-gray-500 text-sm">
-            <a href="#" class="hover:text-gold-400 transition">Instagram</a>
-            <a href="#" class="hover:text-gold-400 transition">LinkedIn</a>
-            <a href="#" class="hover:text-gold-400 transition">KNS Consultoria</a>
+        <div class="mt-8 pt-8 border-t border-white/5 text-center md:flex md:justify-between md:text-left max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p class="text-[10px] text-gray-700">© 2026 Kaleb Consultoria. Balneário Camboriú, SC.</p>
+            <p class="text-[10px] text-gray-800 mt-2 md:mt-0">Protocolo 09 Core | v2.1.0</p>
         </div>
-        <p class="text-gray-700 text-xs uppercase">&copy; 2026 Kaleb Studio Digital.</p>
     </footer>
 
     <a href="https://wa.me/5547988901616?text=Ol%C3%A1%20Kaleb%2C%20vim%20pelo%20site%20Studio%20KNS." class="whatsapp-float animate-pulse-slow" target="_blank">
@@ -228,10 +272,9 @@
                 'case1-title': 'Ecossistema de Equity', 'case1-desc': 'Arquitetura de dados para boutique de investimentos privada.',
                 'case2-title': 'Inteligência Estratégica', 'case2-desc': 'Plataforma de monitoramento de dados para consultoria governamental.',
                 'case3-title': 'Inovação em Biotech', 'case3-desc': 'Interface de alta performance para laboratório de bioeconomia amazônico.',
-                'price-label': 'Modelos de Negócio', 'price-title': 'Aceleração Digital',
+                'price-label': 'Governança & Performance', 'price-title': 'Infraestrutura Jurídica e Técnica',
                 'p1-sub': 'Autônomos e Comércio Local', 'p2-sub': 'Clínicas e Gastronomia',
-                'p3-sub': 'Imobiliárias e Construtoras', 'p3-consult': 'Sob Consulta',
-                'contact-label': 'Private Office'
+                'p3-sub': 'Imobiliárias e Construtoras', 'p3-consult': 'Sob Consulta'
             },
             'en': { 
                 'hero-title': 'High-End Digital Architecture.', 'cta-button': 'See Plans',
@@ -239,10 +282,9 @@
                 'case1-title': 'Equity Ecosystem', 'case1-desc': 'Data architecture for a private investment boutique.',
                 'case2-title': 'Strategic Intelligence', 'case2-desc': 'Data monitoring platform for government consulting.',
                 'case3-title': 'Biotech Innovation', 'case3-desc': 'High-performance interface for Amazonian bioeconomy lab.',
-                'price-label': 'Business Models', 'price-title': 'Digital Acceleration',
+                'price-label': 'Governance & Performance', 'price-title': 'Legal and Technical Infrastructure',
                 'p1-sub': 'Freelancers and Local Trade', 'p2-sub': 'Clinics and Gastronomy',
-                'p3-sub': 'Real Estate and Construction', 'p3-consult': 'By Quote',
-                'contact-label': 'Private Office'
+                'p3-sub': 'Real Estate and Construction', 'p3-consult': 'By Quote'
             },
             'es': { 
                 'hero-title': 'Arquitectura Digital de Alto Nivel.', 'cta-button': 'Ver Planes',
@@ -250,10 +292,9 @@
                 'case1-title': 'Ecosistema de Equity', 'case1-desc': 'Arquitectura de datos para boutique de inversión privada.',
                 'case2-title': 'Inteligencia Estratégica', 'case2-desc': 'Plataforma de monitoreo de datos para consultoría gubernamental.',
                 'case3-title': 'Innovación en Biotech', 'case3-desc': 'Interfaz de alto rendimiento para laboratorio de bioeconomía amazónico.',
-                'price-label': 'Modelos de Negocio', 'price-title': 'Aceleración Digital',
+                'price-label': 'Gobernanza y Rendimiento', 'price-title': 'Infraestructura Jurídica y Técnica',
                 'p1-sub': 'Autónomos y Comercio Local', 'p2-sub': 'Clínicas y Gastronomía',
-                'p3-sub': 'Inmobiliarias y Constructoras', 'p3-consult': 'Bajo Consulta',
-                'contact-label': 'Oficina Privada'
+                'p3-sub': 'Inmobiliarias y Constructoras', 'p3-consult': 'Bajo Consulta'
             }
         };
         function changeLanguage(lang) {
