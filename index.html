@@ -35,7 +35,7 @@
         
         /* Bandeiras */
         .flag-btn { cursor: pointer; transition: transform 0.2s; filter: grayscale(100%); opacity: 0.7; }
-        .flag-btn:hover, .flag-btn.active { transform: scale(1.2); filter: grayscale(0%); opacity: 1; }
+        .flag-btn:hover, .flag-btn.active { transform: scale(1.2); filter: grayscale(0%); opacity: 1; border: 1px solid #D4AF37; border-radius: 4px; }
         
         /* WhatsApp Flutuante */
         .whatsapp-float {
@@ -46,15 +46,15 @@
             z-index: 100; display: flex; align-items: center; justify-content: center;
             width: 60px; height: 60px; transition: all 0.3s ease;
         }
-        .whatsapp-float:hover { background-color: #128C7E; transform: scale(1.1); }
+        .whatsapp-float:hover { background-color: #128C7E; transform: scale(1.1); box-shadow: 0 0 15px #25D366; }
     </style>
 </head>
 <body class="bg-black-900 text-white font-sans antialiased overflow-x-hidden selection:bg-gold-500 selection:text-black">
 
-    <div class="fixed top-6 right-6 z-50 flex space-x-4 bg-black-900/50 backdrop-blur-md p-2 rounded-full border border-white/10">
-        <img src="https://flagcdn.com/w40/br.png" width="30" alt="Português" class="flag-btn active" onclick="changeLanguage('pt')" id="btn-pt">
-        <img src="https://flagcdn.com/w40/us.png" width="30" alt="English" class="flag-btn" onclick="changeLanguage('en')" id="btn-en">
-        <img src="https://flagcdn.com/w40/es.png" width="30" alt="Español" class="flag-btn" onclick="changeLanguage('es')" id="btn-es">
+    <div class="fixed top-6 right-6 z-50 flex space-x-3 bg-black-900/80 backdrop-blur-md p-3 rounded-lg border border-white/10 shadow-2xl">
+        <img src="https://flagcdn.com/w40/br.png" width="28" alt="Português" class="flag-btn active" onclick="changeLanguage('pt')" id="btn-pt" title="Português">
+        <img src="https://flagcdn.com/w40/us.png" width="28" alt="English" class="flag-btn" onclick="changeLanguage('en')" id="btn-en" title="English">
+        <img src="https://flagcdn.com/w40/es.png" width="28" alt="Español" class="flag-btn" onclick="changeLanguage('es')" id="btn-es" title="Español">
     </div>
 
     <header class="relative h-screen flex flex-col items-center justify-center text-center px-4">
