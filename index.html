@@ -101,7 +101,7 @@
         </div>
     </section>
 
-   <section id="cases" class="py-24 bg-cover bg-center bg-no-repeat bg-[url('image_1fbcd8.png')] border-t border-white/5 relative z-10">
+    <section id="cases" class="py-24 bg-cover bg-center bg-no-repeat bg-[url('image_1fbcd8.png')] border-t border-white/5 relative z-10">
         <div class="max-w-6xl mx-auto px-6 relative z-20">
             <div class="text-center mb-16 relative">
                 <h3 class="text-gray-400 tracking-widest text-sm font-light mb-2 relative">Track Record</h3>
@@ -146,25 +146,27 @@
                     </div>
                 </div>
 
-                <div class="flex flex-col bg-[#1a1a1a] rounded-lg border border-white/5 overflow-hidden hover:border-gold-400/30 transition-all duration-300 z-10">
+                <div class="flex flex-col bg-transparent rounded-lg border border-white/5 overflow-hidden hover:border-gold-400/30 transition-all duration-300 z-30 scale-110 shadow-2xl relative transform group">
                     <div class="h-52 w-full shrink-0 bg-transparent flex items-center justify-center p-0 border-b border-white/5 relative overflow-hidden">
-                        <img src="./Frontier.png" onerror="this.onerror=null; this.src='./Frontier.jpeg';" alt="Sul Frontier" class="w-full h-full object-cover">
+                        <img src="./Frontier.png" alt="Sul Frontier" class="w-full h-full object-cover z-20 relative" onerror="this.onerror=null; this.src='./Frontier.jpeg';">
+                        <div class="absolute inset-0 z-10 group-hover:gold-glow transition-all duration-500"></div>
                     </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="font-bold text-gold-400 text-lg uppercase tracking-wider mb-4 h-14 flex items-start">Sul Frontier</h3>
-                        <div class="flex flex-wrap gap-2 mb-5">
-                            <span class="bg-black text-gray-300 text-[10px] px-2.5 py-1 rounded border border-white/10">Imobiliária High-End</span>
+                    <div class="p-6 flex flex-col flex-grow relative z-20 bg-[#1a1a1a]">
+                        <h3 class="font-bold text-gold-400 text-lg uppercase tracking-wider mb-4 h-14 flex items-start relative">Sul Frontier</h3>
+                        <div class="flex flex-wrap gap-2 mb-5 relative">
+                            <span class="bg-black text-gray-300 text-[10px] px-2.5 py-1 rounded border border-white/10 relative">Imobiliária High-End</span>
                         </div>
-                        <p class="text-gray-400 text-sm leading-relaxed mb-6 flex-grow">
+                        <p class="text-gray-400 text-sm leading-relaxed mb-6 flex-grow relative">
                             Plataforma imobiliária com internacionalização. Arquitetura de carregamento instantâneo para investidores externos.
                         </p>
-                        <a href="#" class="text-gold-400 text-sm hover:text-white transition-colors">sulfrontier.com.br</a>
+                        <a href="#" class="text-gold-400 text-sm hover:text-white transition-colors relative">sulfrontier.com.br</a>
                     </div>
                 </div>
 
             </div>
         </div>
     </section>
+
     <section id="investimento" class="py-24 bg-[#0f0f0f] border-t border-white/5 relative z-10">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
@@ -177,8 +179,8 @@
                 
                 <div class="border border-white/10 bg-black-800 rounded-lg p-8 hover:border-gold-400/50 transition duration-300">
                     <h3 class="text-xl font-bold text-white uppercase tracking-tighter">Essential</h3>
-                    <p class="text-gray-400 text-sm mt-2" data-key="p1-sub">Autônomos e Comércio Local</p>
-                    <div class="my-8">
+                    <p class="text-gray-400 text-sm mt-2 min-h-[60px]" data-key="p1-sub">Ideal para estruturar e validar sua presença digital de forma ágil. Infraestrutura enxuta e de alta conversão para captura de demanda.</p>
+                    <div class="my-8 border-t border-white/10 pt-6">
                         <span class="text-3xl font-bold text-gold-400">Consultar</span>
                         <span class="text-gray-500 text-xs block uppercase mt-1">Valores sob Diagnóstico</span>
                     </div>
@@ -193,11 +195,11 @@
                     </button>
                 </div>
 
-                <div class="relative bg-black-800 rounded-lg p-8 flex flex-col border border-gold-400/50 transform md:-translate-y-4">
+                <div class="relative bg-black-800 rounded-lg p-8 flex flex-col border border-gold-400/50 transform md:-translate-y-4 shadow-2xl">
                     <div class="absolute top-0 right-0 bg-gold-400 text-black text-[10px] font-black px-4 py-1 rounded-bl-lg rounded-tr-lg tracking-tighter uppercase">Recomendado</div>
                     <h3 class="text-xl font-bold text-white uppercase tracking-tighter">Business</h3>
-                    <p class="text-gray-400 text-sm mt-2" data-key="p2-sub">Clínicas e Gastronomia</p>
-                    <div class="my-8">
+                    <p class="text-gray-400 text-sm mt-2 min-h-[60px]" data-key="p2-sub">Arquitetura robusta para escala. Estruturação multiplataforma, otimização de busca (SEO) e adequação jurídica para operações em crescimento.</p>
+                    <div class="my-8 border-t border-white/10 pt-6">
                         <span class="text-4xl font-bold text-white">Consultar</span>
                         <span class="text-gold-400 text-xs block uppercase mt-1">Valores sob Diagnóstico</span>
                     </div>
@@ -215,8 +217,8 @@
 
                 <div class="border border-white/10 bg-black-800 rounded-lg p-8 flex flex-col hover:border-gold-400/50 transition duration-300">
                     <h3 class="text-xl font-bold text-white uppercase tracking-tighter">High-End</h3>
-                    <p class="text-gray-400 text-sm mt-2" data-key="p3-sub">Imobiliárias e Construtoras</p>
-                    <div class="my-8">
+                    <p class="text-gray-400 text-sm mt-2 min-h-[60px]" data-key="p3-sub">Solução enterprise sob medida. Integrações de ecossistema, internacionalização e engenharia de dados avançada com governança total.</p>
+                    <div class="my-8 border-t border-white/10 pt-6">
                         <span class="text-3xl font-bold text-gold-400" data-key="p3-consult">Sob Consulta</span>
                         <span class="text-gray-500 text-xs block uppercase mt-1">Projetos Customizados</span>
                     </div>
@@ -309,7 +311,7 @@
                 </div>
                 <div>
                     <label class="block text-[10px] text-gray-400 uppercase tracking-widest mb-1">Desafio / Objetivo Principal</label>
-                    <textarea id="app-goal" required rows="2" class="w-full bg-black-900 border border-white/10 rounded px-4 py-3 text-sm text-white focus:outline-none focus:border-gold-400 transition resize-none" placeholder="Ex: Preciso de uma landing page para captar leads médicos..."></textarea>
+                    <textarea id="app-goal" required rows="2" class="w-full bg-black-900 border border-white/10 rounded px-4 py-3 text-sm text-white focus:outline-none focus:border-gold-400 transition resize-none" placeholder="Ex: Preciso de uma landing page para captar leads..."></textarea>
                 </div>
 
                 <div class="bg-black-900 border border-white/5 rounded p-4 text-center mt-6">
@@ -338,9 +340,9 @@
             <div class="overflow-y-auto termos-scroll pr-4 mb-6 text-sm text-gray-400 text-justify space-y-5 flex-grow">
                 <p><strong class="text-white">1. Proteção de Dados e LGPD</strong><br>A KNS Consultoria assegura que os dados coletados neste domínio são submetidos a criptografia avançada (AES-256). Proibimos a comercialização ou repasse de informações de clientes a terceiros. Todo o tratamento de dados é realizado estritamente para a viabilização técnica e contratual do projeto, alinhado à Lei Geral de Proteção de Dados Pessoais (Lei nº 13.709/2018).</p>
                 
-                <p><strong class="text-white">2. Conformidade Fiscal e Receita Federal do Brasil</strong><br>Nossa corporação opera sob total transparência fiscal. Todo investimento e transação financeira processados via site geram recolhimento de tributos e a respectiva emissão automática de Nota Fiscal de Serviços Eletrônica (NFS-e), amarrada ao CPF ou CNPJ informado. O gateway de pagamento integrado opera via instituição homologada e fiscalizada pelo Banco Central do Brasil (BACEN).</p>
+                <p><strong class="text-white">2. Conformidade Fiscal e Receita Federal do Brasil</strong><br>Nossa corporação opera sob total transparência fiscal. Todo investimento e transação financeira processados via site geram recolhimento de tributos e a respectiva emissão automática de Nota Fiscal de Serviços Eletrônica (NFS-e), amarrada ao CPF ou CNPJ informado.</p>
                 
-                <p><strong class="text-white">3. Normativas Google e Algoritmos White-Hat</strong><br>Nossa infraestrutura web respeita rigorosamente as diretrizes para webmasters do <em>Google Search Central</em>. Não utilizamos práticas abusivas (<em>black-hat, cloaking, keyword stuffing</em>) que ferem os termos de serviço dos motores de busca. A inteligência artificial e os scripts de indexação empregados focam unicamente na legibilidade do código, velocidade e entrega de valor real, garantindo rankeamento orgânico ético e livre de penalizações algorítmicas.</p>
+                <p><strong class="text-white">3. Normativas Google e Algoritmos White-Hat</strong><br>Nossa infraestrutura web respeita rigorosamente as diretrizes para webmasters do <em>Google Search Central</em>. Não utilizamos práticas abusivas que ferem os termos de serviço dos motores de busca. A inteligência artificial e os scripts de indexação empregados focam unicamente na legibilidade do código, garantindo rankeamento orgânico ético e livre de penalizações.</p>
             </div>
 
             <button onclick="fecharModalPolitica()" class="w-full py-4 bg-gold-400 text-black font-bold tracking-widest text-xs uppercase rounded hover:bg-white transition duration-300">Ciente da Governança</button>
@@ -385,20 +387,78 @@
         </div>
         <div class="mt-8 pt-8 border-t border-white/5 text-center md:flex md:justify-between md:text-left max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <p class="text-[10px] text-gray-700">© 2026 Kaleb Studio Consultoria. Balneário Camboriú, SC.</p>
-            <p class="text-[10px] text-gray-800 mt-2 md:mt-0">Protocolo 09 Core | v3.0.0 | High-Ticket Onboarding</p>
+            <p class="text-[10px] text-gray-800 mt-2 md:mt-0">Protocolo 09 Core | v3.1.0 | Broad TAM Targeting</p>
         </div>
     </footer>
 
+    <a href="https://wa.me/5547988901616?text=Ol%C3%A1%20Kaleb%2C%20vim%20pelo%20site%20Studio%20KNS." class="whatsapp-float animate-pulse-slow" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/></svg>
+    </a>
+
     <script>
-        // Lógica de Tradução
-        const translations = { /* ... objeto mantido igual ... */ };
+        document.addEventListener("DOMContentLoaded", () => {
+            if (!localStorage.getItem("kns_cookies_accepted")) {
+                setTimeout(() => {
+                    document.getElementById("site-cookie-banner").classList.remove("translate-y-full");
+                }, 1000);
+            }
+        });
+
+        function aceitarCookiesGerais() {
+            localStorage.setItem("kns_cookies_accepted", "true");
+            document.getElementById("site-cookie-banner").classList.add("translate-y-full");
+        }
+    </script>
+
+    <script>
+        const translations = {
+            'pt': { 
+                'hero-title': 'Arquitetura Digital de Alto Padrão.', 
+                'cta-button': 'Ver Planos', 
+                'bio-label': 'Kaleb Nunes', 
+                'bio-p1': 'Engenheiro de Software focado em viabilizar ativos digitais de alto valor e Infraestrutura Digital de Alta Performance.', 
+                'bio-quote': '"Não entregamos apenas pixels. Entregamos a arquitetura digital que posiciona sua marca no topo."', 
+                'price-label': 'Governança & Performance', 
+                'price-title': 'Infraestrutura Jurídica e Técnica', 
+                'p1-sub': 'Ideal para estruturar e validar sua presença digital de forma ágil. Infraestrutura enxuta e de alta conversão para captura de demanda.', 
+                'p2-sub': 'Arquitetura robusta para escala. Estruturação multiplataforma, otimização de busca (SEO) e adequação jurídica para operações em crescimento.', 
+                'p3-sub': 'Solução enterprise sob medida. Integrações de ecossistema, internacionalização e engenharia de dados avançada com governança total.', 
+                'p3-consult': 'Sob Consulta' 
+            },
+            'en': { 
+                'hero-title': 'High-End Digital Architecture.', 
+                'cta-button': 'See Plans', 
+                'bio-label': 'Kaleb Nunes', 
+                'bio-p1': 'Software Engineer focused on enabling high-value digital assets and High-Performance Digital Infrastructure.', 
+                'bio-quote': '"We do not just deliver pixels. We deliver the digital architecture that positions your brand at the top."', 
+                'price-label': 'Governance & Performance', 
+                'price-title': 'Legal and Technical Infrastructure', 
+                'p1-sub': 'Ideal for validating your digital presence quickly. Lean, high-conversion infrastructure for professional contact and lead capture.', 
+                'p2-sub': 'Robust architecture for scalability. Complete multi-page structure, SEO optimization, and legal compliance for growing operations.', 
+                'p3-sub': 'Custom enterprise solution. Complex integrations, internationalization, and advanced data engineering for total governance.', 
+                'p3-consult': 'By Quote' 
+            },
+            'es': { 
+                'hero-title': 'Arquitectura Digital de Alto Nivel.', 
+                'cta-button': 'Ver Planes', 
+                'bio-label': 'Kaleb Nunes', 
+                'bio-p1': 'Ingeniero de Software enfocado en viabilizar activos digitales de alto valor e Infraestructura Digital de Alto Rendimiento.', 
+                'bio-quote': '"No solo entregamos píxeles. Entregamos la arquitectura digital que posiciona su marca en la cima."', 
+                'price-label': 'Gobernanza y Rendimiento', 
+                'price-title': 'Infraestrutura Jurídica e Técnica', 
+                'p1-sub': 'Ideal para validar su presencia digital rápidamente. Infraestructura ágil y de alta conversión para captura de leads.', 
+                'p2-sub': 'Arquitectura robusta para escalabilidad. Estructura multipágina completa, optimización SEO y cumplimiento legal para empresas.', 
+                'p3-sub': 'Solución empresarial a medida. Integraciones complejas, internacionalización e ingeniería de datos avanzada para gobernanza total.', 
+                'p3-consult': 'Bajo Consulta' 
+            }
+        };
+        
         function changeLanguage(lang) {
             document.querySelectorAll('[data-key]').forEach(elem => { const key = elem.getAttribute('data-key'); if (translations[lang] && translations[lang][key]) elem.innerHTML = translations[lang][key]; });
             document.querySelectorAll('.flag-btn').forEach(btn => btn.classList.remove('active'));
             document.getElementById('btn-' + lang).classList.add('active');
         }
 
-        // --- SISTEMA DE CAPTAÇÃO E QUALIFICAÇÃO (HIGH-TICKET) ---
         let planoAtual = '';
 
         function iniciarFluxoSeguro(plano) {
@@ -432,11 +492,10 @@
             document.getElementById('modal-compliance').classList.remove('hidden');
             document.getElementById('modal-compliance').classList.add('flex');
 
-            // Simula verificação de túnel seguro para aumentar autoridade
             setTimeout(() => {
                 document.getElementById('modal-compliance').classList.add('hidden');
                 document.getElementById('modal-compliance').classList.remove('flex');
-                document.getElementById('modal-application').classList.remove('hidden'); // Abre o formulário
+                document.getElementById('modal-application').classList.remove('hidden');
             }, 1800); 
         }
 
@@ -450,15 +509,13 @@
         }
 
         function enviarAplicacaoParaEspecialista(event) {
-            event.preventDefault(); // Impede o recarregamento da página
+            event.preventDefault(); 
 
-            // Captura os dados do lead
             const nome = document.getElementById('app-name').value.trim();
             const empresa = document.getElementById('app-company').value.trim();
             const whatsapp = document.getElementById('app-whatsapp').value.trim();
             const desafio = document.getElementById('app-goal').value.trim();
 
-            // Monta o payload (Mensagem estruturada para o WhatsApp)
             const mensagem = `*DUE DILIGENCE | KALEB STUDIO*%0A%0A` +
                              `Olá Kaleb, passei pela verificação de compliance do site e desejo aplicar para o plano *${planoAtual}*.%0A%0A` +
                              `*👤 Gestor:* ${nome}%0A` +
@@ -467,14 +524,10 @@
                              `*🎯 Desafio/Objetivo:*%0A${desafio}%0A%0A` +
                              `_Aguardo seu contato para alinhamento de escopo e orçamento._`;
 
-            // O seu número oficial
             const telefoneKaleb = "5547988901616";
             const urlWhatsApp = `https://wa.me/${telefoneKaleb}?text=${mensagem}`;
 
-            // Redireciona o cliente direto para o seu WhatsApp com os dados preenchidos
             window.location.href = urlWhatsApp;
-            
-            // Opcional: Fecha o modal logo após o envio
             fecharFluxoSeguro();
         }
 
