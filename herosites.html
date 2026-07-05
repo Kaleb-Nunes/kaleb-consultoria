@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth bg-black">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HeroSites | KNS Studio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Importando a biblioteca de Gráficos (Chart.js) -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;700&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
+  
+  <style>
+    :root { --gold: #D4AF37; --bg: #000000; }
+    body { background-color: var(--bg); color: white; font-family: 'Inter', sans-serif; }
+    .glass { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); }
+    .terminal-font { font-family: 'JetBrains Mono', monospace; }
+    .font-serif-italic { font-family: 'Playfair Display', serif; }
+    
+    /* Estilizando barras de rolagem (sliders) para o simulador */
+    input[type=range] {
+      -webkit-appearance: none;
+      width: 100%;
+      background: transparent;
+    }
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      height: 16px;
+      width: 16px;
+      border-radius: 50%;
+      background: #2563EB;
+      cursor: pointer;
+      margin-top: -6px;
+      box-shadow: 0 0 10px rgba(37,99,235,0.8);
+    }
+    input[type=range]::-webkit-slider-runnable-track {
+      width: 100%;
+      height: 4px;
+      cursor: pointer;
+      background: rgba(255,255,255,0.1);
+      border-radius: 2px;
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-[#2563EB] selection:text-white">
+
+  <!-- NAVEGAÇÃO -->
+  <div class="flex flex-1 justify-center py-4 fixed top-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/5">
+    <nav class="relative flex max-w-max flex-1 items-center justify-center">
+      <ul class="flex flex-1 list-none items-center justify-center gap-1 md:gap-4 px-4">
+        <li><a class="p-2 inline-flex h-9 w-max items-center justify-center rounded-lg px-2.5 py-1.5 text-sm font-medium transition-all hover:bg-white/5 text-gray-300 hover:text-white" href="index.html#home">Home</a></li>
+        <li><a class="p-2 inline-flex h-9 w-max items-center justify-center rounded-lg px-2.5 py-1.5 text-sm font-medium transition-all hover:bg-white/5 text-gray-300 hover:text-white" href="index.html#nexohub">Produtos</a></li>
+        <li><a class="p-2 inline-flex h-9 w-max items-center justify-center rounded-lg px-2.5 py-1.5 text-sm font-medium transition-all hover:bg-white/5 text-gray-300 hover:text-white" href="index.html#planos">Pricing</a></li>
+        <li><a class="p-2 inline-flex h-9 w-max items-center justify-center rounded-lg px-2.5 py-1.5 text-sm font-medium transition-all hover:bg-white/5 text-gray-300 hover:text-white" href="index.html#paradoxo">Sobre a KNS</a></li>
+        <li><a class="p-2 inline-flex h-9 w-max items-center justify-center rounded-lg px-2.5 py-1.5 text-sm transition-all hover:bg-white/5 text-[#2563EB] hover:text-[#1D4ED8] font-bold" href="#simulador-roi">Simulador ROI</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <main class="min-h-screen relative overflow-hidden bg-[#050505]">
+    
+    <!-- HEADER HERO SITES -->
+    <section class="relative pt-40 pb-24 px-6 border-b border-white/5">
+      <div class="absolute inset-0 z-0 flex items-center justify-center overflow-hidden">
+        <video autoplay loop muted playsinline class="w-full h-full object-cover opacity-30 brightness-150 pointer-events-none">
+          <source src="herosites.mp4" type="video/mp4">
+        </video>
+        <div class="absolute inset-0 bg-gradient-to-b from-black via-[#050505]/90 to-[#050505]"></div>
+      </div>
+
+      <div class="relative z-10 max-w-7xl mx-auto text-center reveal">
+        <span class="text-[10px] md:text-xs font-extrabold uppercase tracking-[0.3em] text-[#2563EB] mb-4 block drop-shadow-[0_0_10px_rgba(37,99,235,0.5)]">Estética de Conversão</span>
+        <h1 class="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tight text-white leading-none mb-2">Design Que Converte</h1>
+        <h2 class="text-4xl md:text-6xl lg:text-7xl font-serif-italic lowercase tracking-wide text-[#2563EB] opacity-90 drop-shadow-[0_0_20px_rgba(37,99,235,0.4)]">resultados que entregam</h2>
+        <p class="text-sm md:text-base text-gray-400 font-light max-w-2xl mx-auto mt-8 mb-4">Transformamos sua presença online em um motor de crescimento de alta performance.</p>
+        <p class="text-xs font-bold uppercase tracking-widest text-white mb-16">Selecione o seu objetivo estratégico abaixo:</p>
+
+        <!-- GRID 1: OBJETIVOS -->
+        <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-6 text-left">
+          <div class="bg-[#121214] border border-white/5 hover:border-[#2563EB]/40 rounded-2xl p-8 transition-all group relative overflow-hidden">
+            <div class="absolute top-6 right-6 w-2 h-2 rounded-full bg-gray-700 group-hover:bg-[#2563EB] transition-colors shadow-[0_0_10px_rgba(37,99,235,0)] group-hover:shadow-[0_0_10px_rgba(37,99,235,0.8)]"></div>
+            <div class="w-12 h-12 flex items-center justify-center rounded-full bg-white/5 border border-white/10 mb-6 mx-auto group-hover:scale-110 transition-transform">
+              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 14l9-9 9 9M4 14v7a1 1 0 001 1h14a1 1 0 001-1v-7M9 22V12h6v10"></path></svg>
+            </div>
+            <h3 class="text-center font-black text-lg text-white uppercase tracking-wider mb-2">Autoridade</h3>
+            <p class="text-center text-xs text-gray-400 font-light leading-relaxed">Torne-se a referência inquestionável no seu mercado de atuação.</p>
+          </div>
+          <div class="bg-[#121214] border border-white/5 hover:border-[#2563EB]/40 rounded-2xl p-8 transition-all group relative overflow-hidden shadow-[0_0_30px_rgba(37,99,235,0.05)] hover:shadow-[0_0_40px_rgba(37,99,235,0.15)] transform md:-translate-y-2">
+            <div class="absolute top-6 right-6 w-2 h-2 rounded-full bg-[#2563EB] shadow-[0_0_10px_rgba(37,99,235,0.8)] animate-pulse"></div>
+            <div class="w-12 h-12 flex items-center justify-center rounded-full bg-[#2563EB]/10 border border-[#2563EB]/30 mb-6 mx-auto group-hover:scale-110 transition-transform">
+              <svg class="w-5 h-5 text-[#2563EB]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+            </div>
+            <h3 class="text-center font-black text-lg text-white uppercase tracking-wider mb-2">Vendas</h3>
+            <p class="text-center text-xs text-gray-400 font-light leading-relaxed">Maximize o retorno sobre o seu investimento e turbine suas conversões.</p>
+          </div>
+          <div class="bg-[#121214] border border-white/5 hover:border-[#2563EB]/40 rounded-2xl p-8 transition-all group relative overflow-hidden">
+            <div class="absolute top-6 right-6 w-2 h-2 rounded-full bg-gray-700 group-hover:bg-[#2563EB] transition-colors shadow-[0_0_10px_rgba(37,99,235,0)] group-hover:shadow-[0_0_10px_rgba(37,99,235,0.8)]"></div>
+            <div class="absolute top-5 right-12 px-2 py-0.5 bg-green-500/10 border border-green-500/20 rounded text-[8px] text-green-400 font-bold tracking-widest hidden md:block group-hover:animate-pulse">↗ Posição +15%</div>
+            <div class="w-12 h-12 flex items-center justify-center rounded-full bg-white/5 border border-white/10 mb-6 mx-auto group-hover:scale-110 transition-transform">
+              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+            </div>
+            <h3 class="text-center font-black text-lg text-white uppercase tracking-wider mb-2">Posicionamento</h3>
+            <p class="text-center text-xs text-gray-400 font-light leading-relaxed">Defina sua identidade visual de grife e conquiste sua fatia de mercado.</p>
+          </div>
+        </div>
+
+        <a href="#simulador-roi" class="inline-flex items-center justify-center bg-gradient-to-r from-[#2563EB] to-[#1D4ED8] hover:from-[#1D4ED8] hover:to-[#1e3a8a] text-white font-black px-10 py-5 rounded-full uppercase tracking-[0.2em] text-[12px] transition-all duration-300 shadow-[0_0_30px_rgba(37,99,235,0.4)] hover:shadow-[0_0_40px_rgba(37,99,235,0.6)] hover:scale-105">
+          Projetar Meus Ganhos
+          <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- NOVA SEÇÃO: SIMULADOR ROI DE CONVERSÃO -->
+    <section id="simulador-roi" class="py-32 px-6 relative bg-black border-b border-white/5 overflow-hidden">
+      <!-- Brilho de Fundo -->
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#2563EB]/10 blur-[150px] pointer-events-none rounded-full"></div>
+
+      <div class="max-w-7xl mx-auto relative z-10 reveal">
+        
+        <div class="text-center mb-16">
+          <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-[#2563EB]/10 border border-[#2563EB]/20 text-[#2563EB] text-[9px] font-extrabold uppercase tracking-[0.25em] mb-4">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#2563EB] animate-pulse"></span>
+            Simulador Dinâmico
+          </span>
+          <h2 class="text-4xl md:text-5xl font-black uppercase tracking-tight text-white leading-none mb-4">
+            Projeção de <span class="text-[#2563EB]">ROI</span>
+          </h2>
+          <p class="text-gray-400 text-sm font-light max-w-2xl mx-auto">
+            Descubra o impacto financeiro que um site corporativo de alta performance ou uma Landing Page ultra-otimizada pode gerar na sua operação. Ajuste os dados abaixo.
+          </p>
+        </div>
+
+        <div class="grid lg:grid-cols-[1fr_1.2fr] gap-12 items-start">
+          
+          <!-- COLUNA ESQUERDA: CONTROLES DO SIMULADOR -->
+          <div class="bg-[#121214] border border-white/10 rounded-[2rem] p-8 md:p-10 shadow-2xl relative">
+            <h3 class="text-white font-black text-xl uppercase tracking-wide mb-8 border-b border-white/5 pb-4">Métricas Atuais</h3>
+            
+            <div class="space-y-8">
+              <!-- Range 1: Tráfego Mensal -->
+              <div>
+                <div class="flex justify-between items-center mb-2">
+                  <label class="text-xs font-bold uppercase tracking-widest text-gray-300">Tráfego Mensal (Visitas)</label>
+                  <span id="val-trafego" class="text-sm font-mono text-[#2563EB] font-bold bg-[#2563EB]/10 px-2 py-1 rounded">10.000</span>
+                </div>
+                <input type="range" id="input-trafego" min="1000" max="100000" step="1000" value="10000" oninput="updateROI()">
+              </div>
+
+              <!-- Range 2: Ticket Médio -->
+              <div>
+                <div class="flex justify-between items-center mb-2">
+                  <label class="text-xs font-bold uppercase tracking-widest text-gray-300">Ticket Médio (LTV)</label>
+                  <span id="val-ticket" class="text-sm font-mono text-white font-bold bg-white/5 px-2 py-1 rounded">R$ 500,00</span>
+                </div>
+                <input type="range" id="input-ticket" min="50" max="10000" step="50" value="500" oninput="updateROI()">
+              </div>
+
+              <!-- Range 3: Conversão Atual -->
+              <div>
+                <div class="flex justify-between items-center mb-2">
+                  <label class="text-xs font-bold uppercase tracking-widest text-gray-300">Conversão Atual (%)</label>
+                  <span id="val-conv-atual" class="text-sm font-mono text-red-400 font-bold bg-red-400/10 px-2 py-1 rounded">1.0%</span>
+                </div>
+                <input type="range" id="input-conv-atual" min="0.1" max="10" step="0.1" value="1.0" oninput="updateROI()">
+              </div>
+
+              <!-- Range 4: Projeção HeroSites -->
+              <div class="pt-6 border-t border-white/5">
+                <div class="flex justify-between items-center mb-2">
+                  <label class="text-xs font-bold uppercase tracking-widest text-emerald-400 drop-shadow-[0_0_5px_rgba(16,185,129,0.5)]">Nova Conversão HeroSites</label>
+                  <span id="val-conv-nova" class="text-sm font-mono text-emerald-400 font-bold bg-emerald-400/10 px-2 py-1 rounded">2.5%</span>
+                </div>
+                <input type="range" id="input-conv-nova" min="0.5" max="15" step="0.1" value="2.5" oninput="updateROI()">
+                <p class="text-[10px] text-gray-500 mt-2 font-light">Geralmente, nossas arquiteturas aumentam a conversão entre 1.5x a 3x dependendo da fonte de tráfego.</p>
+              </div>
+            </div>
+
+            <!-- Compliance LGPD do Simulador -->
+            <div class="mt-10 p-4 rounded-lg bg-[#2563EB]/5 border border-[#2563EB]/20 text-[9px] text-gray-400 font-light leading-relaxed">
+              <svg class="w-3 h-3 inline text-[#2563EB] mb-0.5 mr-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path></svg>
+              <strong>Aviso de Privacidade (LGPD):</strong> Este cálculo é realizado diretamente no seu navegador em tempo real. Nenhuma informação inserida neste simulador é coletada, enviada ou armazenada em nossos servidores de banco de dados. Ao utilizar, você concorda com a <a href="/privacidade" class="text-[#2563EB] hover:underline">Política de Privacidade</a>.
+            </div>
+          </div>
+
+          <!-- COLUNA DIREITA: DASHBOARD EM TEMPO REAL -->
+          <div class="flex flex-col gap-6">
+            
+            <!-- Cards de Resultados -->
+            <div class="grid grid-cols-2 gap-4 md:gap-6">
+              <div class="bg-[#0A0A0A] border border-white/5 rounded-2xl p-6">
+                <p class="text-[10px] font-bold uppercase tracking-widest text-gray-500 mb-2">Faturamento Atual</p>
+                <p id="dash-atual" class="text-2xl md:text-3xl font-mono font-bold text-gray-300">R$ 50.000</p>
+                <p class="text-xs text-gray-600 mt-2">Mês base</p>
+              </div>
+              <div class="bg-gradient-to-br from-[#2563EB]/20 to-[#121214] border border-[#2563EB]/30 rounded-2xl p-6 shadow-[0_0_30px_rgba(37,99,235,0.1)]">
+                <p class="text-[10px] font-bold uppercase tracking-widest text-[#2563EB] mb-2 drop-shadow-md">Projeção HeroSites</p>
+                <p id="dash-novo" class="text-2xl md:text-3xl font-mono font-bold text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]">R$ 125.000</p>
+                <p id="dash-crescimento" class="text-xs text-emerald-400 font-bold mt-2 tracking-wide">+ 150% de ganho</p>
+              </div>
+            </div>
+
+            <!-- Gráfico de Pizza (Chart.js) -->
+            <div class="bg-[#121214] border border-white/10 rounded-[2rem] p-8 flex-1 flex flex-col items-center justify-center shadow-xl">
+              <h4 class="text-xs font-bold uppercase tracking-widest text-white mb-6 text-center w-full border-b border-white/5 pb-4">
+                Distribuição de Receita Estimada
+              </h4>
+              <div class="relative w-full max-w-[280px] aspect-square">
+                <canvas id="roiChart"></canvas>
+                <!-- Texto Central do Gráfico -->
+                <div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
+                  <span class="text-[10px] uppercase tracking-widest text-gray-500 font-bold">Lucro Extra</span>
+                  <span id="dash-lucro-extra" class="text-xl font-mono font-black text-emerald-400">R$ 75.000</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- LANDING PAGES (Máquina de Vendas) -->
+    <section class="bg-[#050505] py-32 px-6 relative overflow-hidden border-b border-white/5">
+      <div class="max-w-[90rem] mx-auto grid lg:grid-cols-[1fr_1fr] gap-16 lg:gap-24 items-center relative z-10">
+        <div class="reveal">
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-[#2563EB]/10 border border-[#2563EB]/20 text-[#2563EB] text-[9px] font-extrabold uppercase tracking-[0.25em] mb-8">
+            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            Máxima Conversão Direta
+          </div>
+          <h2 class="text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight text-white leading-none mb-2">Landing Pages</h2>
+          <h3 class="text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight text-[#2563EB] leading-none mb-8">A Máquina de Vendas</h3>
+          <p class="text-gray-400 text-sm leading-relaxed mb-6 font-light max-w-2xl">
+            As Landing Pages (Páginas de Destino) são projetadas com um único objetivo absoluto: fazer o visitante tomar uma ação. Elas eliminam qualquer distração de menus complexos e navegações secundárias, focando unicamente na persuasão comercial e na facilidade de contato.
+          </p>
+          <div class="grid sm:grid-cols-2 gap-y-8 gap-x-6 mb-12 max-w-2xl">
+            <div>
+              <div class="flex items-center gap-2 mb-2">
+                <svg class="w-4 h-4 text-[#2563EB]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                <h4 class="text-[11px] font-bold text-white uppercase tracking-widest">Funil Sem Fugas</h4>
+              </div>
+              <p class="text-xs text-gray-500 font-light pl-6 leading-relaxed">Sem cabeçalhos ou links externos distraindo o usuário.</p>
+            </div>
+            <div>
+              <div class="flex items-center gap-2 mb-2">
+                <svg class="w-4 h-4 text-[#2563EB]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                <h4 class="text-[11px] font-bold text-white uppercase tracking-widest">Carga Ultra-Rápida</h4>
+              </div>
+              <p class="text-xs text-gray-500 font-light pl-6 leading-relaxed">Código otimizado para segundos cruciais em smartphones.</p>
+            </div>
+            <div>
+              <div class="flex items-center gap-2 mb-2">
+                <svg class="w-4 h-4 text-[#2563EB]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                <h4 class="text-[11px] font-bold text-white uppercase tracking-widest">Tráfego Direcionado</h4>
+              </div>
+              <p class="text-xs text-gray-500 font-light pl-6 leading-relaxed">A extensão ideal de anúncios de alta intenção de compra.</p>
+            </div>
+            <div>
+              <div class="flex items-center gap-2 mb-2">
+                <svg class="w-4 h-4 text-[#2563EB]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                <h4 class="text-[11px] font-bold text-white uppercase tracking-widest">Mapeamento Analítico</h4>
+              </div>
+              <p class="text-xs text-gray-500 font-light pl-6 leading-relaxed">Testes A/B simplificados e monitoramento de cliques.</p>
+            </div>
+          </div>
+          <a href="index.html#diagnostico" class="inline-flex items-center justify-center bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-extrabold px-8 py-4 rounded-lg uppercase tracking-[0.2em] text-[10px] transition-all duration-300 shadow-[0_0_20px_rgba(37,99,235,0.3)] hover:shadow-[0_0_30px_rgba(37,99,235,0.5)]">
+            Desenvolver Minha Landing Page
+          </a>
+        </div>
+        <div class="relative w-full transform transition-transform hover:-translate-y-2 duration-700 reveal delay-100 lg:pl-10">
+          <div class="absolute -inset-1 bg-gradient-to-r from-[#2563EB]/20 to-transparent blur-2xl opacity-50 rounded-[2rem] pointer-events-none"></div>
+          <div class="relative rounded-xl overflow-hidden border border-white/10 bg-[#0A0A0A] shadow-2xl">
+            <div class="bg-[#141414] px-4 py-3 flex items-center border-b border-white/5 relative">
+              <div class="flex gap-2 relative z-10">
+                <div class="w-3 h-3 rounded-full bg-[#FF5F56] border border-black/20"></div>
+                <div class="w-3 h-3 rounded-full bg-[#FFBD2E] border border-black/20"></div>
+                <div class="w-3 h-3 rounded-full bg-[#27C93F] border border-black/20"></div>
+              </div>
+              <div class="absolute left-1/2 -translate-x-1/2 bg-black/40 border border-white/5 rounded-md px-3 py-1 flex items-center gap-2">
+                <svg class="w-2.5 h-2.5 text-[#2563EB]" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path></svg>
+                <span class="text-[10px] text-gray-400 font-mono tracking-widest lowercase">rosasgarden.com.br</span>
+              </div>
+            </div>
+            <div class="relative w-full aspect-[4/3] bg-black group">
+              <img src="https://www.emetcode.com.br/images/rosas_garden_reference.jpg" alt="Rosas Garden Preview" class="absolute inset-0 w-full h-full object-contain">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SITES CORPORATIVOS -->
+    <section class="bg-[#050505] py-32 px-6 relative overflow-hidden border-b border-white/5">
+      <div class="absolute top-1/2 right-0 -translate-y-1/2 w-[500px] h-[500px] bg-[#2563EB]/10 blur-[120px] pointer-events-none rounded-full"></div>
+      <div class="max-w-[90rem] mx-auto grid lg:grid-cols-[1fr_1fr] gap-16 lg:gap-24 items-center relative z-10">
+        <div class="reveal order-1 lg:order-1">
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-[#2563EB]/10 border border-[#2563EB]/20 text-white text-[9px] font-extrabold uppercase tracking-[0.25em] mb-8">
+            <svg class="w-3 h-3 text-[#2563EB]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+            Presença Institucional Completa
+          </div>
+          <h2 class="text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight text-white leading-none mb-2">Sites Corporativos</h2>
+          <h3 class="text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight text-[#2563EB] leading-none mb-8 drop-shadow-[0_0_15px_rgba(37,99,235,0.3)]">O QG de Autoridade</h3>
+          <p class="text-gray-400 text-sm leading-relaxed mb-6 font-light max-w-2xl">
+            Os Sites Corporativos (Portais Institucionais) servem como a representação oficial e a central de autoridade digital da sua empresa. Eles possuem estruturas multi-páginas escaláveis projetadas para contar a história da marca, apresentar todo o portfólio de soluções, oferecer canais de suporte e reter tráfego orgânico via SEO de longo prazo.
+          </p>
+          <div class="grid sm:grid-cols-2 gap-y-8 gap-x-6 mb-12 max-w-2xl">
+            <div>
+              <div class="flex items-center gap-2 mb-2">
+                <svg class="w-4 h-4 text-[#2563EB]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <h4 class="text-[11px] font-bold text-white uppercase tracking-widest">Autoridade e Confiança</h4>
+              </div>
+              <p class="text-xs text-gray-500 font-light pl-6 leading-relaxed">Toda a robustez e seriedade da sua empresa em exibição oficial.</p>
+            </div>
+            <div>
+              <div class="flex items-center gap-2 mb-2">
+                <svg class="w-4 h-4 text-[#2563EB]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <h4 class="text-[11px] font-bold text-white uppercase tracking-widest">Arquitetura Multi-página</h4>
+              </div>
+              <p class="text-xs text-gray-500 font-light pl-6 leading-relaxed">Rotas individuais e SEO avançado para ranqueamento no Google.</p>
+            </div>
+            <div>
+              <div class="flex items-center gap-2 mb-2">
+                <svg class="w-4 h-4 text-[#2563EB]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <h4 class="text-[11px] font-bold text-white uppercase tracking-widest">Portfólio de Soluções</h4>
+              </div>
+              <p class="text-xs text-gray-500 font-light pl-6 leading-relaxed">Catálogos complexos detalhando a engenharia de cada produto.</p>
+            </div>
+            <div>
+              <div class="flex items-center gap-2 mb-2">
+                <svg class="w-4 h-4 text-[#2563EB]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <h4 class="text-[11px] font-bold text-white uppercase tracking-widest">Suporte e Governança</h4>
+              </div>
+              <p class="text-xs text-gray-500 font-light pl-6 leading-relaxed">Canais estruturados para conformidade, LGPD e investidores.</p>
+            </div>
+          </div>
+          <a href="index.html#diagnostico" class="inline-flex items-center justify-center bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-extrabold px-8 py-4 rounded-lg uppercase tracking-[0.2em] text-[10px] transition-all duration-300 shadow-[0_0_20px_rgba(37,99,235,0.3)] hover:shadow-[0_0_30px_rgba(37,99,235,0.5)]">
+            Desenvolver Meu Site Corporativo
+          </a>
+        </div>
+
+        <div class="relative w-full transform transition-transform hover:-translate-y-2 duration-700 reveal delay-100 lg:pl-10 order-2 lg:order-2">
+          <div class="absolute -inset-1 bg-gradient-to-r from-[#2563EB]/20 to-transparent blur-2xl opacity-50 rounded-[2rem] pointer-events-none"></div>
+          <div class="relative rounded-xl overflow-hidden border border-white/10 bg-[#0A0A0A] shadow-2xl">
+            <div class="bg-[#141414] px-4 py-3 flex items-center border-b border-white/5 relative">
+              <div class="flex gap-2 relative z-10">
+                <div class="w-3 h-3 rounded-full bg-[#FF5F56] border border-black/20"></div>
+                <div class="w-3 h-3 rounded-full bg-[#FFBD2E] border border-black/20"></div>
+                <div class="w-3 h-3 rounded-full bg-[#27C93F] border border-black/20"></div>
+              </div>
+              <div class="absolute left-1/2 -translate-x-1/2 bg-black/40 border border-white/5 rounded-md px-3 py-1 flex items-center gap-2">
+                <svg class="w-2.5 h-2.5 text-[#2563EB]" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path></svg>
+                <span class="text-[10px] text-gray-400 font-mono tracking-widest lowercase">knsstudio.com.br</span>
+              </div>
+            </div>
+            <div class="relative w-full aspect-[4/3] bg-[#050505] flex items-center justify-center group overflow-hidden">
+               <img src="./rosas_garden_corporate.webp" alt="Site Corporativo Preview" class="absolute inset-0 w-full h-full object-contain transition-transform duration-700 group-hover:scale-105" onerror="this.src='./rosas_garden_corporate.webp'">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-black pt-24 pb-12 relative border-t border-white/10 overflow-hidden">
+    <div class="mx-auto max-w-[90rem] px-6 lg:px-12 relative z-10 reveal">
+      <div class="flex flex-col md:flex-row justify-between items-center pt-8 text-[10px] font-extrabold uppercase tracking-[.25em] text-gray-600 gap-4 relative z-10">
+        <div class="flex flex-col md:flex-row gap-4 md:gap-8 items-center text-center md:text-left">
+          <p>© 2026 KNS Studio. Balneário Camboriú, SC - Brasil.</p>
+          <div class="flex gap-4">
+            <a href="privacidade.html" class="hover:text-[#2563EB] transition-colors">Política de Privacidade</a>
+            <a href="termos-de-uso.html" class="hover:text-[#2563EB] transition-colors">Termos de Uso</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // -----------------------------------------------------
+    // MOTOR DO SIMULADOR DE ROI + GRÁFICO (CHART.JS)
+    // -----------------------------------------------------
+    document.addEventListener('DOMContentLoaded', () => {
+      
+      // Inicializar formatação de moeda
+      const formatCurrency = (value) => {
+        return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 }).format(value);
+      };
+
+      // Pegando os elementos do DOM
+      const inTrafego = document.getElementById('input-trafego');
+      const inTicket = document.getElementById('input-ticket');
+      const inConvAtual = document.getElementById('input-conv-atual');
+      const inConvNova = document.getElementById('input-conv-nova');
+
+      const valTrafego = document.getElementById('val-trafego');
+      const valTicket = document.getElementById('val-ticket');
+      const valConvAtual = document.getElementById('val-conv-atual');
+      const valConvNova = document.getElementById('val-conv-nova');
+
+      const dashAtual = document.getElementById('dash-atual');
+      const dashNovo = document.getElementById('dash-novo');
+      const dashCresc = document.getElementById('dash-crescimento');
+      const dashLucroExtra = document.getElementById('dash-lucro-extra');
+
+      // Configuração do Gráfico de Pizza (Doughnut)
+      const ctx = document.getElementById('roiChart').getContext('2d');
+      const roiChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          labels: ['Faturamento Base', 'Lucro Adicional (KNS)'],
+          datasets: [{
+            data: [50000, 75000], // Valores iniciais
+            backgroundColor: ['#1f2937', '#2563EB'], // Cinza escuro vs Azul KNS
+            borderWidth: 0,
+            hoverOffset: 4
+          }]
+        },
+        options: {
+          cutout: '75%', // Define a grossura da borda da pizza
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              position: 'bottom',
+              labels: { color: '#9ca3af', font: { family: 'Inter', size: 10, weight: 'bold' }, padding: 20 }
+            },
+            tooltip: {
+              callbacks: {
+                label: function(context) {
+                  return ' ' + formatCurrency(context.raw);
+                }
+              }
+            }
+          }
+        }
+      });
+
+      // Função principal de cálculo
+      window.updateROI = () => {
+        // Obter valores
+        const trafego = parseFloat(inTrafego.value);
+        const ticket = parseFloat(inTicket.value);
+        const convAtual = parseFloat(inConvAtual.value);
+        const convNova = parseFloat(inConvNova.value);
+
+        // Atualizar labels nos sliders
+        valTrafego.innerText = trafego.toLocaleString('pt-BR');
+        valTicket.innerText = formatCurrency(ticket);
+        valConvAtual.innerText = convAtual.toFixed(1) + '%';
+        valConvNova.innerText = convNova.toFixed(1) + '%';
+
+        // Cálculos
+        const faturamentoAtual = trafego * (convAtual / 100) * ticket;
+        const faturamentoNovo = trafego * (convNova / 100) * ticket;
+        const crescimentoPercentual = ((faturamentoNovo - faturamentoAtual) / faturamentoAtual) * 100;
+        const lucroExtra = faturamentoNovo - faturamentoAtual;
+
+        // Atualizar textos no Dashboard
+        dashAtual.innerText = formatCurrency(faturamentoAtual);
+        dashNovo.innerText = formatCurrency(faturamentoNovo);
+        dashCresc.innerText = '+ ' + crescimentoPercentual.toFixed(0) + '% de ganho';
+        dashLucroExtra.innerText = formatCurrency(lucroExtra > 0 ? lucroExtra : 0);
+
+        // Atualizar Gráfico de Pizza
+        roiChart.data.datasets[0].data = [
+          faturamentoAtual, 
+          lucroExtra > 0 ? lucroExtra : 0 // Se colocar conversão menor, não mostra gráfico quebrado
+        ];
+        roiChart.update();
+      };
+
+      // Inicializa na primeira carga
+      updateROI();
+    });
+
+    // REVEAL ANIMATIONS 
+    document.addEventListener('DOMContentLoaded', () => {
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { root: null, rootMargin: '0px', threshold: 0.15 });
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    });
+  </script>
+</body>
+</html>

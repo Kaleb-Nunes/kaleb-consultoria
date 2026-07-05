@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth bg-black">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simulador de ROI | KNS Studio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  
+  <style>
+    body { background-color: #050505; color: white; font-family: 'Inter', sans-serif; }
+    .glass { background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); }
+    .terminal-font { font-family: 'JetBrains Mono', monospace; }
+  </style>
+</head>
+<body class="antialiased text-white selection:bg-[#2563EB] selection:text-white">
+
+  <div class="fixed inset-0 z-0">
+    <video autoplay loop muted playsinline class="w-full h-full object-cover">
+      <source src="https://www.emetcode.com.br/videos/trespilares.mp4" type="video/mp4">
+    </video>
+    <div class="absolute inset-0 bg-black/80"></div>
+  </div>
+
+  <nav class="fixed w-full z-50 py-4 flex justify-center">
+    <ul class="flex gap-6 px-6 text-sm font-medium text-gray-400 bg-white/5 backdrop-blur-md px-6 py-2 rounded-full border border-white/10">
+      <li><a href="index.html" class="hover:text-white transition-colors">Voltar ao Início</a></li>
+    </ul>
+  </nav>
+
+  <main class="relative z-10 pt-32 pb-24 px-6">
+    <div class="max-w-7xl mx-auto">
+      
+      <section class="mb-24 text-center reveal">
+        <span class="text-[#2563EB] font-bold tracking-[0.3em] uppercase text-[10px]">A Gênese da Eficiência</span>
+        <h1 class="text-5xl md:text-7xl font-black uppercase tracking-tight text-white mt-4 mb-8">O Paradoxo do <span class="text-[#2563EB]">Crescimento</span></h1>
+        <p class="text-gray-300 max-w-2xl mx-auto leading-relaxed font-light">
+          Toda holding de alta escala começou com planilhas. Mas, ao atingir a maturidade, o que era ferramenta de gestão virou o teto do seu lucro. A KNS Studio nasceu para quebrar esse teto, transformando dados operacionais em combustível para o seu próximo milhão.
+        </p>
+      </section>
+
+      <section id="simulator" class="grid lg:grid-cols-2 gap-12 items-center">
+        
+        <div class="glass p-8 md:p-12 rounded-3xl border border-white/10">
+          <h2 class="text-2xl font-black uppercase text-white mb-8">Diagnóstico de Ineficiência</h2>
+          
+          <div class="space-y-8">
+            <div>
+              <label class="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">Faturamento Mensal (R$)</label>
+              <input type="range" id="sim-fat" min="100000" max="5000000" step="50000" value="500000" class="w-full h-2 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-[#2563EB]" oninput="calculate()">
+              <span id="label-fat" class="text-lg font-mono font-bold">R$ 500.000</span>
+            </div>
+
+            <div>
+              <label class="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">Time Improdutivo (Horas/Semana perdidas)</label>
+              <input type="range" id="sim-horas" min="5" max="40" step="1" value="15" class="w-full h-2 bg-gray-800 rounded-lg appearance-none cursor-pointer accent-[#2563EB]" oninput="calculate()">
+              <span id="label-horas" class="text-lg font-mono font-bold">15 horas</span>
+            </div>
+          </div>
+
+          <div class="mt-12 p-6 bg-[#2563EB]/10 rounded-xl border border-[#2563EB]/20 text-[11px] text-gray-300">
+            <strong>Privacidade e LGPD:</strong> Processamos estas métricas localmente no seu dispositivo. Nenhuma informação de sua operação é transmitida ou armazenada. A transparência é o nosso primeiro código.
+          </div>
+        </div>
+
+        <div class="relative">
+          <div class="glass p-8 md:p-12 rounded-3xl border border-white/10">
+            <h3 class="text-white font-black text-sm uppercase tracking-widest mb-8">Projeção de Escala (12 Meses)</h3>
+            <div class="h-64">
+              <canvas id="roiChart"></canvas>
+            </div>
+            <div class="grid grid-cols-2 gap-4 mt-8">
+              <div class="p-4 bg-red-900/20 border border-red-900/50 rounded-xl text-center">
+                <span class="text-[9px] text-red-400 block uppercase font-bold">Custo da Inação</span>
+                <span id="res-custo" class="text-xl font-mono font-bold text-red-400">R$ 0</span>
+              </div>
+              <div class="p-4 bg-emerald-900/20 border border-emerald-900/50 rounded-xl text-center">
+                <span class="text-[9px] text-emerald-400 block uppercase font-bold">Ganho Estratégico</span>
+                <span id="res-ganho" class="text-xl font-mono font-bold text-emerald-400">R$ 0</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="bg-black pt-24 pb-12 relative border-t border-white/10 overflow-hidden">
+    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-full text-center pointer-events-none opacity-[0.03] select-none z-0">
+      <span class="text-[13vw] font-serif font-black whitespace-nowrap tracking-tighter leading-none">KNS STUDIO</span>
+    </div>
+
+    <div class="mx-auto max-w-[90rem] px-6 lg:px-12 relative z-10 reveal">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-12 border-b border-white/10 pb-16">
+        <div class="md:col-span-12 lg:col-span-4 lg:pr-12">
+          <div class="flex items-center gap-3 mb-6">
+             <img src="./logo_kns.png" alt="Logo KNS" class="w-10 h-10 object-contain drop-shadow-[0_0_15px_rgba(37,99,235,0.4)]" onerror="this.style.display='none'">
+             <div class="font-serif text-3xl tracking-widest text-white font-bold">KNS <span class="text-[#2563EB]">STUDIO</span></div>
+          </div>
+          <p class="text-[10px] font-extrabold uppercase tracking-[.3em] text-[#2563EB] mb-6">Engenharia de Performance</p>
+          <p class="text-sm leading-relaxed text-gray-400 font-light">Transformamos presenças digitais falhas em ativos corporativos inquebráveis. Foco implacável em UX Premium e rastreamento de dados de alta precisão.</p>
+        </div>
+        <div class="md:col-span-4 lg:col-span-2">
+          <p class="text-[10px] font-extrabold uppercase tracking-[.25em] text-gray-600 mb-6 border-b border-white/5 pb-2">Ecossistema</p>
+          <ul class="space-y-4">
+            <li><a href="index.html#nexohub" class="text-sm font-medium text-gray-400 hover:text-[#2563EB] transition-colors">Soluções</a></li>
+            <li><a href="index.html#cases" class="text-sm font-medium text-gray-400 hover:text-[#2563EB] transition-colors">Estudos de Caso</a></li>
+            <li><a href="index.html#paradoxo" class="text-sm font-medium text-gray-400 hover:text-[#2563EB] transition-colors">O Método</a></li>
+            <li><a href="index.html#planos" class="text-sm font-medium text-gray-400 hover:text-[#2563EB] transition-colors">Preços / Planos</a></li>
+          </ul>
+        </div>
+        <div class="md:col-span-4 lg:col-span-3">
+           <p class="text-[10px] font-extrabold uppercase tracking-[.25em] text-gray-600 mb-6 border-b border-white/5 pb-2">Mercados</p>
+           <ul class="space-y-4">
+              <li><a href="index.html#planos" class="text-sm font-medium text-gray-400 hover:text-[#2563EB] transition-colors">Imobiliárias de Luxo</a></li>
+              <li><a href="index.html#planos" class="text-sm font-medium text-gray-400 hover:text-[#2563EB] transition-colors">Clínicas de Alto Padrão</a></li>
+              <li><a href="index.html#planos" class="text-sm font-medium text-gray-400 hover:text-[#2563EB] transition-colors">Escritórios & B2B</a></li>
+           </ul>
+        </div>
+        <div class="md:col-span-4 lg:col-span-3">
+          <p class="text-[10px] font-extrabold uppercase tracking-[.25em] text-white mb-6 border-b border-white/5 pb-2">Terminal de Contato</p>
+          <div class="space-y-4">
+            <a href="mailto:kalebdossantos59924@gmail.com" class="flex items-center gap-3 text-sm font-medium text-gray-400 hover:text-white transition-colors group">
+              <span class="text-sm font-medium text-gray-400 hover:text-[#2563EB] transition-colors">kalebdossantos59924@gmail.com</span>
+            </a>
+            <a href="https://wa.me/554796923971" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 text-sm font-bold text-[#2563EB] hover:text-white transition-colors group">
+              <span class="text-[#2563EB]">WhatsApp Executivo</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col md:flex-row justify-between items-center pt-8 text-[10px] font-extrabold uppercase tracking-[.25em] text-gray-600 gap-4 relative z-10">
+        <div class="flex flex-col md:flex-row gap-4 md:gap-8 items-center text-center md:text-left">
+          <p>© 2026 KNS STUDIO. BALNEÁRIO CAMBORIÚ, SC - BRASIL.</p>
+          <div class="flex gap-4">
+            <a href="privacidade.html" class="hover:text-[#2563EB] transition-colors">Política de Privacidade</a>
+            <a href="termos-de-uso.html" class="hover:text-[#2563EB] transition-colors">Termos de Uso</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const ctx = document.getElementById('roiChart').getContext('2d');
+    let chart;
+    function calculate() {
+      const fat = parseInt(document.getElementById('sim-fat').value);
+      const horas = parseInt(document.getElementById('sim-horas').value);
+      document.getElementById('label-fat').innerText = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 }).format(fat);
+      document.getElementById('label-horas').innerText = horas + " horas/semana";
+      const custoHora = 50; 
+      const custoInacaoMes = (horas * 4) * custoHora * 5;
+      const custoInacaoAno = custoInacaoMes * 12 + (fat * 0.03);
+      const ganhoPotencial = custoInacaoAno * 1.8;
+      document.getElementById('res-custo').innerText = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 }).format(custoInacaoAno);
+      document.getElementById('res-ganho').innerText = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 }).format(ganhoPotencial);
+      updateChart(custoInacaoAno/12, ganhoPotencial/12);
+    }
+    function updateChart(perdaMes, ganhoMes) {
+      if(chart) chart.destroy();
+      chart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: ['M1', 'M3', 'M6', 'M9', 'M12'],
+          datasets: [{ label: 'Custo Manual', data: [perdaMes, perdaMes*3, perdaMes*6, perdaMes*9, perdaMes*12], borderColor: '#ef4444', backgroundColor: 'rgba(239, 68, 68, 0.1)', fill: true }, 
+                     { label: 'Escala KNS', data: [ganhoMes, ganhoMes*3, ganhoMes*6, ganhoMes*9, ganhoMes*12], borderColor: '#2563EB', backgroundColor: 'rgba(37, 99, 235, 0.1)', fill: true }]
+        },
+        options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { labels: { color: 'white' } } }, scales: { y: { ticks: { color: 'gray' }, grid: { color: '#222' } }, x: { ticks: { color: 'gray' }, grid: { display: false } } } }
+      });
+    }
+    calculate();
+  </script>
+</body>
+</html>

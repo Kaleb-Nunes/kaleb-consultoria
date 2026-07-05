@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth bg-black">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NexoHUB ERP | KNS Studio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Chart.js para o Gráfico Dinâmico -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;700&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
+  
+  <style>
+    :root { --gold: #D4AF37; --bg: #000000; }
+    body { background-color: var(--bg); color: white; font-family: 'Inter', sans-serif; }
+    .glass { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); }
+    .terminal-font { font-family: 'JetBrains Mono', monospace; }
+    .font-serif-italic { font-family: 'Playfair Display', serif; }
+    
+    /* Estilizando barras de rolagem (sliders) */
+    input[type=range] { -webkit-appearance: none; width: 100%; background: transparent; }
+    input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; height: 16px; width: 16px; border-radius: 50%; background: #2563EB; cursor: pointer; margin-top: -6px; box-shadow: 0 0 10px rgba(37,99,235,0.8); }
+    input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 4px; cursor: pointer; background: rgba(255,255,255,0.1); border-radius: 2px; }
+  </style>
+</head>
+<body class="antialiased selection:bg-[#2563EB] selection:text-white">
+
+  <!-- NAVEGAÇÃO -->
+  <div class="flex flex-1 justify-center py-4 fixed top-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/5">
+    <nav class="relative flex max-w-max flex-1 items-center justify-center">
+      <ul class="flex flex-1 list-none items-center justify-center gap-1 md:gap-4 px-4">
+        <li><a class="p-2 inline-flex h-9 w-max items-center justify-center rounded-lg px-2.5 py-1.5 text-sm font-medium transition-all hover:bg-white/5 text-gray-300 hover:text-white" href="index.html#home">Home</a></li>
+        <li><a class="p-2 inline-flex h-9 w-max items-center justify-center rounded-lg px-2.5 py-1.5 text-sm font-medium transition-all hover:bg-white/5 text-gray-300 hover:text-white" href="index.html#nexohub">Produtos</a></li>
+        <li><a class="p-2 inline-flex h-9 w-max items-center justify-center rounded-lg px-2.5 py-1.5 text-sm font-medium transition-all hover:bg-white/5 text-gray-300 hover:text-white" href="index.html#planos">Pricing</a></li>
+        <li><a class="p-2 inline-flex h-9 w-max items-center justify-center rounded-lg px-2.5 py-1.5 text-sm font-medium transition-all hover:bg-white/5 text-gray-300 hover:text-white" href="index.html#paradoxo">Sobre a KNS</a></li>
+        <li><a class="p-2 inline-flex h-9 w-max items-center justify-center rounded-lg px-2.5 py-1.5 text-sm transition-all hover:bg-white/5 text-[#2563EB] hover:text-[#1D4ED8] font-bold" href="index.html#diagnostico">Simulador ROI</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <main class="min-h-screen relative overflow-hidden bg-[#050505]">
+    
+    <!-- HEADER HERO ERP -->
+    <section class="relative pt-40 pb-24 px-6 border-b border-white/5">
+      <!-- Background Matrix Grid Animado -->
+      <div class="absolute inset-0 z-0 flex items-center justify-center overflow-hidden">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-[#2563EB]/20 blur-[150px] pointer-events-none rounded-full"></div>
+        <div class="w-full h-full opacity-20" style="background-image: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px); background-size: 50px 50px; perspective: 1000px;">
+          <div class="w-full h-full" style="transform: rotateX(60deg) translateY(-100px) translateZ(-200px); background-image: inherit; background-size: inherit; animation: gridMove 10s linear infinite;"></div>
+        </div>
+      </div>
+      <style>@keyframes gridMove { from { transform: rotateX(60deg) translateY(0) translateZ(-200px); } to { transform: rotateX(60deg) translateY(50px) translateZ(-200px); } }</style>
+
+      <div class="relative z-10 max-w-7xl mx-auto text-center reveal">
+        <span class="text-[10px] md:text-xs font-extrabold uppercase tracking-[0.3em] text-[#2563EB] mb-4 block drop-shadow-[0_0_10px_rgba(37,99,235,0.5)]">Sistema de Gestão Multi-tenant</span>
+        <h1 class="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tight text-white leading-none mb-2">NexoHUB ERP</h1>
+        <h2 class="text-4xl md:text-6xl lg:text-7xl font-serif-italic lowercase tracking-wide text-[#2563EB] opacity-90 drop-shadow-[0_0_20px_rgba(37,99,235,0.4)]">Controle Absoluto</h2>
+        <p class="text-sm md:text-base text-gray-400 font-light max-w-2xl mx-auto mt-8 mb-4">O ecossistema definitivo para consolidar dezenas de CNPJs. O fim do caos das planilhas e a era da conciliação centesimal perfeita em escala industrial.</p>
+        <p class="text-xs font-bold uppercase tracking-widest text-white mb-16">Arquitetura de dados para grandes operações:</p>
+
+        <!-- GRID DE FUNCIONALIDADES ERP -->
+        <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-16 text-left reveal delay-100">
+          
+          <div class="bg-[#121214]/50 border border-white/5 rounded-2xl p-8 hover:border-[#2563EB]/40 transition-colors relative group overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#2563EB] to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div class="w-10 h-10 flex items-center justify-center rounded bg-[#2563EB]/10 border border-[#2563EB]/20 mb-6">
+              <svg class="w-5 h-5 text-[#2563EB]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path></svg>
+            </div>
+            <h4 class="text-white font-black text-lg uppercase tracking-wide mb-3">Supply Chain & Estoque</h4>
+            <p class="text-xs text-gray-400 leading-relaxed font-light">Centralize o inventário com maturação física de massas, ledger de bandejas de transporte e auditoria de entrada e saída com rastreabilidade total.</p>
+          </div>
+
+          <div class="bg-[#121214]/50 border border-white/5 rounded-2xl p-8 hover:border-[#2563EB]/40 transition-colors relative group overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#2563EB] to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div class="w-10 h-10 flex items-center justify-center rounded bg-[#2563EB]/10 border border-[#2563EB]/20 mb-6">
+              <svg class="w-5 h-5 text-[#2563EB]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+            </div>
+            <h4 class="text-white font-black text-lg uppercase tracking-wide mb-3">Precisão Centesimal</h4>
+            <p class="text-xs text-gray-400 leading-relaxed font-light">Engine financeira projetada para evitar divergências de arredondamento. O sistema armazena valores em inteiros para garantir que cada centavo da conciliação bata 100%.</p>
+          </div>
+
+          <div class="bg-[#121214]/50 border border-white/5 rounded-2xl p-8 hover:border-[#2563EB]/40 transition-colors relative group overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#2563EB] to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div class="w-10 h-10 flex items-center justify-center rounded bg-[#2563EB]/10 border border-[#2563EB]/20 mb-6">
+              <svg class="w-5 h-5 text-[#2563EB]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+            </div>
+            <h4 class="text-white font-black text-lg uppercase tracking-wide mb-3">RH Trabalhista 2.0</h4>
+            <p class="text-xs text-gray-400 leading-relaxed font-light">Gestão de recursos humanos blindada. Controle de escalas, cálculo de comissões complexas multi-nível e total conformidade com parâmetros do eSocial.</p>
+          </div>
+
+        </div>
+
+        <a href="#simulador-erp" class="inline-flex items-center justify-center bg-gradient-to-r from-[#2563EB] to-[#1D4ED8] hover:from-[#1D4ED8] hover:to-[#1e3a8a] text-white font-black px-10 py-5 rounded-full uppercase tracking-[0.2em] text-[12px] transition-all duration-300 shadow-[0_0_30px_rgba(37,99,235,0.4)] hover:shadow-[0_0_40px_rgba(37,99,235,0.6)] hover:scale-105">
+          Blindar Minha Operação
+          <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- SIMULADOR NEXOHUB -->
+    <section id="simulador-erp" class="py-32 px-6 relative bg-black border-b border-white/5 overflow-hidden">
+      <!-- Brilho Azulado -->
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-[#2563EB]/15 blur-[150px] pointer-events-none rounded-full"></div>
+
+      <div class="max-w-7xl mx-auto relative z-10 reveal">
+        
+        <div class="text-center mb-16">
+          <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-[#2563EB]/10 border border-[#2563EB]/20 text-[#2563EB] text-[9px] font-extrabold uppercase tracking-[0.25em] mb-4">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#2563EB] animate-pulse"></span>
+            Simulador de Eficiência Corporativa
+          </span>
+          <h2 class="text-4xl md:text-5xl font-black uppercase tracking-tight text-white leading-none mb-4">
+            Auditoria de <span class="text-[#2563EB]">Perdas Invisíveis</span>
+          </h2>
+          <p class="text-gray-400 text-sm font-light max-w-2xl mx-auto">
+            Operações baseadas em planilhas ou sistemas genéricos sofrem rupturas logísticas e de conciliação. Simule o impacto financeiro da troca para o NexoHUB ao longo de 12 meses.
+          </p>
+        </div>
+
+        <div class="grid lg:grid-cols-[1fr_1.5fr] gap-12 items-start">
+          
+          <!-- COLUNA ESQUERDA: CONTROLES DO SIMULADOR -->
+          <div class="bg-[#121214] border border-white/10 rounded-[2rem] p-8 md:p-10 shadow-2xl relative">
+            <h3 class="text-white font-black text-xl uppercase tracking-wide mb-8 border-b border-white/5 pb-4">Parâmetros da Holding</h3>
+            
+            <div class="space-y-8">
+              <!-- Range 1: Faturamento Mensal -->
+              <div>
+                <div class="flex justify-between items-center mb-2">
+                  <label class="text-xs font-bold uppercase tracking-widest text-gray-300">Faturamento/Mês (R$)</label>
+                  <span id="erp-val-fat" class="text-sm font-mono text-[#2563EB] font-bold bg-[#2563EB]/10 px-2 py-1 rounded">R$ 500.000</span>
+                </div>
+                <input type="range" id="erp-input-fat" min="50000" max="10000000" step="50000" value="500000" oninput="updateERPSimulator()">
+              </div>
+
+              <!-- Range 2: Quantidade de CNPJs / Filiais -->
+              <div>
+                <div class="flex justify-between items-center mb-2">
+                  <label class="text-xs font-bold uppercase tracking-widest text-gray-300">Complexidade (CNPJs/Lojas)</label>
+                  <span id="erp-val-filiais" class="text-sm font-mono text-white font-bold bg-white/5 px-2 py-1 rounded">3 Unidades</span>
+                </div>
+                <input type="range" id="erp-input-filiais" min="1" max="50" step="1" value="3" oninput="updateERPSimulator()">
+              </div>
+
+            </div>
+
+            <!-- Taxa Padrão do Algoritmo -->
+            <div class="mt-10 p-5 rounded-xl bg-white/5 border border-white/10">
+              <h4 class="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-2">A Matemática do Caos:</h4>
+              <p class="text-xs text-gray-500 font-light leading-relaxed">
+                Estatísticas demonstram que operações descentralizadas perdem de <strong class="text-red-400">2% a 6%</strong> da receita bruta mensal devido a furtos de estoque, multas fiscais por notas erradas e falhas em split de pagamentos. O NexoHUB estanca <strong class="text-emerald-400">85%</strong> desse sangramento instantaneamente.
+              </p>
+            </div>
+
+          </div>
+
+          <!-- COLUNA DIREITA: DASHBOARD (GRÁFICO DE LINHAS) -->
+          <div class="flex flex-col gap-6">
+            
+            <div class="grid grid-cols-2 gap-4 md:gap-6">
+              <div class="bg-[#0A0A0A] border border-white/5 rounded-2xl p-6">
+                <p class="text-[10px] font-bold uppercase tracking-widest text-red-500 mb-2">Evasão Anual Projetada</p>
+                <p id="erp-dash-perda" class="text-2xl font-mono font-bold text-gray-400">R$ 210.000</p>
+                <p class="text-xs text-gray-600 mt-2">Dinheiro queimado em 12m</p>
+              </div>
+              <div class="bg-gradient-to-br from-[#2563EB]/20 to-[#121214] border border-[#2563EB]/30 rounded-2xl p-6">
+                <p class="text-[10px] font-bold uppercase tracking-widest text-[#2563EB] mb-2 drop-shadow-md">Capital Protegido (NexoHUB)</p>
+                <p id="erp-dash-salvo" class="text-2xl font-mono font-bold text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]">R$ 178.500</p>
+                <p class="text-xs text-emerald-400 font-bold mt-2 tracking-wide">Recuperado no Ano</p>
+              </div>
+            </div>
+
+            <!-- Gráfico de Linhas (Chart.js) -->
+            <div class="bg-[#121214] border border-white/10 rounded-[2rem] p-8 flex-1 flex flex-col shadow-xl min-h-[350px]">
+              <div class="flex justify-between items-center w-full border-b border-white/5 pb-4 mb-6">
+                <h4 class="text-xs font-bold uppercase tracking-widest text-white">Trajetória Acumulada (12 Meses)</h4>
+                <span class="px-2 py-1 bg-emerald-500/10 text-emerald-400 text-[9px] font-bold tracking-widest uppercase rounded border border-emerald-500/20">Projeção Positiva</span>
+              </div>
+              <div class="relative w-full h-full min-h-[250px]">
+                <canvas id="erpLineChart"></canvas>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION CALL TO ACTION -->
+    <section class="w-full bg-[#F5F5F5] py-28 text-[#171717] px-8 relative overflow-hidden">
+      <div class="relative z-10 max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-start">
+        <div class="space-y-6">
+          <span class="text-xs font-bold uppercase tracking-widest text-[#2563EB]">Migração NexoHUB</span>
+          <h2 class="text-4xl md:text-5xl font-black uppercase leading-tight text-[#171717]">Assuma o Controle Total.</h2>
+          <p class="text-sm text-zinc-600 leading-relaxed font-medium">Deixe a arquitetura amadora para trás. Agende uma consultoria técnica gratuita. Analisaremos seu Supply Chain e desenharemos o plano de migração para o NexoHUB.</p>
+        </div>
+        <form class="bg-white rounded-xl border border-black/5 p-8 shadow-xl space-y-6 max-w-lg w-full relative z-10">
+          <div class="space-y-1">
+            <label class="text-[14px] font-mono uppercase text-zinc-500 tracking-wider">Nome do Head/Diretor</label>
+            <input type="text" required placeholder="Seu nome" class="w-full bg-transparent border-b border-zinc-200 py-2.5 text-sm outline-none focus:border-[#2563EB]">
+          </div>
+          <div class="space-y-1">
+            <label class="text-[14px] font-mono uppercase text-zinc-500 tracking-wider">WhatsApp Comercial</label>
+            <input type="tel" required placeholder="(00) 00000-0000" class="w-full bg-transparent border-b border-zinc-200 py-2.5 text-sm outline-none focus:border-[#2563EB]">
+          </div>
+          <div class="pt-4">
+            <button type="submit" class="w-full h-12 bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-bold rounded-lg transition-all duration-300 uppercase tracking-widest text-xs">Solicitar Auditoria</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- RODAPÉ COMPLETO -->
+  <footer class="bg-black pt-24 pb-12 relative border-t border-white/10 overflow-hidden">
+    
+    <!-- Letreiro Gigante de Fundo (Ajustado) -->
+    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-full text-center pointer-events-none opacity-[0.03] select-none z-0">
+      <span class="text-[13vw] font-serif font-black whitespace-nowrap tracking-tighter leading-none">KNS STUDIO</span>
+    </div>
+
+    <!-- Colunas do Rodapé -->
+    <div class="mx-auto max-w-[90rem] px-6 lg:px-12 relative z-10 reveal">
+      
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-12 border-b border-white/10 pb-16">
+        <div class="md:col-span-12 lg:col-span-4 lg:pr-12">
+          <div class="flex items-center gap-3 mb-6">
+             <img src="./logo_kns.png" alt="Logo KNS" class="w-10 h-10 object-contain drop-shadow-[0_0_15px_rgba(37,99,235,0.4)]" onerror="this.style.display='none'">
+             <div class="font-serif text-3xl tracking-widest text-white font-bold">KNS <span class="text-[#2563EB]">STUDIO</span></div>
+          </div>
+          <p class="text-[10px] font-extrabold uppercase tracking-[.3em] text-[#2563EB] mb-6">Engenharia de Performance</p>
+          <p class="text-sm leading-relaxed text-gray-400 font-light">
+            Transformamos presenças digitais falhas em ativos corporativos inquebráveis. Foco implacável em UX Premium e rastreamento de dados de alta precisão.
+          </p>
+        </div>
+
+        <div class="md:col-span-4 lg:col-span-2">
+          <p class="text-[10px] font-extrabold uppercase tracking-[.25em] text-gray-600 mb-6 border-b border-white/5 pb-2">Ecossistema</p>
+          <ul class="space-y-4">
+            <li><a href="index.html#nexohub" class="text-sm font-medium text-gray-400 hover:text-[#2563EB] transition-colors">Soluções</a></li>
+            <li><a href="index.html#cases" class="text-sm font-medium text-gray-400 hover:text-[#2563EB] transition-colors">Estudos de Caso</a></li>
+            <li><a href="index.html#paradoxo" class="text-sm font-medium text-gray-400 hover:text-[#2563EB] transition-colors">O Método</a></li>
+            <li><a href="index.html#planos" class="text-sm font-medium text-gray-400 hover:text-[#2563EB] transition-colors">Preços / Planos</a></li>
+          </ul>
+        </div>
+
+        <div class="md:col-span-4 lg:col-span-3">
+           <p class="text-[10px] font-extrabold uppercase tracking-[.25em] text-gray-600 mb-6 border-b border-white/5 pb-2">Mercados</p>
+           <ul class="space-y-4">
+              <li><a href="index.html#planos" class="text-sm font-medium text-gray-400 hover:text-[#2563EB] transition-colors">Imobiliárias de Luxo</a></li>
+              <li><a href="index.html#planos" class="text-sm font-medium text-gray-400 hover:text-[#2563EB] transition-colors">Clínicas de Alto Padrão</a></li>
+              <li><a href="index.html#planos" class="text-sm font-medium text-gray-400 hover:text-[#2563EB] transition-colors">Escritórios & B2B</a></li>
+           </ul>
+        </div>
+
+        <div class="md:col-span-4 lg:col-span-3">
+          <p class="text-[10px] font-extrabold uppercase tracking-[.25em] text-white mb-6 border-b border-white/5 pb-2">Terminal de Contato</p>
+          <div class="space-y-4">
+            <a href="mailto:kalebdossantos59924@gmail.com" class="flex items-center gap-3 text-sm font-medium text-gray-400 hover:text-white transition-colors group">
+              <svg class="w-4 h-4 text-[#2563EB] group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+              <span class="text-sm font-medium text-gray-400 hover:text-[#2563EB] transition-colors">kalebdossantos59924@gmail.com</span>
+            </a>
+            <a href="https://wa.me/554796923971?text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20uma%20an%C3%A1lise%20arquitetural." target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 text-sm font-bold text-[#2563EB] hover:text-white transition-colors group">
+              <svg class="w-4 h-4 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.016-.967-.259-.099-.447-.149-.634.149-.188.297-.768.967-.941 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.634-1.529-.868-2.093-.224-.548-.455-.474-.634-.482-.174-.008-.372-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                  <span class="text-[#2563EB]">WhatsApp Executivo</span>
+                </a>
+                
+                <div class="mt-8 flex gap-5">
+                  <a href="https://www.linkedin.com/in/kalebnunes" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="text-gray-500 hover:text-[#2563EB] transition-transform hover:scale-110">
+                    <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                  </a>
+                  <a href="https://github.com/Kaleb-Nunes" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="text-gray-500 hover:text-white transition-transform hover:scale-110">
+                    <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Links Legais da Base do Rodapé -->
+          <div class="flex flex-col md:flex-row justify-between items-center pt-8 text-[10px] font-extrabold uppercase tracking-[.25em] text-gray-600 gap-4 relative z-10">
+            <div class="flex flex-col md:flex-row gap-4 md:gap-8 items-center text-center md:text-left">
+              <p>© 2026 KNS STUDIO. BALNEÁRIO CAMBORIÚ, SC - BRASIL.</p>
+              <div class="flex gap-4">
+                <a href="privacidade.html" class="hover:text-[#2563EB] transition-colors">Política de Privacidade</a>
+                <a href="termos-de-uso.html" class="hover:text-[#2563EB] transition-colors">Termos de Uso</a>
+              </div>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#2563EB] animate-pulse"></span>
+              <span class="text-[#2563EB]">Desenvolvido com Rigor Analítico</span>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+  <script>
+    // -----------------------------------------------------
+    // MOTOR DO SIMULADOR NEXOHUB ERP (LINE CHART)
+    // -----------------------------------------------------
+    document.addEventListener('DOMContentLoaded', () => {
+      
+      const formatCurrency = (value) => new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 }).format(value);
+
+      // Inputs
+      const inFat = document.getElementById('erp-input-fat');
+      const inFiliais = document.getElementById('erp-input-filiais');
+
+      // Labels
+      const valFat = document.getElementById('erp-val-fat');
+      const valFiliais = document.getElementById('erp-val-filiais');
+
+      // Dashboard
+      const dashPerda = document.getElementById('erp-dash-perda');
+      const dashSalvo = document.getElementById('erp-dash-salvo');
+
+      // Gráfico de Linhas Acumulado
+      const ctx = document.getElementById('erpLineChart').getContext('2d');
+      
+      const meses = ['Mês 1', 'Mês 2', 'Mês 3', 'Mês 4', 'Mês 5', 'Mês 6', 'Mês 7', 'Mês 8', 'Mês 9', 'Mês 10', 'Mês 11', 'Mês 12'];
+      
+      const erpLineChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: meses,
+          datasets: [
+            {
+              label: 'Perda Acumulada (Sistemas Antigos)',
+              data: Array(12).fill(0),
+              borderColor: '#ef4444', // Vermelho
+              backgroundColor: 'rgba(239, 68, 68, 0.1)',
+              borderWidth: 2,
+              fill: true,
+              tension: 0.4
+            },
+            {
+              label: 'Capital Blindado Acumulado (NexoHUB)',
+              data: Array(12).fill(0),
+              borderColor: '#10B981', // Emerald
+              backgroundColor: 'rgba(16, 185, 129, 0.2)',
+              borderWidth: 3,
+              fill: true,
+              tension: 0.4
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { 
+              position: 'top',
+              labels: { color: '#9ca3af', font: { family: 'Inter', size: 10 } }
+            },
+            tooltip: { callbacks: { label: function(ctx) { return ' ' + formatCurrency(ctx.raw); } } }
+          },
+          scales: {
+            y: { 
+              beginAtZero: true, 
+              grid: { color: 'rgba(255, 255, 255, 0.05)' }, 
+              ticks: { color: '#9ca3af', callback: function(value) { return 'R$ ' + (value/1000) + 'k'; } } 
+            },
+            x: { 
+              grid: { display: false }, 
+              ticks: { color: '#6b7280', font: { size: 10 } } 
+            }
+          },
+          interaction: {
+            mode: 'index',
+            intersect: false,
+          }
+        }
+      });
+
+      // Função de Cálculo do Simulador ERP
+      window.updateERPSimulator = () => {
+        const faturamentoMensal = parseFloat(inFat.value);
+        const filiais = parseInt(inFiliais.value);
+        
+        valFat.innerText = formatCurrency(faturamentoMensal);
+        valFiliais.innerText = filiais + (filiais === 1 ? ' Unidade' : ' Unidades');
+
+        // Lógica de Perda (Complexidade):
+        // Base de 1.5% de perda estrutural. Para cada filial extra, soma 0.2% de fricção/erro
+        let lossPercentage = 1.5 + (filiais * 0.2);
+        // Trava de segurança visual para não estourar números irreais
+        if(lossPercentage > 8) lossPercentage = 8; 
+
+        const perdaMensal = faturamentoMensal * (lossPercentage / 100);
+        const perdaAnual = perdaMensal * 12;
+        
+        // NexoHUB recupera cerca de 85% desse valor através de conciliação automática
+        const salvoMensal = perdaMensal * 0.85;
+        const salvoAnual = salvoMensal * 12;
+
+        dashPerda.innerText = formatCurrency(perdaAnual);
+        dashSalvo.innerText = formatCurrency(salvoAnual);
+
+        // Atualizar Arrays do Gráfico
+        const arrPerda = [];
+        const arrSalvo = [];
+        let acumPerda = 0;
+        let acumSalvo = 0;
+
+        for(let i = 0; i < 12; i++) {
+          acumPerda += perdaMensal;
+          acumSalvo += salvoMensal;
+          arrPerda.push(acumPerda);
+          arrSalvo.push(acumSalvo);
+        }
+
+        erpLineChart.data.datasets[0].data = arrPerda;
+        erpLineChart.data.datasets[1].data = arrSalvo;
+        erpLineChart.update();
+      };
+
+      updateERPSimulator();
+    });
+
+    // REVEAL ANIMATIONS 
+    document.addEventListener('DOMContentLoaded', () => {
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { root: null, rootMargin: '0px', threshold: 0.15 });
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    });
+  </script>
+</body>
+</html>

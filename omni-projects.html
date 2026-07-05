@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth bg-black">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Omni Projects | Gestão Ágil KNS Studio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Chart.js para o Gráfico Dinâmico -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;700&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
+  
+  <style>
+    :root { --gold: #D4AF37; --bg: #000000; }
+    body { background-color: var(--bg); color: white; font-family: 'Inter', sans-serif; }
+    .glass { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); }
+    .terminal-font { font-family: 'JetBrains Mono', monospace; }
+    .font-serif-italic { font-family: 'Playfair Display', serif; }
+    
+    /* Estilizando barras de rolagem (sliders) */
+    input[type=range] { -webkit-appearance: none; width: 100%; background: transparent; }
+    input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; height: 16px; width: 16px; border-radius: 50%; background: #2563EB; cursor: pointer; margin-top: -6px; box-shadow: 0 0 10px rgba(37,99,235,0.8); }
+    input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 4px; cursor: pointer; background: rgba(255,255,255,0.1); border-radius: 2px; }
+  </style>
+</head>
+<body class="antialiased selection:bg-[#2563EB] selection:text-white">
+
+  <!-- NAVEGAÇÃO -->
+  <div class="flex flex-1 justify-center py-4 fixed top-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/5">
+    <nav class="relative flex max-w-max flex-1 items-center justify-center">
+      <ul class="flex flex-1 list-none items-center justify-center gap-1 md:gap-4 px-4">
+        <li><a class="p-2 inline-flex h-9 w-max items-center justify-center rounded-lg px-2.5 py-1.5 text-sm font-medium transition-all hover:bg-white/5 text-gray-300 hover:text-white" href="index.html#home">Home</a></li>
+        <li><a class="p-2 inline-flex h-9 w-max items-center justify-center rounded-lg px-2.5 py-1.5 text-sm font-medium transition-all hover:bg-white/5 text-gray-300 hover:text-white" href="index.html#nexohub">Produtos</a></li>
+        <li><a class="p-2 inline-flex h-9 w-max items-center justify-center rounded-lg px-2.5 py-1.5 text-sm font-medium transition-all hover:bg-white/5 text-gray-300 hover:text-white" href="index.html#planos">Pricing</a></li>
+        <li><a class="p-2 inline-flex h-9 w-max items-center justify-center rounded-lg px-2.5 py-1.5 text-sm font-medium transition-all hover:bg-white/5 text-gray-300 hover:text-white" href="index.html#paradoxo">Sobre a KNS</a></li>
+        <li><a class="p-2 inline-flex h-9 w-max items-center justify-center rounded-lg px-2.5 py-1.5 text-sm transition-all hover:bg-white/5 text-[#2563EB] hover:text-[#1D4ED8] font-bold" href="index.html#diagnostico">Simulador ROI</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <main class="min-h-screen relative overflow-hidden bg-[#050505]">
+    
+    <!-- HEADER HERO OMNI PROJECTS -->
+    <section class="relative pt-40 pb-24 px-6 border-b border-white/5">
+      <!-- Background Tech Animado -->
+      <div class="absolute inset-0 z-0 flex items-center justify-center overflow-hidden">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#2563EB]/20 via-[#050505]/80 to-[#050505] pointer-events-none"></div>
+        <div class="w-full h-full opacity-10" style="background-image: radial-gradient(#2563EB 1px, transparent 1px); background-size: 40px 40px;"></div>
+      </div>
+
+      <div class="relative z-10 max-w-7xl mx-auto text-center reveal">
+        <span class="text-[10px] md:text-xs font-extrabold uppercase tracking-[0.3em] text-[#2563EB] mb-4 block drop-shadow-[0_0_10px_rgba(37,99,235,0.5)]">Produtividade Sem Atritos</span>
+        <h1 class="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tight text-white leading-none mb-2">Omni Projects</h1>
+        <h2 class="text-4xl md:text-6xl lg:text-7xl font-serif-italic lowercase tracking-wide text-[#2563EB] opacity-90 drop-shadow-[0_0_20px_rgba(37,99,235,0.4)]">Velocity Stack</h2>
+        <p class="text-sm md:text-base text-gray-400 font-light max-w-2xl mx-auto mt-8 mb-4">O sistema definitivo de gestão de projetos para lideranças. Monitore sprints complexos, integre sua equipe e elimine a burocracia do seu ecossistema corporativo.</p>
+        <p class="text-xs font-bold uppercase tracking-widest text-white mb-16">O cérebro operacional da sua equipe:</p>
+
+        <!-- GRID DE FUNCIONALIDADES OMNI -->
+        <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-16 text-left reveal delay-100">
+          
+          <div class="bg-[#121214]/50 border border-white/5 rounded-2xl p-8 hover:border-[#2563EB]/40 transition-colors relative group overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#2563EB] to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div class="w-10 h-10 flex items-center justify-center rounded bg-[#2563EB]/10 border border-[#2563EB]/20 mb-6">
+              <svg class="w-5 h-5 text-[#2563EB]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+            </div>
+            <h4 class="text-white font-black text-lg uppercase tracking-wide mb-3">Mensageria Integrada</h4>
+            <p class="text-xs text-gray-400 leading-relaxed font-light">Comunicação corporativa de baixa latência em tempo real. Canais isolados e seguros para processos sensíveis, contábeis e fiscais (Zero dependência do WhatsApp para dados críticos).</p>
+          </div>
+
+          <div class="bg-[#121214]/50 border border-white/5 rounded-2xl p-8 hover:border-[#2563EB]/40 transition-colors relative group overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#2563EB] to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div class="w-10 h-10 flex items-center justify-center rounded bg-[#2563EB]/10 border border-[#2563EB]/20 mb-6">
+              <svg class="w-5 h-5 text-[#2563EB]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+            </div>
+            <h4 class="text-white font-black text-lg uppercase tracking-wide mb-3">Painel de Execução Ágil</h4>
+            <p class="text-xs text-gray-400 leading-relaxed font-light">Kanban avançado e controle de Sprints para monitorar gargalos produtivos. Tenha a visão de 360 graus do que cada membro da equipe está executando neste exato segundo.</p>
+          </div>
+
+          <div class="bg-[#121214]/50 border border-white/5 rounded-2xl p-8 hover:border-[#2563EB]/40 transition-colors relative group overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#2563EB] to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div class="w-10 h-10 flex items-center justify-center rounded bg-[#2563EB]/10 border border-[#2563EB]/20 mb-6">
+              <svg class="w-5 h-5 text-[#2563EB]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+            </div>
+            <h4 class="text-white font-black text-lg uppercase tracking-wide mb-3">Workflow Dispatcher</h4>
+            <p class="text-xs text-gray-400 leading-relaxed font-light">Automação de eventos complexos disparada em background. Se uma tarefa muda de fase, o sistema notifica clientes, atualiza registros fiscais e dispara e-mails sem intervenção humana.</p>
+          </div>
+
+        </div>
+
+        <a href="#simulador-omni" class="inline-flex items-center justify-center bg-gradient-to-r from-[#2563EB] to-[#1D4ED8] hover:from-[#1D4ED8] hover:to-[#1e3a8a] text-white font-black px-10 py-5 rounded-full uppercase tracking-[0.2em] text-[12px] transition-all duration-300 shadow-[0_0_30px_rgba(37,99,235,0.4)] hover:shadow-[0_0_40px_rgba(37,99,235,0.6)] hover:scale-105">
+          Projetar Economia Operacional
+          <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- SIMULADOR OMNI PROJECTS -->
+    <section id="simulador-omni" class="py-32 px-6 relative bg-black border-b border-white/5 overflow-hidden">
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#2563EB]/15 blur-[150px] pointer-events-none rounded-full"></div>
+
+      <div class="max-w-7xl mx-auto relative z-10 reveal">
+        <div class="text-center mb-16">
+          <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-[#2563EB]/10 border border-[#2563EB]/20 text-[#2563EB] text-[9px] font-extrabold uppercase tracking-[0.25em] mb-4">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#2563EB] animate-pulse"></span>
+            Auditoria de Custos Ocultos
+          </span>
+          <h2 class="text-4xl md:text-5xl font-black uppercase tracking-tight text-white leading-none mb-4">
+            O Valor do seu <span class="text-[#2563EB]">Tempo</span>
+          </h2>
+          <p class="text-gray-400 text-sm font-light max-w-2xl mx-auto">
+            A burocracia e as planilhas desorganizadas custam caro. Descubra abaixo quanto a sua empresa "queima" em dinheiro pagando salários por horas gastas com processos manuais.
+          </p>
+        </div>
+
+        <div class="grid lg:grid-cols-[1fr_1.2fr] gap-12 items-start">
+          
+          <!-- COLUNA ESQUERDA: CONTROLES DO SIMULADOR -->
+          <div class="bg-[#121214] border border-white/10 rounded-[2rem] p-8 md:p-10 shadow-2xl relative">
+            <h3 class="text-white font-black text-xl uppercase tracking-wide mb-8 border-b border-white/5 pb-4">Parâmetros da Equipe</h3>
+            
+            <div class="space-y-8">
+              <!-- Range 1: Tamanho da Equipe -->
+              <div>
+                <div class="flex justify-between items-center mb-2">
+                  <label class="text-xs font-bold uppercase tracking-widest text-gray-300">Membros da Equipe</label>
+                  <span id="omni-val-equipe" class="text-sm font-mono text-[#2563EB] font-bold bg-[#2563EB]/10 px-2 py-1 rounded">10</span>
+                </div>
+                <input type="range" id="omni-input-equipe" min="2" max="100" step="1" value="10" oninput="updateOmniSimulator()">
+              </div>
+
+              <!-- Range 2: Horas Perdidas (Burocracia/Reuniões Inúteis) por semana -->
+              <div>
+                <div class="flex justify-between items-center mb-2">
+                  <label class="text-xs font-bold uppercase tracking-widest text-gray-300">Horas perdidas/semana por pessoa</label>
+                  <span id="omni-val-horas" class="text-sm font-mono text-red-400 font-bold bg-red-400/10 px-2 py-1 rounded">5h</span>
+                </div>
+                <input type="range" id="omni-input-horas" min="1" max="20" step="1" value="5" oninput="updateOmniSimulator()">
+                <p class="text-[9px] text-gray-500 mt-2 font-light">Tempo gasto cobrando tarefas, procurando links, atualizando planilhas e reuniões de alinhamento.</p>
+              </div>
+
+              <!-- Range 3: Custo Médio Hora/Colaborador -->
+              <div>
+                <div class="flex justify-between items-center mb-2">
+                  <label class="text-xs font-bold uppercase tracking-widest text-gray-300">Custo Hora Médio (R$)</label>
+                  <span id="omni-val-custo" class="text-sm font-mono text-white font-bold bg-white/5 px-2 py-1 rounded">R$ 40,00</span>
+                </div>
+                <input type="range" id="omni-input-custo" min="10" max="250" step="5" value="40" oninput="updateOmniSimulator()">
+              </div>
+            </div>
+
+            <!-- Taxa de Recuperação Omni -->
+            <div class="mt-8 pt-6 border-t border-white/5 flex items-center justify-between">
+              <div>
+                <p class="text-[10px] font-bold uppercase tracking-widest text-[#2563EB]">Omni Stack</p>
+                <p class="text-xs text-gray-500 mt-1 font-light">Elimina até 65% do desperdício de tempo</p>
+              </div>
+              <div class="w-8 h-8 rounded-full bg-[#2563EB]/20 flex items-center justify-center animate-pulse">
+                <svg class="w-4 h-4 text-[#2563EB]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- COLUNA DIREITA: DASHBOARD (DOUGHNUT CHART) -->
+          <div class="flex flex-col gap-6">
+            <div class="grid grid-cols-2 gap-4 md:gap-6">
+              <div class="bg-[#0A0A0A] border border-white/5 rounded-2xl p-6">
+                <p class="text-[10px] font-bold uppercase tracking-widest text-red-500 mb-2">Desperdício Atual (Mês)</p>
+                <p id="omni-dash-perda" class="text-2xl font-mono font-bold text-gray-300">R$ 8.000</p>
+                <p class="text-xs text-gray-600 mt-2">Custo invisível na folha</p>
+              </div>
+              <div class="bg-gradient-to-br from-[#2563EB]/20 to-[#121214] border border-[#2563EB]/30 rounded-2xl p-6">
+                <p class="text-[10px] font-bold uppercase tracking-widest text-[#2563EB] mb-2 drop-shadow-md">Capital Recuperado</p>
+                <p id="omni-dash-economia" class="text-2xl font-mono font-bold text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]">R$ 5.200</p>
+                <p class="text-xs text-emerald-400 font-bold mt-2 tracking-wide">Economia Direta / Mês</p>
+              </div>
+            </div>
+
+            <!-- Gráfico Doughnut -->
+            <div class="bg-[#121214] border border-white/10 rounded-[2rem] p-8 flex-1 flex flex-col items-center justify-center shadow-xl">
+              <h4 class="text-xs font-bold uppercase tracking-widest text-white mb-6 text-center w-full border-b border-white/5 pb-4">
+                Redução de Fricção Operacional
+              </h4>
+              <div class="relative w-full max-w-[280px] aspect-square">
+                <canvas id="omniChart"></canvas>
+                <div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
+                  <span class="text-[10px] uppercase tracking-widest text-gray-500 font-bold mb-1">Horas Salvas (Mês)</span>
+                  <span id="omni-dash-horas-salvas" class="text-2xl font-mono font-black text-[#2563EB]">130h</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION CALL TO ACTION -->
+    <section class="w-full bg-[#F5F5F5] py-28 text-[#171717] px-8 relative overflow-hidden">
+      <div class="relative z-10 max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-start">
+        <div class="space-y-6">
+          <span class="text-xs font-bold uppercase tracking-widest text-[#2563EB]">Implantação Omni Projects</span>
+          <h2 class="text-4xl md:text-5xl font-black uppercase leading-tight text-[#171717]">Profissionalize sua Gestão.</h2>
+          <p class="text-sm text-zinc-600 leading-relaxed font-medium">Agende um diagnóstico operacional. Iremos mapear o seu organograma atual e demonstrar como o Omni Projects centralizará a comunicação e os Sprints da sua empresa.</p>
+        </div>
+        <form class="bg-white rounded-xl border border-black/5 p-8 shadow-xl space-y-6 max-w-lg w-full relative z-10">
+          <div class="space-y-1">
+            <label class="text-[14px] font-mono uppercase text-zinc-500 tracking-wider">Nome Completo</label>
+            <input type="text" required placeholder="Seu nome" class="w-full bg-transparent border-b border-zinc-200 py-2.5 text-sm outline-none focus:border-[#2563EB]">
+          </div>
+          <div class="space-y-1">
+            <label class="text-[14px] font-mono uppercase text-zinc-500 tracking-wider">WhatsApp Comercial</label>
+            <input type="tel" required placeholder="(00) 00000-0000" class="w-full bg-transparent border-b border-zinc-200 py-2.5 text-sm outline-none focus:border-[#2563EB]">
+          </div>
+          <div class="pt-4">
+            <button type="submit" class="w-full h-12 bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-bold rounded-lg transition-all duration-300 uppercase tracking-widest text-xs">Agendar Implantação</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- RODAPÉ COMPLETO -->
+  <footer class="bg-black pt-24 pb-12 relative border-t border-white/10 overflow-hidden">
+    <div class="absolute bottom-[-2%] left-1/2 -translate-x-1/2 w-full text-center pointer-events-none opacity-[0.03] select-none z-0">
+      <span class="text-[13vw] font-serif font-black whitespace-nowrap tracking-tighter">KNS STUDIO</span>
+    </div>
+    <div class="mx-auto max-w-[90rem] px-6 lg:px-12 relative z-10 reveal">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-12 border-b border-white/10 pb-16">
+        <div class="md:col-span-12 lg:col-span-4 lg:pr-12">
+          <div class="flex items-center gap-3 mb-6">
+             <img src="./logo_kns.png" alt="Logo KNS" class="w-10 h-10 object-contain drop-shadow-[0_0_15px_rgba(37,99,235,0.4)]" onerror="this.style.display='none'">
+             <div class="font-serif text-3xl tracking-widest text-white font-bold">KNS <span class="text-[#2563EB]">STUDIO</span></div>
+          </div>
+          <p class="text-[10px] font-extrabold uppercase tracking-[.3em] text-[#2563EB] mb-6">Engenharia de Performance</p>
+          <p class="text-sm leading-relaxed text-gray-400 font-light">Transformamos presenças digitais falhas em ativos corporativos inquebráveis. Foco implacável em UX Premium e rastreamento de dados de alta precisão.</p>
+        </div>
+        <div class="md:col-span-4 lg:col-span-2">
+          <p class="text-[10px] font-extrabold uppercase tracking-[.25em] text-gray-600 mb-6 border-b border-white/5 pb-2">Ecossistema</p>
+          <ul class="space-y-4">
+            <li><a href="index.html#nexohub" class="text-sm font-medium text-gray-400 hover:text-[#2563EB] transition-colors">Soluções</a></li>
+            <li><a href="index.html#cases" class="text-sm font-medium text-gray-400 hover:text-[#2563EB] transition-colors">Estudos de Caso</a></li>
+            <li><a href="index.html#paradoxo" class="text-sm font-medium text-gray-400 hover:text-[#2563EB] transition-colors">O Método</a></li>
+            <li><a href="index.html#planos" class="text-sm font-medium text-gray-400 hover:text-[#2563EB] transition-colors">Preços / Planos</a></li>
+          </ul>
+        </div>
+        <div class="md:col-span-4 lg:col-span-3">
+           <p class="text-[10px] font-extrabold uppercase tracking-[.25em] text-gray-600 mb-6 border-b border-white/5 pb-2">Mercados</p>
+           <ul class="space-y-4">
+              <li><a href="index.html#planos" class="text-sm font-medium text-gray-400 hover:text-[#2563EB] transition-colors">Imobiliárias de Luxo</a></li>
+              <li><a href="index.html#planos" class="text-sm font-medium text-gray-400 hover:text-[#2563EB] transition-colors">Clínicas de Alto Padrão</a></li>
+              <li><a href="index.html#planos" class="text-sm font-medium text-gray-400 hover:text-[#2563EB] transition-colors">Escritórios & B2B</a></li>
+           </ul>
+        </div>
+        <div class="md:col-span-4 lg:col-span-3">
+          <p class="text-[10px] font-extrabold uppercase tracking-[.25em] text-white mb-6 border-b border-white/5 pb-2">Terminal de Contato</p>
+          <div class="space-y-4">
+            <a href="mailto:kalebdossantos59924@gmail.com" class="flex items-center gap-3 text-sm font-medium text-gray-400 hover:text-white transition-colors group">
+              <svg class="w-4 h-4 text-[#2563EB] group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+              <span class="text-sm font-medium text-gray-400 hover:text-[#2563EB] transition-colors">kalebdossantos59924@gmail.com</span>
+            </a>
+            <a href="https://wa.me/554796923971?text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20uma%20an%C3%A1lise%20arquitetural." target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 text-sm font-bold text-[#2563EB] hover:text-white transition-colors group">
+              <svg class="w-4 h-4 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.016-.967-.259-.099-.447-.149-.634.149-.188.297-.768.967-.941 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.634-1.529-.868-2.093-.224-.548-.455-.474-.634-.482-.174-.008-.372-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              <span class="text-[#2563EB]">WhatsApp Executivo</span>
+            </a>
+            <div class="mt-8 flex gap-5">
+              <a href="https://www.linkedin.com/in/kalebnunes" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="text-gray-500 hover:text-[#2563EB] transition-transform hover:scale-110">
+                <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+              </a>
+              <a href="https://github.com/Kaleb-Nunes" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="text-gray-500 hover:text-white transition-transform hover:scale-110">
+                <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col md:flex-row justify-between items-center pt-8 text-[10px] font-extrabold uppercase tracking-[.25em] text-gray-600 gap-4 relative z-10">
+        <div class="flex flex-col md:flex-row gap-4 md:gap-8 items-center text-center md:text-left">
+          <p>© 2026 KNS STUDIO. BALNEÁRIO CAMBORIÚ, SC - BRASIL.</p>
+          <div class="flex gap-4">
+            <a href="privacidade.html" class="hover:text-[#2563EB] transition-colors">Política de Privacidade</a>
+            <a href="termos-de-uso.html" class="hover:text-[#2563EB] transition-colors">Termos de Uso</a>
+          </div>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#2563EB] animate-pulse"></span>
+          <span class="text-[#2563EB]">Desenvolvido com Rigor Analítico</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // -----------------------------------------------------
+    // MOTOR DO SIMULADOR OMNI PROJECTS (DOUGHNUT CHART)
+    // -----------------------------------------------------
+    document.addEventListener('DOMContentLoaded', () => {
+      
+      const formatCurrency = (value) => new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 }).format(value);
+
+      // Inputs
+      const inEquipe = document.getElementById('omni-input-equipe');
+      const inHoras = document.getElementById('omni-input-horas');
+      const inCusto = document.getElementById('omni-input-custo');
+
+      // Labels Visuais
+      const valEquipe = document.getElementById('omni-val-equipe');
+      const valHoras = document.getElementById('omni-val-horas');
+      const valCusto = document.getElementById('omni-val-custo');
+
+      // Dashboard
+      const dashPerda = document.getElementById('omni-dash-perda');
+      const dashEconomia = document.getElementById('omni-dash-economia');
+      const dashHorasSalvas = document.getElementById('omni-dash-horas-salvas');
+
+      // Gráfico Doughnut
+      const ctx = document.getElementById('omniChart').getContext('2d');
+      const omniChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          labels: ['Custo Perdido (Permanece)', 'Capital Recuperado (Omni)'],
+          datasets: [{
+            data: [2800, 5200], // Valores Iniciais
+            backgroundColor: ['#ef4444', '#2563EB'], // Vermelho vs Azul KNS
+            borderWidth: 0,
+            hoverOffset: 4
+          }]
+        },
+        options: {
+          cutout: '75%',
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: { callbacks: { label: function(ctx) { return ' ' + formatCurrency(ctx.raw); } } }
+          }
+        }
+      });
+
+      // Função de Cálculo
+      window.updateOmniSimulator = () => {
+        const equipe = parseInt(inEquipe.value);
+        const horas = parseInt(inHoras.value);
+        const custoHora = parseFloat(inCusto.value);
+        
+        valEquipe.innerText = equipe;
+        valHoras.innerText = horas + 'h';
+        valCusto.innerText = formatCurrency(custoHora);
+
+        // Cálculo de horas perdidas no MÊS (considerando 4 semanas)
+        const horasPerdidasMes = equipe * horas * 4;
+        const custoPerdidoMes = horasPerdidasMes * custoHora;
+        
+        // O Omni Projects reduz a fricção em aproximadamente 65%
+        const taxaReducao = 0.65;
+        const horasSalvas = Math.round(horasPerdidasMes * taxaReducao);
+        const economiaReal = custoPerdidoMes * taxaReducao;
+        const custoAindaPerdido = custoPerdidoMes - economiaReal;
+
+        dashPerda.innerText = formatCurrency(custoPerdidoMes);
+        dashEconomia.innerText = formatCurrency(economiaReal);
+        dashHorasSalvas.innerText = horasSalvas + 'h';
+
+        omniChart.data.datasets[0].data = [custoAindaPerdido, economiaReal];
+        omniChart.update();
+      };
+
+      updateOmniSimulator();
+    });
+
+    // REVEAL ANIMATIONS 
+    document.addEventListener('DOMContentLoaded', () => {
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { root: null, rootMargin: '0px', threshold: 0.15 });
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    });
+  </script>
+</body>
+</html>

@@ -1,548 +1,1173 @@
 <!DOCTYPE html>
-<html lang="pt-br" class="scroll-smooth">
+<html lang="pt-BR" class="scroll-smooth bg-black">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Kaleb Studio | Arquitetura Digital</title>
-    <meta name="description" content="Engenharia de Software focada em viabilizar ativos digitais de alto valor e Infraestrutura Digital de Alta Performance. KNS Consultoria.">
-    <meta name="keywords" content="Kaleb Nunes, Engenharia de Software, Arquitetura Digital, KNS Consultoria, Infraestrutura de TI, Protocolo 09, Balneário Camboriú">
-    <meta name="author" content="Kaleb Nunes">
-    <meta name="robots" content="index, follow">
-    
-    <link rel="icon" type="image/png" href="./logo.png?v=2">
-    <link rel="apple-touch-icon" href="./logo.png?v=2">
-    <link rel="shortcut icon" href="./logo.png?v=2">
-
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SEUCODIGO"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-SEUCODIGO');
-    </script>
-
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        gold: { 400: '#D4AF37', 500: '#C5A028', 600: '#B08D22' },
-                        black: { 900: '#050505', 800: '#0a0a0a', 700: '#111111' }
-                    },
-                    fontFamily: { serif: ['Cinzel', 'serif'], sans: ['Montserrat', 'sans-serif'] },
-                    animation: { 'pulse-slow': 'pulse 3s infinite', 'spin-slow': 'spin 2s linear infinite' }
-                }
-            }
-        }
-    </script>
-    <style>
-        .text-shadow { text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
-        .gold-glow { text-shadow: 0 0 20px rgba(212, 175, 55, 0.3); }
-        .founder-img { transition: 0.5s ease; }
-        .founder-img:hover { filter: grayscale(0%); transform: scale(1.02); }
-        
-        .flag-btn { cursor: pointer; transition: 0.2s; filter: grayscale(100%); opacity: 0.7; }
-        .flag-btn.active { filter: grayscale(0%); opacity: 1; border: 1px solid #D4AF37; }
-        
-        .whatsapp-float {
-            position: fixed; bottom: 30px; right: 30px;
-            background-color: #25D366; color: white;
-            border-radius: 50px; text-align: center;
-            font-size: 30px; box-shadow: 2px 2px 3px #999;
-            z-index: 80; display: flex; align-items: center; justify-content: center;
-            width: 60px; height: 60px; transition: all 0.3s ease;
-        }
-        .whatsapp-float:hover { background-color: #128C7E; transform: scale(1.1); box-shadow: 0 0 15px #25D366; }
-        
-        .stealth-link { color: #6b7280; transition: color 0.3s ease; text-decoration: none; }
-        .stealth-link:hover { color: #ffffff; }
-        .social-icon { fill: #4b5563; transition: all 0.3s ease; }
-        .social-icon:hover { fill: #ffffff; transform: translateY(-2px); }
-
-        .termos-scroll::-webkit-scrollbar { width: 4px; }
-        .termos-scroll::-webkit-scrollbar-track { background: #111; }
-        .termos-scroll::-webkit-scrollbar-thumb { background: #D4AF37; border-radius: 4px; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KNS Studio | Ecossistema de Software Avançado</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root { --gold: #D4AF37; --bg: #000000; }
+    body { background-color: var(--bg); color: white; font-family: 'Inter', sans-serif; }
+    .gold-gradient { background: linear-gradient(90deg, #D4AF37 0%, #F3D77A 50%, #D4AF37 100%); }
+    .glass { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); }
+    .terminal-font { font-family: 'JetBrains Mono', monospace; }
+    /* Estilos customizados para mockups */
+    .mockup-window { background: #0a0a0a; border: 1px solid #222; border-radius: 12px; }
+    .mockup-header { background: #111; padding: 10px; display: flex; gap: 8px; border-bottom: 1px solid #222; }
+    .dot { width: 10px; height: 10px; border-radius: 50%; }
+  </style>
 </head>
-<body class="bg-[#0f0f0f] text-white font-sans antialiased overflow-x-hidden selection:bg-gold-500 selection:text-black">
+<body>
 
-    <div class="fixed top-4 right-4 md:top-6 md:right-6 z-50 flex space-x-3 bg-black-900/80 backdrop-blur-md p-2 rounded-lg border border-white/10">
-        <img src="https://flagcdn.com/w40/br.png" width="24" class="flag-btn active" onclick="changeLanguage('pt')" id="btn-pt">
-        <img src="https://flagcdn.com/w40/us.png" width="24" class="flag-btn" onclick="changeLanguage('en')" id="btn-en">
-        <img src="https://flagcdn.com/w40/es.png" width="24" class="flag-btn" onclick="changeLanguage('es')" id="btn-es">
+  <!-- NAVEGAÇÃO -->
+  <div class="hidden md:flex flex-1 justify-center py-4 fixed top-0 w-full z-50 bg-black/50 backdrop-blur-md border-b border-white/5">
+    <nav class="relative flex max-w-max flex-1 items-center justify-center">
+      <ul class="flex flex-1 list-none items-center justify-center gap-1">
+        <li><a class="p-2 inline-flex h-9 w-max items-center justify-center rounded-lg px-2.5 py-1.5 text-sm font-medium transition-all hover:bg-white/5 text-gray-300 hover:text-white" href="#home">Home</a></li>
+        <li><a class="p-2 inline-flex h-9 w-max items-center justify-center rounded-lg px-2.5 py-1.5 text-sm font-medium transition-all hover:bg-white/5 text-gray-300 hover:text-white" href="#nexohub">Produtos</a></li>
+        <li><a class="p-2 inline-flex h-9 w-max items-center justify-center rounded-lg px-2.5 py-1.5 text-sm font-medium transition-all hover:bg-white/5 text-gray-300 hover:text-white" href="#planos">Pricing</a></li>
+        <li><a class="p-2 inline-flex h-9 w-max items-center justify-center rounded-lg px-2.5 py-1.5 text-sm font-medium transition-all hover:bg-white/5 text-gray-300 hover:text-white" href="#paradoxo">Sobre a KNS</a></li>
+        <li><a class="p-2 inline-flex h-9 w-max items-center justify-center rounded-lg px-2.5 py-1.5 text-sm transition-all hover:bg-white/5 text-[#2563EB] hover:text-[#1D4ED8] font-bold" href="#diagnostico">Simulador ROI</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <main>
+    <!-- HOME HERO -->
+    <section id="home" class="relative pt-32 pb-24 min-h-[90vh] flex items-center">
+      <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover opacity-90 brightness-125 z-0">
+        <source src="https://www.emetcode.com.br/videos/emethero.mp4" type="video/mp4">
+      </video>
+      <div class="relative z-10 max-w-7xl mx-auto px-6 text-center mt-12">
+        <div class="max-w-4xl mx-auto space-y-6">
+          <span class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-white/[0.03] border border-white/[0.08] text-white/90 text-xs font-semibold uppercase tracking-wider">
+            ✨ VENTURE BUILDER & SOFTWARE FACTORY
+          </span>
+          <h1 class="text-4xl md:text-6xl font-black uppercase tracking-tight mb-8 drop-shadow-[0_5px_10px_rgba(0,0,0,0.8)]">
+            <span class="text-white">Tecnologia de Software Avançada</span> <br/>
+            <span class="text-[#2563EB] drop-shadow-[0_0_15px_rgba(37,99,235,0.3)]">Para holdings de alta escala</span>
+          </h1>
+          <p class="text-white font-medium drop-shadow-[0_0_10px_rgba(255,255,255,0.5)] text-lg max-w-2xl mx-auto mb-10">O cérebro único para sua operação. O fim das planilhas, a era da conciliação absoluta e performance de software industrial.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- NOVA ESTRUTURA: ARQUITETURA DE AUTORIDADE E BLINDAGEM -->
+<section id="paradoxo" class="relative w-full px-6 py-24 bg-[#050505] border-b border-white/5 pt-32">
+  <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 lg:gap-24 items-center reveal">
+    
+    <!-- Lado Esquerdo: Conteúdo Blindado -->
+    <div class="flex-1 space-y-6">
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-[#2563EB]/10 border border-[#2563EB]/20 text-[#2563EB] text-[9px] font-extrabold uppercase tracking-[0.25em] mb-2">
+        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+        Arquitetura de Segurança Cibernética
+      </div>
+      
+      <h2 class="text-4xl md:text-5xl font-black uppercase tracking-tight text-white leading-tight">
+        Do Gargalo Operacional à <br><span class="text-[#2563EB]">Blindagem Digital</span>
+      </h2>
+      
+      <p class="text-sm md:text-base text-gray-400 leading-relaxed font-light">
+        Não entregamos apenas sites; entregamos <strong>experiência, qualidade e, acima de tudo, segurança</strong>. Em um mercado onde a vulnerabilidade é o padrão, nós aplicamos engenharia algorítmica para escalar sua empresa com compliance rigoroso à <strong>LGPD</strong> e blindagem contra downtime.
+      </p>
+      
+      <p class="text-sm md:text-base text-gray-400 leading-relaxed font-light">
+        Vivemos a realidade do cliente na prática: suporte humanizado, prazos cumpridos e expectativas alinhadas. Se você busca o caminho mais barato para ter um site amador, a KNS não é o seu lugar. Se busca um <strong>ecossistema tecnológico seguro</strong> para sua holding, você encontrou seu QG.
+      </p>
+      
+      <!-- BOTÃO DE AÇÃO DIRETA PARA PROVA SOCIAL -->
+      <a href="#cases" class="inline-flex items-center gap-3 mt-6 px-8 py-4 bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-extrabold uppercase tracking-[0.2em] text-[10px] rounded-lg transition-all duration-300 shadow-[0_0_20px_rgba(37,99,235,0.3)] hover:shadow-[0_0_30px_rgba(37,99,235,0.5)]">
+        Verificar Experiência Real (Avaliações Google)
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+      </a>
     </div>
 
-    <header class="relative h-screen flex flex-col items-center justify-center text-center px-4 bg-black-900">
-        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80')] bg-cover bg-center opacity-20"></div>
-        <div class="relative z-10 space-y-6">
-            <p class="text-gold-400 tracking-[0.4em] text-xs uppercase font-bold animate-pulse">Balneário Camboriú • SC</p>
-            <h1 class="font-serif text-5xl md:text-8xl gold-glow">KALEB <span class="text-gold-400">STUDIO</span></h1>
-            <p class="text-gray-300 text-lg md:text-xl font-light max-w-2xl mx-auto" data-key="hero-title">Arquitetura Digital de Alto Padrão.</p>
-            <div class="pt-8">
-                <a href="#investimento" class="px-8 py-4 bg-gold-400 text-black font-bold uppercase tracking-widest hover:bg-white transition-all text-sm" data-key="cta-button">Ver Planos</a>
-            </div>
-        </div>
-    </header>
-
-    <section class="py-20 bg-[#0f0f0f] border-t border-white/5 relative z-10">
-        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
-            <div class="relative order-2 md:order-1">
-                <img src="./gilmar_foto.jpeg" class="founder-img border border-white/10 p-2 bg-black-900 shadow-2xl h-96 w-full object-cover object-top" alt="Kaleb Nunes CEO" onerror="this.src='./founder.jpeg'">
-                <div class="absolute -bottom-4 -right-4 bg-gold-400 text-black font-bold px-6 py-2 text-xs uppercase tracking-tighter">CEO & Founder</div>
-            </div>
-            <div class="order-1 md:order-2 space-y-6">
-                <h2 class="font-serif text-4xl" data-key="bio-label">Kaleb Nunes</h2>
-                <p class="text-gray-400 leading-relaxed text-justify" data-key="bio-p1">Engenheiro de Software focado em viabilizar ativos digitais de alto valor e Infraestrutura Digital de Alta Performance.</p>
-                <blockquote class="border-l-2 border-gold-500 pl-6 italic text-gray-200" data-key="bio-quote">"Não entregamos apenas pixels. Entregamos a arquitetura digital que posiciona sua marca no topo."</blockquote>
-            </div>
-        </div>
-    </section>
-
-    <section id="cases" class="py-24 bg-cover bg-center bg-no-repeat bg-[url('image_1fbcd8.png')] border-t border-white/5 relative z-10">
-        <div class="max-w-6xl mx-auto px-6 relative z-20">
-            <div class="text-center mb-16 relative">
-                <h3 class="text-gray-400 tracking-widest text-sm font-light mb-2 relative">Track Record</h3>
-                <h2 class="font-sans text-3xl md:text-4xl text-white font-medium tracking-tight relative">Projetos Seletos</h2>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch relative">
-                
-                <div class="flex flex-col bg-[#1a1a1a] rounded-lg border border-white/5 overflow-hidden hover:border-gold-400/30 transition-all duration-300 z-10">
-                    <div class="h-52 w-full shrink-0 bg-transparent flex items-center justify-center p-0 border-b border-white/5 relative overflow-hidden">
-                        <img src="./gilmar_logo_colorido.jpeg" alt="Gilmar de Oliveira" class="w-full h-full object-contain scale-125" onerror="this.src='./gilmar_logo.jpeg'">
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="font-bold text-gold-400 text-lg uppercase tracking-wider mb-4 h-14 flex items-start">Gilmar de Oliveira</h3>
-                        <div class="flex flex-wrap gap-2 mb-5">
-                            <span class="bg-black text-gray-300 text-[10px] px-2.5 py-1 rounded border border-white/10">Consultoria</span>
-                            <span class="bg-black text-gray-300 text-[10px] px-2.5 py-1 rounded border border-white/10">Parceiro Oficial</span>
-                            <span class="bg-black text-gray-300 text-[10px] px-2.5 py-1 rounded border border-white/10">Validado</span>
-                        </div>
-                        <p class="text-gray-400 text-sm leading-relaxed mb-6 flex-grow">
-                            Plataforma oficial validada para captação de leads. Governança de serviços empresariais e arquitetura de negócios.
-                        </p>
-                        <a href="https://gilmaroliveira.com.br/" target="_blank" class="text-gold-400 text-sm hover:text-white transition-colors">gilmaroliveira.com.br</a>
-                    </div>
-                </div>
-
-                <div class="flex flex-col bg-[#1a1a1a] rounded-lg border border-white/5 overflow-hidden hover:border-gold-400/30 transition-all duration-300 z-10">
-                    <div class="h-52 w-full shrink-0 bg-white flex items-center justify-center p-8 border-b border-white/5 relative">
-                        <img src="./portal-da-multa-logo.jpeg" alt="Recurso da Multa" class="max-h-full max-w-full object-contain">
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="font-bold text-gold-400 text-lg uppercase tracking-wider mb-4 h-14 flex items-start">Recurso da Multa</h3>
-                        <div class="flex flex-wrap gap-2 mb-5">
-                            <span class="bg-black text-gray-300 text-[10px] px-2.5 py-1 rounded border border-white/10">Direito de Trânsito</span>
-                            <span class="bg-black text-gray-300 text-[10px] px-2.5 py-1 rounded border border-white/10">Validado</span>
-                            <span class="bg-black text-gray-300 text-[10px] px-2.5 py-1 rounded border border-white/10">Sucesso</span>
-                        </div>
-                        <p class="text-gray-400 text-sm leading-relaxed mb-6 flex-grow">
-                            Arquitetura completa de site e landing page de alta conversão para estruturação de serviços jurídicos digitais.
-                        </p>
-                        <a href="https://recursodamulta.com.br/" target="_blank" class="text-gold-400 text-sm hover:text-white transition-colors">recursodamulta.com.br</a>
-                    </div>
-                </div>
-
-                <div class="flex flex-col bg-[#1a1a1a] rounded-lg border border-white/5 overflow-hidden hover:border-gold-400/30 transition-all duration-300 z-10">
-                    <div class="h-52 w-full shrink-0 bg-transparent flex items-center justify-center p-0 border-b border-white/5 relative overflow-hidden">
-                        <img src="./Frontier.png" onerror="this.onerror=null; this.src='./Frontier.jpeg';" alt="Sul Frontier" class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="font-bold text-gold-400 text-lg uppercase tracking-wider mb-4 h-14 flex items-start">Sul Frontier</h3>
-                        <div class="flex flex-wrap gap-2 mb-5">
-                            <span class="bg-black text-gray-300 text-[10px] px-2.5 py-1 rounded border border-white/10">Imobiliária High-End</span>
-                        </div>
-                        <p class="text-gray-400 text-sm leading-relaxed mb-6 flex-grow">
-                            Plataforma imobiliária com internacionalização. Arquitetura de carregamento instantâneo para investidores externos.
-                        </p>
-                        <a href="#" class="text-gold-400 text-sm hover:text-white transition-colors">sulfrontier.com.br</a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section id="investimento" class="py-24 bg-[#0f0f0f] border-t border-white/5 relative z-10">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h3 class="text-gold-400 tracking-widest text-xs font-bold uppercase mb-4" data-key="price-label">Governança & Performance</h3>
-                <h2 class="font-serif text-3xl md:text-5xl text-white" data-key="price-title">Infraestrutura Jurídica e Técnica</h2>
-                <p class="text-gray-500 text-sm mt-4 max-w-2xl mx-auto">Nossos escopos são customizados. Realize a aplicação para um diagnóstico exato e elaboração da proposta pelo nosso especialista.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-                
-                <div class="border border-white/10 bg-black-800 rounded-lg p-8 hover:border-gold-400/50 transition duration-300">
-                    <h3 class="text-xl font-bold text-white uppercase tracking-tighter">Essential</h3>
-                    <p class="text-gray-400 text-sm mt-2 min-h-[60px]" data-key="p1-sub">Ideal para estruturar e validar sua presença digital de forma ágil. Infraestrutura enxuta e de alta conversão para captura de demanda.</p>
-                    <div class="my-8 border-t border-white/10 pt-6">
-                        <span class="text-3xl font-bold text-gold-400">Consultar</span>
-                        <span class="text-gray-500 text-xs block uppercase mt-1">Valores sob Diagnóstico</span>
-                    </div>
-                    <ul class="space-y-4 text-sm text-gray-300 mb-8 flex-grow">
-                        <li class="flex items-center"><span class="text-gold-400 mr-2">✓</span> Landing Page One-Page</li>
-                        <li class="flex items-center"><span class="text-gold-400 mr-2">✓</span> Botão WhatsApp Direct</li>
-                        <li class="flex items-center"><span class="text-gold-400 mr-2">✓</span> Hospedagem Cloudflare (CDN)</li>
-                    </ul>
-                    <button onclick="iniciarFluxoSeguro('Essential')" class="mt-8 block w-full py-4 bg-white/5 border border-white/10 text-white font-bold text-center hover:bg-gold-400 hover:text-black transition uppercase tracking-widest text-xs cursor-pointer flex justify-center items-center gap-2 rounded">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                        Agendar Diagnóstico
-                    </button>
-                </div>
-
-                <div class="relative bg-black-800 rounded-lg p-8 flex flex-col border border-gold-400/50 transform md:-translate-y-4 shadow-2xl">
-                    <div class="absolute top-0 right-0 bg-gold-400 text-black text-[10px] font-black px-4 py-1 rounded-bl-lg rounded-tr-lg tracking-tighter uppercase">Recomendado</div>
-                    <h3 class="text-xl font-bold text-white uppercase tracking-tighter">Business</h3>
-                    <p class="text-gray-400 text-sm mt-2 min-h-[60px]" data-key="p2-sub">Arquitetura robusta para escala. Estruturação multiplataforma, otimização de busca (SEO) e adequação jurídica para operações em crescimento.</p>
-                    <div class="my-8 border-t border-white/10 pt-6">
-                        <span class="text-4xl font-bold text-white">Consultar</span>
-                        <span class="text-gold-400 text-xs block uppercase mt-1">Valores sob Diagnóstico</span>
-                    </div>
-                    <ul class="space-y-4 text-sm text-gray-300 mb-8 flex-grow">
-                        <li class="flex items-center"><span class="text-gold-400 mr-2">✓</span> Até 5 Páginas Institucionais</li>
-                        <li class="flex items-center"><span class="text-gold-400 mr-2">✓</span> Otimização SEO Local (Google)</li>
-                        <li class="flex items-center"><span class="text-gold-400 mr-2">✓</span> Painel Administrativo</li>
-                        <li class="flex items-center"><span class="text-gold-400 mr-2">✓</span> <strong class="text-white ml-1">Adequação LGPD (Cookies)</strong></li>
-                    </ul>
-                    <button onclick="iniciarFluxoSeguro('Business')" class="mt-8 block w-full py-4 bg-gold-400 text-black font-bold text-center hover:bg-white transition uppercase tracking-widest text-xs cursor-pointer flex justify-center items-center gap-2 rounded">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                        Agendar Diagnóstico
-                    </button>
-                </div>
-
-                <div class="border border-white/10 bg-black-800 rounded-lg p-8 flex flex-col hover:border-gold-400/50 transition duration-300">
-                    <h3 class="text-xl font-bold text-white uppercase tracking-tighter">High-End</h3>
-                    <p class="text-gray-400 text-sm mt-2 min-h-[60px]" data-key="p3-sub">Solução enterprise sob medida. Integrações de ecossistema, internacionalização e engenharia de dados avançada com governança total.</p>
-                    <div class="my-8 border-t border-white/10 pt-6">
-                        <span class="text-3xl font-bold text-gold-400" data-key="p3-consult">Sob Consulta</span>
-                        <span class="text-gray-500 text-xs block uppercase mt-1">Projetos Customizados</span>
-                    </div>
-                    <ul class="space-y-4 text-sm text-gray-300 mb-8 flex-grow">
-                        <li class="flex items-center"><span class="text-gold-400 mr-2">✓</span> Infraestrutura Internacional (i18n)</li>
-                        <li class="flex items-center"><span class="text-gold-400 mr-2">✓</span> Integração CRM & API</li>
-                        <li class="flex items-center"><span class="text-gold-400 mr-2">✓</span> <strong class="text-white ml-1">Due Diligence Técnica</strong></li>
-                    </ul>
-                    <div class="border-t border-white/10 pt-6">
-                        <p class="text-[10px] text-gray-500 uppercase tracking-widest">Governança Digital Full</p>
-                        <p class="text-xl font-bold text-white">Personalizado</p>
-                        <p class="text-[10px] text-gray-600 mt-1">Gestão de risco jurídico e técnico.</p>
-                    </div>
-                    <button onclick="iniciarFluxoSeguro('High-End')" class="mt-8 block w-full py-4 bg-white/5 border border-white/10 text-white font-bold text-center hover:bg-gold-400 hover:text-black transition uppercase tracking-widest text-xs cursor-pointer flex justify-center items-center gap-2 rounded">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                        Aplicar para o Projeto
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div id="site-cookie-banner" class="fixed bottom-0 left-0 w-full bg-black-900 border-t border-gold-500/30 p-6 z-[120] transform translate-y-full transition-transform duration-700 flex flex-col md:flex-row items-center justify-between gap-6 shadow-[0_-10px_40px_rgba(0,0,0,0.8)]">
-        <div class="text-xs text-gray-300 max-w-4xl text-justify md:text-left">
-            <strong class="text-gold-400 block mb-1">Aviso Jurídico e LGPD</strong>
-            Utilizamos cookies estruturais e ferramentas de inteligência analítica para otimizar sua navegação, segurança e personalizar nossa prestação de serviços. Em conformidade com a Lei Geral de Proteção de Dados (13.709/2018), ao continuar utilizando nossa infraestrutura digital, você assente com a nossa <a href="#" onclick="abrirModalPolitica(event)" class="text-gold-400 hover:text-white underline transition">Política de Privacidade</a>.
-        </div>
-        <div class="flex gap-4 shrink-0 w-full md:w-auto">
-            <button onclick="aceitarCookiesGerais()" class="w-full md:w-auto px-8 py-4 bg-gold-400 text-black font-bold uppercase tracking-widest text-[10px] hover:bg-white transition rounded cursor-pointer">Compreendo e Aceito</button>
-        </div>
-    </div>
-
-    <div id="secure-overlay" class="fixed inset-0 z-[100] hidden bg-black-900/95 backdrop-blur-md flex items-center justify-center px-4 transition-opacity duration-300">
+    <!-- Lado Direito: Vídeo Imersivo -->
+    <div class="flex-1 w-full relative">
+      <div class="aspect-[4/3] rounded-3xl overflow-hidden relative border border-white/10 shadow-[0_0_40px_rgba(37,99,235,0.3)] bg-black group">
         
-        <div id="modal-lgpd" class="hidden w-full max-w-lg bg-[#111] border border-white/10 rounded-xl p-8 shadow-2xl relative">
-            <div class="flex items-center justify-between mb-6">
-                <h3 class="text-xl font-serif text-white flex items-center gap-2">
-                    <svg class="w-6 h-6 text-gold-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
-                    Aviso de Privacidade
-                </h3>
-                <button onclick="fecharFluxoSeguro()" class="text-gray-500 hover:text-white transition">✕</button>
+        <div class="absolute inset-0 bg-gradient-to-br from-[#2563EB]/40 to-transparent mix-blend-overlay z-10 pointer-events-none transition-opacity duration-700 group-hover:opacity-70"></div>
+        
+        <video autoplay loop muted playsinline class="object-cover w-full h-full opacity-100 brightness-125 contrast-125 saturate-150 transition-transform duration-1000 ease-out group-hover:scale-105">
+          <source src="./kaleb-cerebro.mp4" type="video/mp4">
+          Seu navegador não suporta a reprodução deste vídeo.
+        </video>
+        
+        <div class="absolute inset-0 ring-1 ring-inset ring-white/20 rounded-3xl z-20 pointer-events-none"></div>
+      </div>
+    </div>
+</section>
+
+    <!-- NEXOHUB ERP - LAYOUT CORRIGIDO PARA BALANCEAMENTO -->
+<section id="nexohub" class="py-32 px-6 pt-40">
+  <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-start">
+    
+    <!-- COLUNA ESQUERDA: TEXTO E CARD PRIMÁRIO -->
+    <div class="space-y-8">
+      <div>
+        <h2 class="text-5xl font-black uppercase mb-6">NexoHUB ERP: <br/><span class="text-brand-gold">O Ecossistema All-in-One</span></h2>
+        <p class="text-gray-400 leading-relaxed">Controle Absoluto de Contas e Suprimentos: O NexoHUB centraliza estoque com maturação física de massas, ledger de bandejas de transporte e conciliação centesimal.</p>
+      </div>
+
+      <!-- CARD BLINDADO (O CARD QUE JÁ TÍNHAMOS) -->
+      <div class="relative group cursor-default max-w-lg">
+        <div class="absolute -inset-0.5 bg-gradient-to-r from-[#2563EB] to-transparent rounded-2xl opacity-20 blur"></div>
+        <div class="relative bg-[#0a0a0c] border border-white/10 rounded-2xl p-8 hover:bg-[#121214] transition-all">
+          <h3 class="text-xl font-black uppercase text-white mb-4 tracking-tight">Arquitetura Digital <br/><span class="text-[#2563EB]">Blindada</span></h3>
+          <ul class="space-y-3 text-xs text-gray-400 font-light">
+            <li class="flex items-start gap-2">• Blindagem Cibernética e Proteção Intelectual.</li>
+            <li class="flex items-start gap-2">• Suporte Humanizado com Engenharia de Resposta.</li>
+            <li class="flex items-start gap-2">• Conformidade LGPD e Compliance Corporativo.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- COLUNA DIREITA: PILHA VERTICAL (MOCKUP + ESPAÇO PREENCHIDO) -->
+    <div class="flex flex-col gap-6">
+      
+      <!-- MOCKUP WINDOW (EXISTENTE) -->
+      <div class="mockup-window">
+        <div class="mockup-header">
+          <div class="dot bg-red-500"></div><div class="dot bg-yellow-500"></div><div class="dot bg-green-500"></div>
+        </div>
+        <div class="p-6 terminal-font text-[10px] text-emerald-400">
+          > SYSTEM_INIT_ERP_CORE<br>
+          > DATABASE_CONNECTION: OK<br>
+          > LATENCY: 12ms<br>
+          > PRECISION_LEVEL: CENTESIMAL
+        </div>
+      </div>
+
+      <!-- AQUI O ESPAÇO QUE ESTAVA VAZIO AGORA PODE SER PREENCHIDO -->
+      <!-- OPÇÃO A: VIDEO INSTITUCIONAL -->
+      <div class="rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+         <video autoplay loop muted playsinline class="w-full h-full object-cover aspect-video">
+            <source src="https://www.emetcode.com.br/videos/trespilares.mp4" type="video/mp4">
+         </video>
+      </div>
+
+      <!-- SE PREFERIR OUTRO CARD EM VEZ DO VIDEO, COMENTE O VIDEO ACIMA E DESCOMENTE ABAIXO:
+      <div class="glass p-8 rounded-2xl border border-white/10">
+         <h4 class="text-white font-bold mb-2">Compliance Total</h4>
+         <p class="text-gray-400 text-xs">Garantimos que sua operação esteja dentro de todas as normas vigentes, evitando riscos jurídicos e fiscais.</p>
+      </div>
+      -->
+      
+    </div>
+  </div>
+</section>
+
+    <!-- OMNI PROJECTS -->
+    <section id="omni" class="py-32 px-6 bg-[#050505]">
+       <div class="max-w-7xl mx-auto">
+         <h2 class="text-5xl font-black uppercase mb-12 text-center">OMNI PROJECTS: <span class="text-brand-gold">Velocity Stack</span></h2>
+         <div class="grid md:grid-cols-3 gap-8">
+            <div class="glass p-8 rounded-2xl">
+              <div class="text-brand-gold text-4xl mb-6">⚡</div>
+              <h3 class="text-xl font-bold mb-4">Mensageria de Baixa Latência</h3>
+              <p class="text-gray-400 text-sm">Comunicação corporativa integrada em tempo real. Canais isolados para processos contábeis e fiscais.</p>
+            </div>
+            <div class="glass p-8 rounded-2xl">
+              <div class="text-brand-gold text-4xl mb-6">📊</div>
+              <h3 class="text-xl font-bold mb-4">Painel de Execução Ágil</h3>
+              <p class="text-gray-400 text-sm">Monitore sprints complexos. Processamento de transações de cartões instantâneo com zero latência.</p>
+            </div>
+            <div class="glass p-8 rounded-2xl">
+              <div class="text-brand-gold text-4xl mb-6">⚙️</div>
+              <h3 class="text-xl font-bold mb-4">Workflow Dispatcher</h3>
+              <p class="text-gray-200 text-sm">Automação de eventos (e-mail, push, registros fiscais) disparada em background.</p>
+            </div>
+         </div>
+       </div>
+    </section>
+
+    <!-- FIRECRM -->
+    <section id="firecrm" class="py-32 px-6">
+       <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+          <div class="order-2">
+            <video autoplay muted loop playsinline class="w-full rounded-2xl opacity-80">
+              <source src="https://www.emetcode.com.br/videos/hero-background.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="order-1">
+            <h2 class="text-5xl font-black uppercase mb-6">FireCRM: <span class="text-brand-gold">IA Comercial</span></h2>
+            <p class="text-gray-400 leading-relaxed mb-6">O FireCRM acelera vendas complexas. Automatize follow-ups, rastreie interações e utilize probabilidade de fechamento preditiva baseada em IA.</p>
+            <ul class="text-sm font-mono space-y-2">
+              <li class="flex items-center gap-2">➔ Lead Scoring Avançado</li>
+              <li class="flex items-center gap-2">➔ Múltiplos Pipelines Dinâmicos</li>
+              <li class="flex items-center gap-2">➔ Automação de Mensagens multicanal</li>
+            </ul>
+          </div>
+       </div>
+    </section>
+
+    <!-- CASES / ARQUITETURAS VALIDADAS -->
+    <section id="cases" class="relative bg-black py-32 overflow-hidden border-b border-white/5 pt-40">
+      <div class="absolute inset-0 z-0 flex items-center justify-center overflow-hidden">
+        <video autoplay loop muted playsinline class="w-full h-full object-contain opacity-80 brightness-150 pointer-events-none">
+          <source src="herosites.mp4" type="video/mp4">
+        </video>
+        <div class="absolute inset-0 bg-black/30 pointer-events-none"></div>
+      </div>
+      
+      <div class="relative mx-auto max-w-[90rem] px-6 z-10">
+        <div class="text-center mb-16 reveal">
+          <span class="text-[10px] font-extrabold uppercase tracking-[.3em] text-[#2563EB] mb-3 block drop-shadow-[0_0_10px_rgba(37,99,235,0.5)]">Track Record</span>
+          <h2 class="text-4xl md:text-5xl font-black text-white tracking-tight uppercase drop-shadow-[0_5px_10px_rgba(0,0,0,0.8)]">Arquiteturas Validadas</h2>
+        </div>
+
+        <div class="grid gap-6 lg:grid-cols-3 max-w-6xl mx-auto">
+          <article class="glass-panel rounded-3xl overflow-hidden flex flex-col group reveal delay-100 border border-white/10 shadow-2xl">
+            <div class="h-48 bg-[#050505] flex items-center justify-center p-6 border-b border-white/5 relative overflow-hidden">
+                <img src="./gilmar_logo.jpeg" alt="Gilmar de Oliveira" class="absolute inset-0 w-full h-full object-cover transition-all duration-700 opacity-80 group-hover:opacity-100 group-hover:scale-105" onerror="this.onerror=null;this.src='./gilmar_logo.jpeg';">
+            </div>
+            <div class="p-6 flex-1 flex flex-col relative z-10 bg-black/75">
+              <h3 class="text-lg font-bold text-white mb-4 uppercase tracking-wide drop-shadow-md">Gilmar de Oliveira</h3>
+              <div class="space-y-3 flex-1">
+                <div>
+                  <h4 class="text-[11px] font-extrabold uppercase text-[#2563EB] tracking-[0.2em] mb-1 font-mono">O Cenário</h4>
+                  <p class="text-[13px] text-gray-300 leading-relaxed font-light">Déficit de autoridade imediata na captação B2B de alto nível.</p>
+                </div>
+                <div>
+                  <h4 class="text-[11px] font-extrabold uppercase text-white tracking-[0.2em] mb-1 font-mono">A Engenharia</h4>
+                  <p class="text-[13px] text-gray-300 leading-relaxed font-light">Plataforma institucional premium com rotas de captação blindadas.</p>
+                </div>
+              </div>
+              <a href="https://gilmaroliveira.com.br/" target="_blank" rel="noopener noreferrer" class="mt-6 pt-4 border-t border-white/10 text-[10px] font-bold uppercase tracking-widest text-[#2563EB] hover:text-white transition-colors flex items-center gap-2 group-hover:translate-x-1 duration-300">
+                Explorar Ativo <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="glass-panel rounded-3xl overflow-hidden flex flex-col group reveal delay-100 border border-white/10 shadow-2xl">
+            <div class="h-48 bg-white flex items-center justify-center p-6 border-b border-white/5 relative overflow-hidden">
+              <img src="./portal-da-multa-logo.jpeg" alt="Recurso da Multa" class="w-full h-full object-contain transition-all duration-700 group-hover:scale-105">
+            </div>
+            <div class="p-6 flex-1 flex flex-col relative z-10 bg-black/75">
+              <h3 class="text-lg font-bold text-white mb-4 uppercase tracking-wide drop-shadow-md">Recurso da Multa</h3>
+              <div class="space-y-3 flex-1">
+                <div>
+                  <h4 class="text-[11px] font-extrabold uppercase text-[#2563EB] tracking-[0.2em] mb-1 font-mono">O Cenário</h4>
+                  <p class="text-[13px] text-gray-300 leading-relaxed font-light">Custo por lead alto devido ao atrito e desconfiança jurídica digital.</p>
+                </div>
+                <div>
+                  <h4 class="text-[11px] font-extrabold uppercase text-white tracking-[0.2em] mb-1 font-mono">A Engenharia</h4>
+                  <p class="text-[13px] text-gray-300 leading-relaxed font-light">Landing Page One-Page com gatilhos de prova social e CTAs dinâmicos.</p>
+                </div>
+              </div>
+              <a href="https://recursodamulta.com.br/" target="_blank" rel="noopener noreferrer" class="mt-6 pt-4 border-t border-white/10 text-[10px] font-bold uppercase tracking-widest text-[#2563EB] hover:text-white transition-colors flex items-center gap-2 group-hover:translate-x-1 duration-300">
+                Explorar Ativo <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="glass-panel rounded-3xl overflow-hidden flex flex-col group reveal delay-100 border border-white/10 shadow-2xl">
+            <div class="h-48 bg-[#050505] flex items-center justify-center p-6 border-b border-white/5 relative overflow-hidden">
+              <img src="./Frontier.png" alt="Sul Frontier" class="absolute inset-0 w-full h-full object-cover transition-all duration-700 opacity-80 group-hover:opacity-100 group-hover:scale-105" onerror="this.onerror=null;this.src='./Frontier.jpeg';">
+            </div>
+            <div class="p-6 flex-1 flex flex-col relative z-10 bg-black/75">
+              <h3 class="text-lg font-bold text-white mb-4 uppercase tracking-wide drop-shadow-md">Sul Frontier</h3>
+              <div class="space-y-3 flex-1">
+                <div>
+                  <h4 class="text-[11px] font-extrabold uppercase text-[#2563EB] tracking-[0.2em] mb-1 font-mono">O Cenário</h4>
+                  <p class="text-[13px] text-gray-300 leading-relaxed font-light">Apresentação de ativos de luxo para fundos de investimento.</p>
+                </div>
+                <div>
+                  <h4 class="text-[11px] font-extrabold uppercase text-white tracking-[0.2em] mb-1 font-mono">A Engenharia</h4>
+                  <p class="text-[13px] text-gray-300 leading-relaxed font-light">Plataforma multilíngue (i18n), design imersivo e alta segurança.</p>
+                </div>
+              </div>
+              <a href="#diagnostico" class="mt-6 pt-4 border-t border-white/10 text-left text-[10px] font-bold uppercase tracking-widest text-[#2563EB] hover:text-white transition-colors flex items-center gap-2 group-hover:translate-x-1 duration-300">
+                Simular Modelo <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section class="bg-pure-800 py-24 border-b border-white/5 overflow-hidden relative">
+      <div class="mx-auto max-w-[90rem] px-6 relative z-10">
+        <div class="flex flex-col items-center gap-12 w-full">
+          <div class="flex flex-col items-center text-center max-w-3xl reveal">
+            <span class="text-[10px] font-extrabold uppercase tracking-[0.3em] text-brand-gold mb-3">A Prova Final</span>
+            <h2 class="text-3xl md:text-4xl font-black text-white tracking-tight uppercase">100% das avaliações no Google são 5 estrelas</h2>
+            <p class="mt-4 text-sm text-gray-400 font-light leading-relaxed">A excelência técnica validada publicamente. Nenhuma arquitetura se sustenta sem resultados reais.</p>
+          </div>
+          
+          <div class="relative w-full reveal delay-100">
+            <div id="drag-carousel" class="flex flex-nowrap items-stretch gap-4 md:gap-6 overflow-x-auto cursor-grab active:cursor-grabbing pb-8 select-none">
+              
+              <a href="https://www.google.com/maps/contrib/106366314779371299041/reviews?hl=pt-BR" target="_blank" rel="noopener noreferrer" class="shrink-0 w-[280px] md:w-[340px] bg-white rounded-[1.5rem] p-6 md:p-8 shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col border border-transparent hover:border-brand-gold/50">
+                <div class="flex justify-between items-start mb-4 md:mb-5">
+                  <div class="flex gap-3 md:gap-4 items-center">
+                    <img src="./cliente_samuel.png" class="w-10 h-10 rounded-full object-cover shadow-sm pointer-events-none" onerror="this.outerHTML='<div class=\'flex h-10 w-10 items-center justify-center rounded-full bg-pure-800 text-white font-bold\'>SP</div>'">
+                    <div><h4 class="text-pure-black font-bold text-sm tracking-tight">Samuel Pavesi</h4><p class="text-gray-500 text-[9px] md:text-[10px] uppercase font-bold tracking-widest mt-0.5">Avaliação Google</p></div>
+                  </div>
+                  <svg class="w-5 h-5 shrink-0 pointer-events-none" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+                </div>
+                <div class="flex items-center gap-1 mb-3 text-brand-gold text-lg tracking-widest pointer-events-none">★★★★★</div>
+                <p class="text-gray-700 text-xs leading-relaxed pointer-events-none font-medium flex-1">"Conheci o Nunes em um momento em que estava enfrentando muitos problemas... O que mais chamou atenção foi o comprometimento."</p>
+              </a>
+
+              <div class="shrink-0 w-[280px] md:w-[340px] bg-white rounded-[1.5rem] p-6 md:p-8 shadow-xl transition-all duration-300 flex flex-col border border-transparent">
+                <div class="flex justify-between items-start mb-4 md:mb-5">
+                  <div class="flex gap-3 md:gap-4 items-center">
+                    <img src="./Gabriel.png" class="w-10 h-10 rounded-full object-cover shadow-sm pointer-events-none" onerror="this.outerHTML='<div class=\'flex h-10 w-10 items-center justify-center rounded-full bg-slate-800 text-white font-bold\'>GM</div>'">
+                    <div><h4 class="text-pure-black font-bold text-sm tracking-tight">Gabriel Mataveli</h4><p class="text-gray-500 text-[9px] md:text-[10px] uppercase font-bold tracking-widest mt-0.5">Avaliação Google</p></div>
+                  </div>
+                  <svg class="w-5 h-5 shrink-0 pointer-events-none" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+                </div>
+                <div class="flex items-center gap-1 mb-3 text-brand-gold text-lg tracking-widest pointer-events-none">★★★★★</div>
+                <p class="text-gray-700 text-xs leading-relaxed pointer-events-none font-medium flex-1">"A KNS Consultoria é referência quando o assunto é monitoramento de redes e infraestrutura. O Kaleb tem uma visão muito aguçada, nos ajudou a resolver gargalos."</p>
+              </div>
+
+              <div class="shrink-0 w-[280px] md:w-[340px] bg-white rounded-[1.5rem] p-6 md:p-8 shadow-xl transition-all duration-300 flex flex-col border border-transparent">
+                <div class="flex justify-between items-start mb-4 md:mb-5">
+                  <div class="flex gap-3 md:gap-4 items-center">
+                    <img src="./joao.png" class="w-10 h-10 rounded-full object-cover shadow-sm pointer-events-none" onerror="this.outerHTML='<div class=\'flex h-10 w-10 items-center justify-center rounded-full bg-teal-800 text-white font-bold\'>JM</div>'">
+                    <div><h4 class="text-pure-black font-bold text-sm tracking-tight">João Mendes</h4><p class="text-gray-500 text-[9px] md:text-[10px] uppercase font-bold tracking-widest mt-0.5">Avaliação Google</p></div>
+                  </div>
+                  <svg class="w-5 h-5 shrink-0 pointer-events-none" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+                </div>
+                <div class="flex items-center gap-1 mb-3 text-brand-gold text-lg tracking-widest pointer-events-none">★★★★★</div>
+                <p class="text-gray-700 text-xs leading-relaxed pointer-events-none font-medium flex-1">"Excelente profissional. Entrega no prazo, comunicação clara. A estabilidade dos sistemas melhorou drasticamente."</p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LANDING PAGES -->
+    <section class="bg-[#050505] py-32 px-6 relative overflow-hidden border-t border-b border-white/5">
+      <div class="absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-[#2563EB]/10 blur-[120px] pointer-events-none rounded-full"></div>
+
+      <div class="max-w-[90rem] mx-auto grid lg:grid-cols-[1fr_1fr] gap-16 lg:gap-24 items-center relative z-10">
+        <div class="reveal">
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-[#2563EB]/10 border border-[#2563EB]/20 text-[#2563EB] text-[9px] font-extrabold uppercase tracking-[0.25em] mb-8">
+            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            Máxima Conversão Direta
+          </div>
+
+          <h2 class="text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight text-white leading-none mb-2">
+            Landing Pages
+          </h2>
+          <h3 class="text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight text-[#2563EB] leading-none mb-8">
+            A Máquina de Vendas
+          </h3>
+
+          <p class="text-gray-400 text-sm leading-relaxed mb-6 font-light max-w-2xl">
+            As Landing Pages (Páginas de Destino) são projetadas com um único objetivo absoluto: fazer o visitante tomar uma ação. Elas eliminam qualquer distração de menus complexos e navegações secundárias, focando unicamente na persuasão comercial e na facilidade de contato.
+          </p>
+          <p class="text-gray-400 text-sm leading-relaxed mb-12 font-light max-w-2xl">
+            Seja para campanhas de tráfego pago (Google Ads/Meta Ads), lançamento de produtos específicos, geração de leads qualificados ou apresentação rápida de ofertas de conversão imediata. Elas canalizam 100% da atenção do usuário para o formulário ou botão do WhatsApp.
+          </p>
+
+          <div class="grid sm:grid-cols-2 gap-y-8 gap-x-6 mb-12 max-w-2xl">
+            <div>
+              <div class="flex items-center gap-2 mb-2">
+                <svg class="w-4 h-4 text-[#2563EB]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                <h4 class="text-[11px] font-bold text-white uppercase tracking-widest">Funil Sem Fugas</h4>
+              </div>
+              <p class="text-xs text-gray-500 font-light pl-6 leading-relaxed">Sem cabeçalhos ou links externos distraindo o usuário.</p>
+            </div>
+            <div>
+              <div class="flex items-center gap-2 mb-2">
+                <svg class="w-4 h-4 text-[#2563EB]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                <h4 class="text-[11px] font-bold text-white uppercase tracking-widest">Carga Ultra-Rápida</h4>
+              </div>
+              <p class="text-xs text-gray-500 font-light pl-6 leading-relaxed">Código otimizado para segundos cruciais em smartphones.</p>
+            </div>
+            <div>
+              <div class="flex items-center gap-2 mb-2">
+                <svg class="w-4 h-4 text-[#2563EB]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                <h4 class="text-[11px] font-bold text-white uppercase tracking-widest">Tráfego Direcionado</h4>
+              </div>
+              <p class="text-xs text-gray-500 font-light pl-6 leading-relaxed">A extensão ideal de anúncios de alta intenção de compra.</p>
+            </div>
+            <div>
+              <div class="flex items-center gap-2 mb-2">
+                <svg class="w-4 h-4 text-[#2563EB]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                <h4 class="text-[11px] font-bold text-white uppercase tracking-widest">Mapeamento Analítico</h4>
+              </div>
+              <p class="text-xs text-gray-500 font-light pl-6 leading-relaxed">Testes A/B simplificados e monitoramento de cliques.</p>
+            </div>
+          </div>
+
+          <a href="#diagnostico" class="inline-flex items-center justify-center bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-extrabold px-8 py-4 rounded-lg uppercase tracking-[0.2em] text-[10px] transition-all duration-300 shadow-[0_0_20px_rgba(37,99,235,0.3)] hover:shadow-[0_0_30px_rgba(37,99,235,0.5)]">
+            Desenvolver Minha Landing Page
+          </a>
+        </div>
+
+        <div class="relative w-full transform transition-transform hover:-translate-y-2 duration-700 reveal delay-100 lg:pl-10">
+          <div class="absolute -inset-1 bg-gradient-to-r from-[#2563EB]/20 to-transparent blur-2xl opacity-50 rounded-[2rem] pointer-events-none"></div>
+          <div class="relative rounded-xl overflow-hidden border border-white/10 bg-[#0A0A0A] shadow-2xl">
+            <div class="bg-[#141414] px-4 py-3 flex items-center border-b border-white/5 relative">
+              <div class="flex gap-2 relative z-10">
+                <div class="w-3 h-3 rounded-full bg-[#FF5F56] border border-black/20"></div>
+                <div class="w-3 h-3 rounded-full bg-[#FFBD2E] border border-black/20"></div>
+                <div class="w-3 h-3 rounded-full bg-[#27C93F] border border-black/20"></div>
+              </div>
+              <div class="absolute left-1/2 -translate-x-1/2 bg-black/40 border border-white/5 rounded-md px-3 py-1 flex items-center gap-2">
+                <svg class="w-2.5 h-2.5 text-[#2563EB]" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path></svg>
+                <span class="text-[10px] text-gray-400 font-mono tracking-widest lowercase">rosasgarden.com.br</span>
+              </div>
+            </div>
+            <div class="relative w-full aspect-[4/3] bg-black group">
+              <img src="https://www.emetcode.com.br/images/rosas_garden_reference.jpg" alt="Rosas Garden Preview" class="absolute inset-0 w-full h-full object-contain">
+            </div>
+            <div class="bg-[#141414] px-4 py-2 flex items-center justify-between border-t border-white/5">
+              <span class="text-[9px] text-gray-600 font-mono tracking-widest uppercase">© 2026 Rosas Garden</span>
+              <div class="flex gap-4">
+                <span class="text-[9px] text-gray-600 font-mono tracking-widest uppercase">Catálogo</span>
+                <span class="text-[9px] text-gray-600 font-mono tracking-widest uppercase">Garantia</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- NOVA SEÇÃO: SITES CORPORATIVOS (QG DE AUTORIDADE) -->
+    <section class="bg-[#050505] py-32 px-6 relative overflow-hidden border-b border-white/5">
+      <!-- Efeito de Brilho de Fundo (Azul) alinhado à direita para balancear o layout -->
+      <div class="absolute top-1/2 right-0 -translate-y-1/2 w-[500px] h-[500px] bg-[#2563EB]/10 blur-[120px] pointer-events-none rounded-full"></div>
+
+      <div class="max-w-[90rem] mx-auto grid lg:grid-cols-[1fr_1fr] gap-16 lg:gap-24 items-center relative z-10">
+
+        <!-- COLUNA ESQUERDA (TEXTOS) -->
+        <div class="reveal order-1 lg:order-1">
+          
+          <!-- Badge Superior -->
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-[#2563EB]/10 border border-[#2563EB]/20 text-white text-[9px] font-extrabold uppercase tracking-[0.25em] mb-8">
+            <svg class="w-3 h-3 text-[#2563EB]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+            Presença Institucional Completa
+          </div>
+
+          <!-- Títulos -->
+          <h2 class="text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight text-white leading-none mb-2">
+            Sites Corporativos
+          </h2>
+          <h3 class="text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight text-[#2563EB] leading-none mb-8 drop-shadow-[0_0_15px_rgba(37,99,235,0.3)]">
+            O QG de Autoridade
+          </h3>
+
+          <!-- Parágrafos -->
+          <p class="text-gray-400 text-sm leading-relaxed mb-6 font-light max-w-2xl">
+            Os Sites Corporativos (Portais Institucionais) servem como a representação oficial e a central de autoridade digital da sua empresa. Eles possuem estruturas multi-páginas escaláveis projetadas para contar a história da marca, apresentar todo o portfólio de soluções, oferecer canais de suporte e reter tráfego orgânico via SEO de longo prazo.
+          </p>
+          <p class="text-gray-400 text-sm leading-relaxed mb-12 font-light max-w-2xl">
+            Esses portais transmitem máxima confiança e profissionalismo para grandes investidores, parceiros comerciais corporativos B2B e clientes que exigem rigidez e integridade institucional antes de firmarem contratos.
+          </p>
+
+          <!-- Grid de Benefícios (2x2) -->
+          <div class="grid sm:grid-cols-2 gap-y-8 gap-x-6 mb-12 max-w-2xl">
+            
+            <!-- Item 1 -->
+            <div>
+              <div class="flex items-center gap-2 mb-2">
+                <svg class="w-4 h-4 text-[#2563EB]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <h4 class="text-[11px] font-bold text-white uppercase tracking-widest">Autoridade e Confiança</h4>
+              </div>
+              <p class="text-xs text-gray-500 font-light pl-6 leading-relaxed">Toda a robustez e seriedade da sua empresa em exibição oficial.</p>
+            </div>
+
+            <!-- Item 2 -->
+            <div>
+              <div class="flex items-center gap-2 mb-2">
+                <svg class="w-4 h-4 text-[#2563EB]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <h4 class="text-[11px] font-bold text-white uppercase tracking-widest">Arquitetura Multi-página</h4>
+              </div>
+              <p class="text-xs text-gray-500 font-light pl-6 leading-relaxed">Rotas individuais e SEO avançado para ranqueamento no Google.</p>
+            </div>
+
+            <!-- Item 3 -->
+            <div>
+              <div class="flex items-center gap-2 mb-2">
+                <svg class="w-4 h-4 text-[#2563EB]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <h4 class="text-[11px] font-bold text-white uppercase tracking-widest">Portfólio de Soluções</h4>
+              </div>
+              <p class="text-xs text-gray-500 font-light pl-6 leading-relaxed">Catálogos complexos detalhando a engenharia de cada produto.</p>
+            </div>
+
+            <!-- Item 4 -->
+            <div>
+              <div class="flex items-center gap-2 mb-2">
+                <svg class="w-4 h-4 text-[#2563EB]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <h4 class="text-[11px] font-bold text-white uppercase tracking-widest">Suporte e Governança</h4>
+              </div>
+              <p class="text-xs text-gray-500 font-light pl-6 leading-relaxed">Canais estruturados para conformidade, LGPD e investidores.</p>
+            </div>
+
+          </div>
+
+          <!-- Botão CTA -->
+          <a href="#diagnostico" class="inline-flex items-center justify-center bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-extrabold px-8 py-4 rounded-lg uppercase tracking-[0.2em] text-[10px] transition-all duration-300 shadow-[0_0_20px_rgba(37,99,235,0.3)] hover:shadow-[0_0_30px_rgba(37,99,235,0.5)]">
+            Desenvolver Meu Site Corporativo
+          </a>
+          
+        </div>
+
+        <!-- COLUNA DIREITA (MOCKUP NAVEGADOR) -->
+        <div class="relative w-full transform transition-transform hover:-translate-y-2 duration-700 reveal delay-100 lg:pl-10 order-2 lg:order-2">
+          
+          <!-- Sombras azuis sob o navegador -->
+          <div class="absolute -inset-1 bg-gradient-to-r from-[#2563EB]/20 to-transparent blur-2xl opacity-50 rounded-[2rem] pointer-events-none"></div>
+
+          <!-- Janela do Navegador -->
+          <div class="relative rounded-xl overflow-hidden border border-white/10 bg-[#0A0A0A] shadow-2xl">
+            
+            <!-- Cabeçalho do Navegador -->
+            <div class="bg-[#141414] px-4 py-3 flex items-center border-b border-white/5 relative">
+              <div class="flex gap-2 relative z-10">
+                <div class="w-3 h-3 rounded-full bg-[#FF5F56] border border-black/20"></div>
+                <div class="w-3 h-3 rounded-full bg-[#FFBD2E] border border-black/20"></div>
+                <div class="w-3 h-3 rounded-full bg-[#27C93F] border border-black/20"></div>
+              </div>
+              <div class="absolute left-1/2 -translate-x-1/2 bg-black/40 border border-white/5 rounded-md px-3 py-1 flex items-center gap-2">
+                <svg class="w-2.5 h-2.5 text-[#2563EB]" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path></svg>
+                <span class="text-[10px] text-gray-400 font-mono tracking-widest lowercase">knsstudio.com.br</span>
+              </div>
             </div>
             
-            <div class="h-48 overflow-y-auto termos-scroll pr-4 mb-6 text-sm text-gray-400 text-justify space-y-4">
-                <p>Em conformidade com a <strong>Lei Geral de Proteção de Dados (Lei nº 13.709/2018)</strong>, os dados fornecidos na aplicação a seguir (Nome, Contato, Empresa) serão usados exclusivamente por nossos especialistas para diagnóstico do projeto e dimensionamento de escopo técnico.</p>
-                <p>Nenhuma informação corporativa ou pessoal trafegada neste formulário será comercializada ou repassada a terceiros. Ao avançar para o diagnóstico, você atesta a veracidade das informações e autoriza o contato comercial da KNS Consultoria via WhatsApp.</p>
+            <!-- Conteúdo do Site (Nova imagem inserida) -->
+            <div class="relative w-full aspect-[4/3] bg-[#050505] flex items-center justify-center group overflow-hidden">
+               <img src="./rosas_garden_corporate.webp" alt="Site Corporativo Preview" class="absolute inset-0 w-full h-full object-contain transition-transform duration-700 group-hover:scale-105" onerror="this.src='./rosas_garden_corporate.webp'">
             </div>
 
-            <label class="flex items-start gap-3 cursor-pointer mb-8 group">
-                <div class="relative flex items-center justify-center w-5 h-5 mt-0.5 border border-white/20 rounded bg-black-900 group-hover:border-gold-400 transition">
-                    <input type="checkbox" id="lgpd-checkbox" class="absolute opacity-0 w-full h-full cursor-pointer" onchange="validarCheckboxLGPD()">
-                    <svg id="lgpd-check-icon" class="w-3 h-3 text-gold-400 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
-                </div>
-                <span class="text-xs text-gray-300 leading-tight">Li, compreendi e autorizo o tratamento dos dados para seguir com o diagnóstico.</span>
-            </label>
-
-            <button id="btn-agree-lgpd" disabled onclick="aceitarLGPDAvancar()" class="w-full py-4 bg-white/5 border border-white/10 text-gray-500 font-bold tracking-widest text-xs uppercase rounded transition duration-300">Concordar e Continuar</button>
-        </div>
-
-        <div id="modal-compliance" class="hidden flex-col items-center justify-center">
-            <svg class="w-16 h-16 text-gold-400 animate-spin-slow mb-6" fill="none" viewBox="0 0 24 24">
-                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-            </svg>
-            <h3 class="text-xl font-serif text-white mb-2">Verificando Compliance...</h3>
-            <p class="text-xs text-gray-400 tracking-widest uppercase">Estabelecendo túnel de aplicação seguro</p>
-        </div>
-
-        <div id="modal-application" class="hidden w-full max-w-md bg-[#111] border border-gold-500/30 rounded-xl p-8 shadow-[0_0_50px_rgba(212,175,55,0.15)] relative">
-            <div class="text-center mb-6">
-                <div class="inline-flex items-center justify-center w-12 h-12 bg-gold-400/10 text-gold-400 rounded-full mb-4">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-                </div>
-                <h3 class="text-2xl font-serif text-white">Due Diligence do Projeto</h3>
-                <p class="text-xs text-gray-400 mt-1">Aplicação para o Plano <strong id="application-plan-name" class="text-gold-400"></strong></p>
+            <!-- Rodapé do Navegador -->
+            <div class="bg-[#141414] px-4 py-2 flex items-center justify-between border-t border-white/5">
+              <span class="text-[9px] text-gray-600 font-mono tracking-widest uppercase">© 2026 Grupo KNS</span>
+              <div class="flex gap-4">
+                <span class="text-[9px] text-gray-600 font-mono tracking-widest uppercase">Soluções</span>
+                <span class="text-[9px] text-gray-600 font-mono tracking-widest uppercase">Investidores</span>
+              </div>
             </div>
 
-            <form id="application-form" onsubmit="enviarAplicacaoParaEspecialista(event)" class="space-y-4">
-                <div>
-                    <label class="block text-[10px] text-gray-400 uppercase tracking-widest mb-1">Nome do Gestor / Responsável</label>
-                    <input type="text" id="app-name" required class="w-full bg-black-900 border border-white/10 rounded px-4 py-3 text-sm text-white focus:outline-none focus:border-gold-400 transition" placeholder="Como devemos chamá-lo?">
-                </div>
-                <div>
-                    <label class="block text-[10px] text-gray-400 uppercase tracking-widest mb-1">Nome da Empresa / Projeto</label>
-                    <input type="text" id="app-company" required class="w-full bg-black-900 border border-white/10 rounded px-4 py-3 text-sm text-white focus:outline-none focus:border-gold-400 transition" placeholder="Nome do seu negócio">
-                </div>
-                <div>
-                    <label class="block text-[10px] text-gray-400 uppercase tracking-widest mb-1">Seu WhatsApp (Com DDD)</label>
-                    <input type="text" id="app-whatsapp" required class="w-full bg-black-900 border border-white/10 rounded px-4 py-3 text-sm text-white focus:outline-none focus:border-gold-400 transition" placeholder="(00) 00000-0000">
-                </div>
-                <div>
-                    <label class="block text-[10px] text-gray-400 uppercase tracking-widest mb-1">Desafio / Objetivo Principal</label>
-                    <textarea id="app-goal" required rows="2" class="w-full bg-black-900 border border-white/10 rounded px-4 py-3 text-sm text-white focus:outline-none focus:border-gold-400 transition resize-none" placeholder="Ex: Preciso de uma landing page para captar leads..."></textarea>
-                </div>
+          </div>
+        </div>
 
-                <div class="bg-black-900 border border-white/5 rounded p-4 text-center mt-6">
-                    <span class="text-[10px] text-gray-400 uppercase tracking-widest block">Próximo Passo</span>
-                    <span class="text-sm font-bold text-white mt-1 block">O especialista fará a análise técnica e retornará com o escopo e orçamento.</span>
-                </div>
+      </div>
+    </section>
 
-                <button type="submit" class="w-full py-4 mt-6 bg-gold-400 text-black font-bold text-center hover:bg-white transition uppercase tracking-widest text-xs flex justify-center items-center gap-2 rounded">
-                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.016-.967-.259-.099-.447-.149-.634.149-.188.297-.768.967-.941 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.634-1.529-.868-2.093-.224-.548-.455-.474-.634-.482-.174-.008-.372-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                    <span>Enviar para o Especialista</span>
+    <!-- OS 4 CARDS FLUTUANTES (LINKS AJUSTADOS PARA .HTML) -->
+    <div class="relative z-30 max-w-7xl mx-auto px-8 mt-[-60px] md:mt-[-100px] mb-12">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 w-full">
+        
+        <a class="group bg-[#121214] rounded-xl border border-white/[0.08] p-6 hover:border-[#2563EB]/40 transition-all cursor-pointer" href="kns-erp.html">
+          <div class="flex items-center justify-between mb-4">
+            <div class="p-2 rounded bg-white/5 border border-white/[0.06]">
+              <div class="w-5 h-5 bg-[#2563EB] rounded-sm"></div>
+            </div>
+            <span class="w-1.5 h-1.5 rounded-full bg-[#2563EB] animate-pulse"></span>
+          </div>
+          <h3 class="text-sm font-extrabold text-white group-hover:text-[#2563EB] transition-colors uppercase tracking-wider">KNS ERP</h3>
+          <p class="text-xs text-zinc-400 mt-3 leading-relaxed font-medium">Ecossistema Multi-tenant completo para consolidar dezenas de CNPJs e supply chain robusto.</p>
+        </a>
+
+        <a class="group bg-[#121214] rounded-xl border border-white/[0.08] p-6 hover:border-[#10B981]/40 transition-all cursor-pointer" href="omni-projects.html">
+          <div class="flex items-center justify-between mb-4">
+            <div class="p-2 rounded bg-white/5 border border-white/[0.06]">
+              <div class="w-5 h-5 bg-emerald-400 rounded-sm"></div>
+            </div>
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          </div>
+          <h3 class="text-sm font-extrabold text-white group-hover:text-[#10B981] transition-colors uppercase tracking-wider">Omni Projects</h3>
+          <p class="text-xs text-zinc-400 mt-3 leading-relaxed font-medium">Gestão ágil de equipes, sprints de engenharia e produtividade sem atritos ou burocracias.</p>
+        </a>
+
+        <a class="group bg-[#121214] rounded-xl border border-white/[0.08] p-6 hover:border-[#F97316]/40 transition-all cursor-pointer" href="firecrm.html">
+          <div class="flex items-center justify-between mb-4">
+            <div class="p-2 rounded bg-white/5 border border-white/[0.06]">
+              <div class="w-5 h-5 bg-orange-400 rounded-sm"></div>
+            </div>
+            <span class="w-1.5 h-1.5 rounded-full bg-orange-400 animate-pulse"></span>
+          </div>
+          <h3 class="text-sm font-extrabold text-white group-hover:text-[#F97316] transition-colors uppercase tracking-wider">FireCRM</h3>
+          <p class="text-xs text-zinc-400 mt-3 leading-relaxed font-medium">Automação comercial de funil com inteligência preditiva por IA e gestão de pós-vendas.</p>
+        </a>
+
+        <a class="group bg-[#121214] rounded-xl border border-white/[0.08] p-6 hover:border-[#06B6D4]/40 transition-all cursor-pointer" href="herosites.html">
+          <div class="flex items-center justify-between mb-4">
+            <div class="p-2 rounded bg-white/5 border border-white/[0.06]">
+              <div class="w-5 h-5 bg-cyan-400 rounded-sm"></div>
+            </div>
+            <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+          </div>
+          <h3 class="text-sm font-extrabold text-white group-hover:text-[#06B6D4] transition-colors uppercase tracking-wider">HeroSites</h3>
+          <p class="text-xs text-zinc-400 mt-3 leading-relaxed font-medium">Landing pages de conversão e websites corporativos institucionais de alta performance.</p>
+        </a>
+      </div>
+    </div>
+      
+    <section class="w-full bg-[#F5F5F5] py-24 text-[#171717] px-8 border-b border-black/5 relative overflow-hidden">
+      <div class="max-w-7xl mx-auto relative z-10 flex flex-col md:flex-row gap-12 items-start">
+        <div class="max-w-3xl">
+          <span class="text-xs font-bold uppercase tracking-widest text-[#2563EB] mb-4 block">No que acreditamos</span>
+          <h2 class="text-3xl md:text-5xl font-extrabold uppercase leading-tight font-sans text-[#171717]">
+            <span class="text-zinc-500">Nossa Missão:</span> democratizar o poder dos grandes sistemas entregando performance, produtividade e <span class="text-[#2563EB]">resultados reais</span>
+          </h2>
+        </div>
+        <div class="md:mt-10 max-w-md space-y-4">
+          <p class="text-sm text-zinc-600 leading-relaxed font-medium">Nossa equipe não quer te vender sistemas ou sites. Queremos entregar a solução para sua empresa reduzir custos, automatizar tarefas, ganhar inteligência e autonomia.</p>
+        </div>
+      </div>
+    </section>
+
+   <section class="relative w-full bg-[#0B0B0D] py-28 text-white px-8 overflow-hidden border-b border-white/[0.05]">
+      <div class="absolute inset-0 z-0 flex items-center justify-center overflow-hidden">
+        <video autoplay loop muted playsinline class="w-full h-full object-cover opacity-80 brightness-150 pointer-events-none">
+          <source src="firecrmhero.mp4" type="video/mp4">
+        </video>
+        <div class="absolute inset-0 bg-[#0B0B0D]/60 pointer-events-none"></div>
+      </div>
+
+      <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center relative z-10">
+        <div class="relative group rounded-2xl border border-white/[0.08] bg-black/40 p-3 overflow-hidden shadow-2xl">
+          <div class="relative rounded-xl overflow-hidden aspect-[4/3] bg-[#121214] shadow-inner flex items-center justify-center text-zinc-500 text-sm font-mono border border-white/5">
+            <img src="security_layer.png" alt="Security Layer" class="w-full h-full object-cover">
+            <div class="absolute bottom-4 left-4 z-10"><span class="text-[10px] font-mono bg-[#2563EB] px-2 py-0.5 rounded text-white font-bold uppercase tracking-wider">Vault Secure</span></div>
+          </div>
+        </div>
+        
+        <div class="space-y-6">
+          <span class="text-xs font-bold uppercase tracking-widest text-[#06B6D4] drop-shadow-md">Segurança & Hardening</span>
+          <h2 class="text-4xl md:text-5xl font-black uppercase leading-tight drop-shadow-lg">Infraestrutura sob o Protocolo 09</h2>
+          <p class="text-sm text-zinc-300 leading-relaxed">Seus dados operacionais e fiscais são blindados sob as diretrizes estritas de nossa engenharia interna. Implementamos isolamento absoluto físico e lógico por projeto.</p>
+          
+          <div class="grid grid-cols-2 gap-6 pt-4 text-xs font-mono text-zinc-200">
+            <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#2563EB] shadow-[0_0_8px_#2563EB]"></span>Isolamento Físico</div>
+            <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#10B981] shadow-[0_0_8px_#10B981]"></span>Zero Hardcoded Credentials</div>
+            <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#F97316] shadow-[0_0_8px_#F97316]"></span>Row Level Security (RLS)</div>
+            <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#06B6D4] shadow-[0_0_8px_#06B6D4]"></span>Criptografia SHA-256</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="w-full bg-[#F5F5F5] py-28 text-[#171717] px-8 relative overflow-hidden border-t border-black/5">
+      <div class="relative z-10 max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-start">
+        <div class="space-y-6">
+          <span class="text-xs font-bold uppercase tracking-widest text-[#2563EB]">Service as a Software</span>
+          <h2 class="text-4xl md:text-5xl font-black uppercase leading-tight text-[#171717]">Vamos Desenhar a Sua Nova Operação?</h2>
+          <p class="text-sm text-zinc-600 leading-relaxed font-medium">Deixe os sistemas engessados para trás. Preencha o formulário ao lado para agendar um diagnóstico de arquitetura gratuito com o nosso time de engenharia.</p>
+        </div>
+        <form class="bg-white rounded-xl border border-black/5 p-8 shadow-xl space-y-6 max-w-lg w-full relative z-10">
+          <div class="space-y-1">
+            <label class="text-[14px] font-mono uppercase text-zinc-500 tracking-wider">Nome Completo</label>
+            <input type="text" required placeholder="Seu nome" class="w-full bg-transparent border-b border-zinc-200 py-2.5 text-sm outline-none focus:border-[#2563EB]">
+          </div>
+          <div class="space-y-1">
+            <label class="text-[14px] font-mono uppercase text-zinc-500 tracking-wider">WhatsApp Comercial</label>
+            <input type="tel" required placeholder="(00) 00000-0000" class="w-full bg-transparent border-b border-zinc-200 py-2.5 text-sm outline-none focus:border-[#2563EB]">
+          </div>
+          <div class="pt-4">
+            <button type="submit" class="w-full h-12 bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-bold rounded-lg transition-all duration-300">Agendar Diagnóstico</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section id="planos" class="bg-[#050505] py-32 border-t border-white/5 relative overflow-hidden pt-40">
+      <div class="absolute inset-0 z-0 opacity-20 pointer-events-none">
+        <div class="absolute w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-[120px] top-0 left-0"></div>
+        <div class="absolute w-[600px] h-[600px] bg-emerald-500/10 rounded-full blur-[120px] bottom-0 right-0"></div>
+      </div>
+
+      <div class="mx-auto max-w-[90rem] px-6 lg:px-12 relative z-10">
+        <div class="text-center reveal max-w-3xl mx-auto flex flex-col items-center">
+          <span class="inline-flex items-center gap-2 border border-emerald-500/30 text-emerald-500 text-[10px] font-extrabold uppercase px-4 py-1.5 rounded-full bg-emerald-500/10 mb-6 tracking-widest">
+            Fase Beta Exclusiva
+          </span>
+          <h2 class="text-4xl md:text-5xl font-black text-white tracking-tight drop-shadow-md mb-6">Projetos sob medida.</h2>
+          <p class="text-sm md:text-base text-gray-400 font-light leading-relaxed">
+            Neste momento, não praticamos preços de prateleira. Estamos em fase Beta, atendendo clientes selecionados com <strong class="text-white">máxima personalização</strong>, valores acessíveis e onboarding exclusivo com os desenvolvedores para garantir o sucesso absoluto da implantação.
+          </p>
+        </div>
+        
+        <div class="mt-20 grid gap-8 lg:grid-cols-3 max-w-6xl mx-auto">
+          
+          <article class="bg-[#111111] border border-white/5 rounded-3xl p-10 reveal delay-100 flex flex-col shadow-2xl relative mt-4">
+             <h3 class="text-2xl font-bold text-white tracking-wide">Essencial</h3>
+             <p class="text-xs text-gray-400 mt-3 font-light leading-relaxed mb-8">Sistema completo com todo o backoffice de gestão, ideal para atender a maior parte dos negócios.</p>
+             <div class="mb-6">
+               <div class="text-3xl font-black text-white">Sob Consulta</div>
+               <div class="text-[10px] text-gray-500 mt-1 font-medium">Preços acessíveis durante o Beta</div>
+             </div>
+             <a href="#diagnostico" class="w-full py-3.5 bg-[#222222] hover:bg-[#333333] text-white text-sm font-bold rounded-lg text-center transition-colors mb-8 shadow-inner border border-white/5">
+               Solicitar Convite
+             </a>
+             <ul class="space-y-4 text-xs text-gray-300 font-medium">
+               <li class="flex items-start gap-3"><svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Gestão financeira e fiscal unificada</li>
+               <li class="flex items-start gap-3"><svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Controle de estoque centralizado</li>
+               <li class="flex items-start gap-3"><svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Dashboards essenciais em tempo real</li>
+               <li class="flex items-start gap-3"><svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Cadastro de produtos e fornecedores</li>
+               <li class="flex items-start gap-3"><svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Suporte direto e humanizado</li>
+             </ul>
+          </article>
+          
+          <article class="bg-[#111111] border border-white/20 rounded-3xl p-10 relative transform lg:-translate-y-4 reveal delay-500 flex flex-col shadow-[0_0_30px_rgba(255,255,255,0.05)]">
+             <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-white text-black text-[10px] font-black px-4 py-1.5 rounded-full uppercase tracking-wider shadow-lg">
+               Mais Escolhido
+             </div>
+             <h3 class="text-2xl font-bold text-white tracking-wide mt-2">Growth</h3>
+             <p class="text-xs text-gray-400 mt-3 font-light leading-relaxed mb-8">Tudo do plano Essencial + módulos especiais para seu modelo de negócio + sistema Omni integrado nativamente.</p>
+             <div class="mb-6">
+               <div class="text-3xl font-black text-white">Sob Consulta</div>
+               <div class="text-[10px] text-gray-500 mt-1 font-medium">Preços acessíveis durante o Beta</div>
+             </div>
+             <a href="#diagnostico" class="w-full py-3.5 bg-white hover:bg-gray-200 text-black text-sm font-bold rounded-lg text-center transition-colors mb-8 shadow-md">
+               Solicitar Convite
+             </a>
+             <ul class="space-y-4 text-xs text-gray-300 font-medium">
+               <li class="flex items-start gap-3"><svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Tudo do plano Essencial</li>
+               <li class="flex items-start gap-3"><svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Funcionalidades específicas do seu segmento</li>
+               <li class="flex items-start gap-3"><svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Integração nativa com o ecossistema Omni</li>
+               <li class="flex items-start gap-3"><svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Múltiplas integrações (PDVs, iFood, etc)</li>
+             </ul>
+          </article>
+          
+          <article class="bg-[#0A120D] border border-emerald-500/20 rounded-3xl p-10 relative reveal delay-300 flex flex-col shadow-2xl mt-4">
+             <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-yellow-500 to-amber-400 text-black text-[10px] font-black px-4 py-1.5 rounded-full uppercase tracking-wider shadow-lg">
+               Premium
+             </div>
+             <h3 class="text-2xl font-bold text-emerald-500 tracking-wide mt-2">Omni</h3>
+             <p class="text-xs text-gray-400 mt-3 font-light leading-relaxed mb-8">Comercializado separadamente. O sistema ideal de gestão de projetos para lideranças.</p>
+             <div class="mb-6">
+               <div class="text-3xl font-black text-white">Sob Consulta</div>
+               <div class="text-[10px] text-yellow-500 mt-1 font-medium">Preços acessíveis durante o Beta</div>
+             </div>
+             <a href="#diagnostico" class="w-full py-3.5 bg-emerald-500 hover:bg-emerald-600 text-white text-sm font-bold rounded-lg text-center transition-colors mb-8 shadow-[0_0_15px_rgba(16,185,129,0.3)]">
+               Solicitar Convite
+             </a>
+             <ul class="space-y-4 text-xs text-gray-300 font-medium">
+               <li class="flex items-start gap-3"><svg class="w-4 h-4 text-yellow-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Gestão completa de projetos e tarefas</li>
+               <li class="flex items-start gap-3"><svg class="w-4 h-4 text-yellow-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Controle e engajamento de equipes</li>
+               <li class="flex items-start gap-3"><svg class="w-4 h-4 text-yellow-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Kanban e cronogramas interativos</li>
+               <li class="flex items-start gap-3"><svg class="w-4 h-4 text-yellow-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Relatórios de produtividade</li>
+               <li class="flex items-start gap-3"><svg class="w-4 h-4 text-yellow-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Integração perfeita com o NexoHUB Growth</li>
+             </ul>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="diagnostico" class="bg-[#000000] py-32 relative overflow-hidden pt-40">
+      <div class="absolute inset-0 z-0 flex items-center justify-center">
+        <video autoplay loop muted playsinline webkit-playsinline class="min-w-full min-h-full object-cover opacity-70 pointer-events-none scale-105">
+          <source src="https://www.emetcode.com.br/videos/trespilares.mp4" type="video/mp4">
+        </video>
+        <div class="absolute inset-0 bg-black/50"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-black via-transparent to-black/90"></div>
+      </div>
+
+      <div class="mx-auto grid max-w-[90rem] gap-16 px-6 lg:grid-cols-[0.8fr_1.2fr] items-start relative z-10">
+        
+        <div class="sticky top-32 reveal">
+          <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-brand-gold/10 border border-brand-gold/20 text-brand-gold text-[8.5px] font-black uppercase tracking-[0.25em] mb-6 shadow-[0_0_15px_rgba(212,175,55,0.1)]">
+            <span class="w-1.5 h-1.5 rounded-full bg-brand-gold animate-pulse"></span> Análise Operacional
+          </span>
+          <h2 class="text-4xl sm:text-5xl font-black tracking-tight text-white leading-tight uppercase">
+            Radar Digital <br/>KNS Studio.
+          </h2>
+          <p class="mt-6 text-sm leading-relaxed text-gray-300 font-light">
+            Responda às 4 etapas do painel. O algoritmo estruturará o gargalo web e enviará o relatório diretamente para o nosso terminal via WhatsApp.
+          </p>
+          <div class="mt-10 rounded-2xl border border-white/10 glass p-6 shadow-xl">
+            <h4 class="font-bold text-white text-xs mb-2 flex items-center gap-2 uppercase tracking-widest font-mono">
+              <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse shadow-[0_0_10px_#ef4444]"></span> Protocolo NDA (Sigilo)
+            </h4>
+            <p class="text-xs leading-relaxed text-gray-400 font-light">
+              Sua estratégia de tráfego e dados operacionais estão protegidos sob sigilo de engenharia. O objetivo aqui é exclusivamente identificar o vazamento de lucro.
+            </p>
+          </div>
+        </div>
+
+        <div class="glass rounded-3xl p-8 md:p-12 relative reveal delay-100 shadow-[0_30px_60px_rgba(0,0,0,0.9)]">
+          <div class="w-full bg-black h-1 mb-10 rounded-full overflow-hidden border border-white/5">
+            <div id="progress-bar" class="bg-brand-gold h-full transition-all duration-700 ease-out shadow-[0_0_10px_#D4AF37]" style="width: 25%"></div>
+          </div>
+
+          <form id="stepper-form">
+            <div id="step-1" class="step-content active block">
+              <h3 class="text-xl font-bold text-white mb-8 border-b border-white/5 pb-4 uppercase tracking-wide">1. Matriz do Negócio</h3>
+              <div class="space-y-5">
+                <label class="block">
+                  <span class="mb-2 block text-[14px] font-extrabold uppercase tracking-[.25em] text-gray-400">Segmento</span>
+                  <select id="step1-nicho" class="focus-ring w-full rounded-xl border border-white/10 bg-[#121214] px-5 py-4 text-sm text-gray-200 outline-none" required>
+                    <option value="" disabled selected>Defina sua área de atuação...</option>
+                    <option value="Prestador de serviço">Serviços Premium B2B/B2C</option>
+                    <option value="Clínica">Saúde e Estética de Alto Padrão</option>
+                    <option value="Imobiliária/Construção">Mercado Imobiliário / High-End</option>
+                    <option value="Consultoria">Advocacia / Consultoria Financeira</option>
+                    <option value="Infoproduto">SaaS / Plataformas Digitais</option>
+                  </select>
+                </label>
+                <label class="block">
+                  <span class="mb-2 block text-[14px] font-extrabold uppercase tracking-[.25em] text-gray-400">Ticket Médio (LTV)</span>
+                  <select id="step1-ticket" class="focus-ring w-full rounded-xl border border-white/08 bg-[#121214] px-5 py-4 text-sm text-gray-80 outline-none" required>
+                    <option value="" disabled selected>Necessário para cálculo de ROI...</option>
+                    <option value="Até R$ 500">Volume (Até R$ 500)</option>
+                    <option value="R$ 500 - R$ 2.000">Médio (R$ 500 a R$ 2.000)</option>
+                    <option value="R$ 2.000 - R$ 10.000">Alto (R$ 2.000 a R$ 10.000)</option>
+                    <option value="Acima de R$ 10.000">High-Ticket (Acima de R$ 10.000)</option>
+                  </select>
+                </label>
+              </div>
+              <div class="mt-8 flex justify-end">
+                <button type="button" onclick="avancarStep(1, 2)" class="rounded-lg bg-brand-gold px-8 py-4 text-xs font-extrabold uppercase tracking-[.2em] text-white">Avançar Etapa →</button>
+              </div>
+            </div>
+
+            <div id="step-2" class="step-content hidden">
+              <h3 class="text-xl font-bold text-white mb-8 border-b border-white/5 pb-4 uppercase tracking-wide">2. Arquitetura Atual</h3>
+              <div class="space-y-5">
+                <label class="block">
+                  <span class="mb-2 block text-[14px] font-extrabold uppercase tracking-[.25em] text-gray-400">Status Web</span>
+                  <select id="step2-site" class="focus-ring w-full rounded-xl border border-white/10 bg-[#121214] px-5 py-4 text-sm text-gray-200 outline-none" required>
+                    <option value="" disabled selected>Diagnóstico do site...</option>
+                    <option value="Não tenho">Inexistente (Apenas Instagram/Redes Sociais)</option>
+                    <option value="Antigo/Amador">Sistema Legado (Antigo e Lento)</option>
+                    <option value="Não converte">Vitrine (Bonito, mas não rastreia leads)</option>
+                    <option value="Escala">Tracionando (Preciso de GA4 e infra robusta)</option>
+                  </select>
+                </label>
+                <label class="block">
+                  <span class="mb-2 block text-[14px] font-extrabold uppercase tracking-[.25em] text-gray-400">Motor de Aquisição</span>
+                  <select id="step2-ads" class="focus-ring w-full rounded-xl border border-white/10 bg-[#121214] px-5 py-4 text-sm text-gray-200 outline-none" required>
+                    <option value="" disabled selected>Fonte de tráfego...</option>
+                    <option value="Já invisto forte">Google Ads / Meta Ads (Tráfego Pago)</option>
+                    <option value="Vou iniciar">Preparo o terreno para escalar</option>
+                    <option value="Orgânico">Apenas indicação / SEO Orgânico</option>
+                  </select>
+                </label>
+              </div>
+              <div class="mt-8 flex justify-between items-center">
+                <button type="button" onclick="voltarStep(2, 1)" class="text-gray-500 hover:text-white text-[10px] font-extrabold uppercase tracking-[.2em] transition-colors">← Voltar</button>
+                <button type="button" onclick="avancarStep(2, 3)" class="rounded-lg bg-brand-gold px-8 py-4 text-xs font-extrabold uppercase tracking-[.2em] text-white">Avançar Etapa →</button>
+              </div>
+            </div>
+
+            <div id="step-3" class="step-content hidden">
+              <h3 class="text-xl font-bold text-white mb-8 border-b border-white/5 pb-4 uppercase tracking-wide">3. Foco do Engenheiro</h3>
+              <div class="space-y-5">
+                <label class="block">
+                  <span class="mb-2 block text-[14px] font-extrabold uppercase tracking-[.25em] text-gray-400">Gargalo Crítico</span>
+                  <select id="step3-objetivo" class="focus-ring w-full rounded-xl border border-white/10 bg-[#121214] px-5 py-4 text-sm text-gray-200 outline-none" required>
+                    <option value="" disabled selected>Onde o caixa está sangrando?</option>
+                    <option value="Conversao">Atrito (Cliques no Ads não chegam no WhatsApp)</option>
+                    <option value="Autoridade">Posicionamento (Descontos e Pechincha do cliente)</option>
+                    <option value="Rastreamento GA4">Cegueira (Não sei o ROI das minhas campanhas)</option>
+                    <option value="Reestruturação Total">Rebuild Total (Zero até Escala)</option>
+                  </select>
+                </label>
+                <label class="block">
+                  <span class="mb-2 block text-[14px] font-extrabold uppercase tracking-[.25em] text-gray-400">Deadline</span>
+                  <select id="step3-prazo" class="focus-ring w-full rounded-xl border border-white/10 bg-[#121214] px-5 py-4 text-sm text-gray-200 outline-none" required>
+                    <option value="" disabled selected>Janela de execução...</option>
+                    <option value="Imediato">Missão Crítica (Início imediato)</option>
+                    <option value="30 dias">Ciclo normal (Próximos 30 a 45 dias)</option>
+                    <option value="Planejamento">Planejamento Estratégico (Sem urgência)</option>
+                  </select>
+                </label>
+              </div>
+              <div class="mt-8 flex justify-between items-center">
+                <button type="button" onclick="voltarStep(3, 2)" class="text-gray-500 hover:text-white text-[10px] font-extrabold uppercase tracking-[.2em] transition-colors">← Voltar</button>
+                <button type="button" onclick="avancarStep(3, 4)" class="rounded-lg bg-brand-gold px-8 py-4 text-xs font-extrabold uppercase tracking-[.2em] text-white">Concluir Matriz →</button>
+              </div>
+            </div>
+
+            <div id="step-4" class="step-content hidden">
+              <h3 class="text-xl font-bold text-white mb-2 uppercase tracking-wide">4. Roteamento do Laudo</h3>
+              <p class="text-xs text-gray-400 font-light mb-8 border-b border-white/5 pb-4">Identidade para recebimento do projeto técnico.</p>
+              <div class="space-y-5">
+                <label class="block">
+                  <span class="mb-2 block text-[14px] font-extrabold uppercase tracking-[.25em] text-gray-400">Nome Completo</span>
+                  <input id="step4-nome" type="text" class="focus-ring w-full rounded-xl border border-white/10 bg-[#121214] px-5 py-4 text-sm text-white placeholder-gray-600 outline-none" placeholder="Nome Completo" required>
+                </label>
+                <label class="block">
+                  <span class="mb-2 block text-[14px] font-extrabold uppercase tracking-[.25em] text-gray-400">WhatsApp Executivo</span>
+                  <input id="step4-whatsapp" type="tel" class="focus-ring w-full rounded-xl border border-white/10 bg-[#121214] px-5 py-4 text-sm text-white placeholder-gray-600 outline-none" placeholder="(DDD) + Número" required>
+                </label>
+              </div>
+              
+              <!-- CLÁUSULA DE CONSENTIMENTO -->
+              <div class="mt-6 mb-6 p-4 rounded-lg bg-[#2563EB]/5 border border-[#2563EB]/20 text-[10px] text-gray-400 font-light leading-relaxed">
+                <svg class="w-3 h-3 inline text-[#2563EB] mb-0.5 mr-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path></svg>
+                <strong>Consentimento LGPD:</strong> Ao clicar em "Disparar Radar", você autoriza a KNS Studio a processar os dados preenchidos exclusivamente para fins de diagnóstico de arquitetura e contato comercial, de acordo com a nossa <a href="/privacidade" class="text-[#2563EB] hover:underline cursor-pointer">Política de Privacidade</a>.
+              </div>
+
+              <div class="mt-2 flex justify-between items-center">
+                <button type="button" onclick="voltarStep(4, 3)" class="text-gray-500 hover:text-white text-[14px] font-extrabold uppercase tracking-[.2em] transition-colors">← Voltar</button>
+                <button type="button" onclick="finalizarStepper()" class="inline-flex items-center justify-center gap-2 bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-extrabold px-8 py-4 rounded-lg uppercase tracking-[0.2em] text-[10px] transition-all duration-300 shadow-[0_0_20px_rgba(37,99,235,0.3)] hover:shadow-[0_0_30px_rgba(37,99,235,0.5)]">
+                   Disparar Radar <span>✓</span>
                 </button>
-            </form>
-            <p class="text-[9px] text-gray-600 text-center mt-6 uppercase tracking-widest">Protocolo 09 - Processo Blindado</p>
-            <button onclick="fecharFluxoSeguro()" class="absolute top-4 right-4 text-gray-500 hover:text-white transition">✕</button>
-        </div>
-
-        <div id="modal-politica-privacidade" class="hidden w-full max-w-2xl bg-[#111] border border-white/10 rounded-xl p-8 shadow-2xl relative max-h-[80vh] flex flex-col">
-            <div class="flex items-center justify-between mb-6">
-                <h3 class="text-xl font-serif text-white flex items-center gap-2">
-                    <svg class="w-6 h-6 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-                    Governança e Compliance
-                </h3>
-                <button onclick="fecharModalPolitica()" class="text-gray-500 hover:text-white transition">✕</button>
+              </div>
             </div>
-            
-            <div class="overflow-y-auto termos-scroll pr-4 mb-6 text-sm text-gray-400 text-justify space-y-5 flex-grow">
-                <p><strong class="text-white">1. Proteção de Dados e LGPD</strong><br>A KNS Consultoria assegura que os dados coletados neste domínio são submetidos a criptografia avançada (AES-256). Proibimos a comercialização ou repasse de informações de clientes a terceiros. Todo o tratamento de dados é realizado estritamente para a viabilização técnica e contratual do projeto, alinhado à Lei Geral de Proteção de Dados Pessoais (Lei nº 13.709/2018).</p>
-                
-                <p><strong class="text-white">2. Conformidade Fiscal e Receita Federal do Brasil</strong><br>Nossa corporação opera sob total transparência fiscal. Todo investimento e transação financeira processados via site geram recolhimento de tributos e a respectiva emissão automática de Nota Fiscal de Serviços Eletrônica (NFS-e), amarrada ao CPF ou CNPJ informado.</p>
-                
-                <p><strong class="text-white">3. Normativas Google e Algoritmos White-Hat</strong><br>Nossa infraestrutura web respeita rigorosamente as diretrizes para webmasters do <em>Google Search Central</em>. Não utilizamos práticas abusivas que ferem os termos de serviço dos motores de busca. A inteligência artificial e os scripts de indexação empregados focam unicamente na legibilidade do código, garantindo rankeamento orgânico ético e livre de penalizações.</p>
-            </div>
-
-            <button onclick="fecharModalPolitica()" class="w-full py-4 bg-gold-400 text-black font-bold tracking-widest text-xs uppercase rounded hover:bg-white transition duration-300">Ciente da Governança</button>
+          </form>
         </div>
+      </div>
+    </section>
 
+  </main>
+
+  <footer class="bg-black pt-24 pb-12 relative border-t border-white/10 overflow-hidden">
+    <div class="absolute bottom-[-2%] left-1/2 -translate-x-1/2 w-full text-center pointer-events-none opacity-[0.03] select-none z-0">
+      <span class="text-[13vw] font-serif font-black whitespace-nowrap tracking-tighter">KNS STUDIO</span>
     </div>
 
-    <footer class="py-12 bg-[#0f0f0f] border-t border-white/5 relative z-10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
-            
-            <div class="text-center md:text-left">
-                <span class="text-lg font-bold text-white tracking-tight font-serif">Kaleb <span class="text-gold-400">Consultoria</span></span>
-                <p class="text-[10px] text-gray-600 mt-1 uppercase tracking-widest">Infraestrutura Digital de Alta Performance.</p>
-            </div>
-
-            <div class="flex flex-col items-center md:items-end">
-                <div class="flex flex-col text-xs space-y-1 text-right mb-4">
-                    <a href="mailto:kalebdossantos59924@gmail.com" class="stealth-link text-gray-300 hover:text-white">kalebdossantos59924@gmail.com</a>
-                </div>
-                
-                <div class="flex space-x-5">
-                    <a href="https://www.linkedin.com/in/kalebnunes" target="_blank" class="group">
-                        <svg class="h-5 w-5 social-icon" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                    </a>
-                    <a href="https://github.com/Kaleb-Nunes" target="_blank" class="group">
-                        <svg class="h-5 w-5 social-icon" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                    </a>
-                    <a href="https://www.youtube.com/@KalebNunesIT" target="_blank" class="group">
-                        <svg class="h-5 w-5 social-icon" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
-                    </a>
-                    <a href="https://www.instagram.com/kalebnunes.tech/" target="_blank" class="group">
-                        <svg class="h-5 w-5 social-icon" viewBox="0 0 24 24" fill="currentColor">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C9.283 2 8.943 2.012 7.858 2.061C6.776 2.11 6.037 2.28 5.412 2.523C4.766 2.774 4.225 3.102 3.684 3.643C3.143 4.184 2.815 4.725 2.564 5.371C2.321 5.996 2.15 6.735 2.101 7.817C2.052 8.902 2.04 9.242 2.04 11.96C2.04 14.678 2.052 15.018 2.101 16.103C2.15 17.185 2.321 17.924 2.564 18.549C2.815 19.195 3.143 19.736 3.684 20.277C4.225 20.818 4.766 21.146 5.412 21.397C6.037 21.64 6.776 21.81 7.858 21.859C8.943 21.908 9.283 21.92 12 21.92C14.717 21.92 15.057 21.908 16.142 21.859C17.224 21.81 17.963 21.64 18.588 21.397C19.234 21.146 19.775 20.818 20.316 20.277C20.857 19.736 21.185 19.195 21.436 18.549C21.679 17.924 21.85 17.185 21.899 16.103C21.948 15.018 21.96 14.678 21.96 11.96C21.96 9.242 21.948 8.902 21.899 7.817C21.85 6.735 21.679 5.996 21.436 5.371C21.185 4.725 20.857 4.184 20.316 3.643C19.775 3.102 19.234 2.774 18.588 2.523C17.963 2.28 17.224 2.11 16.142 2.061C15.057 2.012 14.717 2 12 2ZM12 4.159C14.671 4.159 14.988 4.169 16.05 4.217C17.031 4.262 17.533 4.417 17.84 4.536C18.246 4.694 18.536 4.885 18.841 5.19C19.146 5.495 19.337 5.785 19.495 6.191C19.614 6.498 19.769 7.001 19.814 7.982C19.862 9.044 19.872 9.361 19.872 12.032C19.872 14.703 19.862 15.02 19.814 16.082C19.769 17.063 19.614 17.566 19.495 17.873C19.337 18.279 19.146 18.569 18.841 18.874C18.536 19.179 18.246 19.37 17.84 19.528C17.533 19.647 17.031 19.802 16.05 19.847C14.988 19.895 14.671 19.905 12 19.905C9.329 19.905 9.012 19.895 7.95 19.847C6.969 19.802 6.467 19.647 6.16 19.528C5.754 19.37 5.464 19.179 5.159 18.874C4.854 18.569 4.663 18.279 4.505 17.873C4.386 17.566 4.231 17.063 4.186 16.082C4.138 15.02 4.128 14.703 4.128 12.032C4.128 9.361 4.138 9.044 4.186 7.982C4.231 7.001 4.386 6.498 4.505 6.191C4.663 5.785 4.854 5.495 5.159 5.19C5.464 4.885 5.754 4.694 6.16 4.536C6.467 4.417 6.969 4.262 7.95 4.217C9.012 4.169 9.329 4.159 12 4.159ZM12 6.843C9.155 6.843 6.843 9.155 6.843 12C6.843 14.845 9.155 17.157 12 17.157C14.845 17.157 17.157 14.845 17.157 12C17.157 9.155 14.845 6.843 12 6.843ZM12 15.088C10.294 15.088 8.911 13.705 8.911 12C8.911 10.294 10.294 8.911 12 8.911C13.705 8.911 15.088 10.294 15.088 12C15.088 13.705 13.705 15.088 12 15.088ZM16.326 6.294C15.565 6.294 14.949 6.91 14.949 7.671C14.949 8.432 15.565 9.048 16.326 9.048C17.087 9.048 17.703 8.432 17.703 7.671C17.703 6.91 17.087 6.294 16.326 6.294Z"/>
-                        </svg>
-                    </a>
-                    <a href="https://www.facebook.com/kalebnunessantos/" target="_blank" class="group">
-                        <svg class="h-5 w-5 social-icon" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
-                    </a>
-                </div>
-            </div>
-            
+    <div class="mx-auto max-w-[90rem] px-6 lg:px-12 relative z-10 reveal">
+      
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-12 border-b border-white/10 pb-16">
+        <div class="md:col-span-12 lg:col-span-4 lg:pr-12">
+          <div class="flex items-center gap-3 mb-6">
+             <img src="./logo_kns.png" alt="Logo KNS" class="w-10 h-10 object-contain drop-shadow-[0_0_15px_rgba(37,99,235,0.4)]" onerror="this.style.display='none'">
+             <div class="font-serif text-3xl tracking-widest text-white font-bold">KNS <span class="text-[#2563EB]">STUDIO</span></div>
+          </div>
+          <p class="text-[10px] font-extrabold uppercase tracking-[.3em] text-[#2563EB] mb-6">Engenharia de Performance</p>
+          <p class="text-sm leading-relaxed text-gray-400 font-light">
+            Transformamos presenças digitais falhas em ativos corporativos inquebráveis. Foco implacável em UX Premium e rastreamento de dados de alta precisão.
+          </p>
         </div>
-        <div class="mt-8 pt-8 border-t border-white/5 text-center md:flex md:justify-between md:text-left max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <p class="text-[10px] text-gray-700">© 2026 Kaleb Studio Consultoria. Balneário Camboriú, SC.</p>
-            <p class="text-[10px] text-gray-800 mt-2 md:mt-0">Protocolo 09 Core | v3.1.0 | Broad TAM Targeting</p>
+
+        <div class="md:col-span-4 lg:col-span-2">
+          <p class="text-[10px] font-extrabold uppercase tracking-[.25em] text-gray-600 mb-6 border-b border-white/5 pb-2">Ecossistema</p>
+          <ul class="space-y-4">
+            <li><a href="#nexohub" class="text-sm font-medium text-gray-400 hover:text-brand-gold transition-colors">Soluções</a></li>
+            <li><a href="#cases" class="text-sm font-medium text-gray-400 hover:text-brand-gold transition-colors">Estudos de Caso</a></li>
+            <li><a href="#paradoxo" class="text-sm font-medium text-gray-400 hover:text-brand-gold transition-colors">O Método</a></li>
+            <li><a href="#planos" class="text-sm font-medium text-gray-400 hover:text-brand-gold transition-colors">Preços / Planos</a></li>
+          </ul>
         </div>
-    </footer>
 
-    <a href="https://wa.me/5547988901616?text=Ol%C3%A1%20Kaleb%2C%20vim%20pelo%20site%20Studio%20KNS." class="whatsapp-float animate-pulse-slow" target="_blank">
-        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/></svg>
-    </a>
+        <div class="md:col-span-4 lg:col-span-3">
+           <p class="text-[10px] font-extrabold uppercase tracking-[.25em] text-gray-600 mb-6 border-b border-white/5 pb-2">Mercados</p>
+           <ul class="space-y-4">
+              <li><a href="#planos" class="text-sm font-medium text-gray-400 hover:text-brand-gold transition-colors">Imobiliárias de Luxo</a></li>
+              <li><a href="#planos" class="text-sm font-medium text-gray-400 hover:text-brand-gold transition-colors">Clínicas de Alto Padrão</a></li>
+              <li><a href="#planos" class="text-sm font-medium text-gray-400 hover:text-brand-gold transition-colors">Escritórios & B2B</a></li>
+           </ul>
+        </div>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            if (!localStorage.getItem("kns_cookies_accepted")) {
-                setTimeout(() => {
-                    document.getElementById("site-cookie-banner").classList.remove("translate-y-full");
-                }, 1000);
-            }
+        <div class="md:col-span-4 lg:col-span-3">
+          <p class="text-[10px] font-extrabold uppercase tracking-[.25em] text-white mb-6 border-b border-white/5 pb-2">Terminal de Contato</p>
+          <div class="space-y-4">
+            <a href="mailto:kalebdossantos59924@gmail.com" class="flex items-center gap-3 text-sm font-medium text-gray-400 hover:text-white transition-colors group">
+              <svg class="w-4 h-4 text-brand-gold group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+              <span class="text-sm font-medium text-gray-400 hover:text-brand-gold transition-colors">kalebdossantos59924@gmail.com</span>
+            </a>
+            <a href="https://wa.me/554796923971?text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20uma%20an%C3%A1lise%20arquitetural." target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 text-sm font-bold text-brand-gold hover:text-white transition-colors group">
+              <svg class="w-4 h-4 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.016-.967-.259-.099-.447-.149-.634.149-.188.297-.768.967-.941 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.634-1.529-.868-2.093-.224-.548-.455-.474-.634-.482-.174-.008-.372-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              <span class="text-[#2563EB]">WhatsApp Executivo</span>
+            </a>
+            
+            <div class="mt-8 flex gap-5">
+              <a href="https://www.linkedin.com/in/kalebnunes" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="text-gray-500 hover:text-brand-gold transition-transform hover:scale-110">
+                <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+              </a>
+              <a href="https://github.com/Kaleb-Nunes" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="text-gray-500 hover:text-white transition-transform hover:scale-110">
+                <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+       <div class="flex flex-col md:flex-row justify-between items-center pt-8 text-[10px] font-extrabold uppercase tracking-[.25em] text-gray-600 gap-4 relative z-10">
+        <div class="flex flex-col md:flex-row gap-4 md:gap-8 items-center text-center md:text-left">
+          <p>© 2026 KNS Studio. CNPJ: 54.934.763/0001-39. Balneário Camboriú, SC - Brasil.</p>
+          <div class="flex gap-4">
+            <a href="privacidade.html" class="hover:text-[#2563EB] transition-colors focus-ring rounded p-1">Política de Privacidade</a>
+            <a href="termos-de-uso.html" class="hover:text-[#2563EB] transition-colors focus-ring rounded p-1">Termos de Uso</a>
+          </div>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#2563EB] animate-pulse"></span>
+          <span class="text-[#2563EB]">Desenvolvido sob Protocolo 09</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- COOKIE BANNER -->
+  <div id="cookie-banner" class="fixed bottom-0 left-0 w-full bg-[#0a0a0a] border-t border-white/10 p-4 md:p-6 z-[100] transform translate-y-full transition-transform duration-500 flex flex-col md:flex-row items-center justify-between gap-4 shadow-[0_-10px_40px_rgba(0,0,0,0.8)]">
+    <div class="text-xs text-gray-400 font-light leading-relaxed max-w-4xl">
+      <strong class="text-white">Aviso de Privacidade e Cookies:</strong> Utilizamos cookies e tecnologias semelhantes para métricas de performance (GA4) e para aprimorar sua experiência. Ao continuar navegando, você concorda com a nossa <a href="privacidade.html" class="text-[#2563EB] hover:underline">Política de Privacidade</a> e <a href="termos-de-uso.html" class="text-[#2563EB] hover:underline">Termos de Uso</a>, em conformidade com a LGPD (Lei nº 13.709/2018).
+    </div>
+    <div class="flex items-center gap-3 shrink-0">
+      <button onclick="acceptCookies()" class="bg-[#2563EB] hover:bg-[#1D4ED8] text-white text-xs font-bold px-6 py-2.5 rounded transition-colors uppercase tracking-wider">Aceitar Todos</button>
+      <button onclick="declineCookies()" class="bg-transparent border border-white/20 hover:bg-white/5 text-gray-300 text-xs font-bold px-4 py-2.5 rounded transition-colors uppercase tracking-wider">Recusar</button>
+    </div>
+  </div>
+
+  <script>
+    // LÓGICA DE CONTROLE DE COOKIES
+    document.addEventListener('DOMContentLoaded', () => {
+      if (!localStorage.getItem('kns_cookie_consent')) {
+        setTimeout(() => {
+          document.getElementById('cookie-banner').classList.remove('translate-y-full');
+        }, 1000);
+      }
+    });
+
+    function acceptCookies() {
+      localStorage.setItem('kns_cookie_consent', 'accepted');
+      document.getElementById('cookie-banner').classList.add('translate-y-full');
+    }
+
+    function declineCookies() {
+      localStorage.setItem('kns_cookie_consent', 'declined');
+      document.getElementById('cookie-banner').classList.add('translate-y-full');
+    }
+
+    // REVEAL ANIMATIONS 
+    document.addEventListener('DOMContentLoaded', () => {
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            obs.unobserve(entry.target);
+          }
         });
+      }, { root: null, rootMargin: '0px', threshold: 0.15 });
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    });
 
-        function aceitarCookiesGerais() {
-            localStorage.setItem("kns_cookies_accepted", "true");
-            document.getElementById("site-cookie-banner").classList.add("translate-y-full");
+    // ENGINE GA4
+    function trackEvent(eventName, params = {}) {
+      try {
+        if(localStorage.getItem('kns_cookie_consent') === 'accepted') {
+          if (typeof gtag === 'function') gtag('event', eventName, Object.assign({ event_category: 'engagement' }, params));
+          if (window.dataLayer) window.dataLayer.push(Object.assign({ event: eventName }, params));
         }
-    </script>
+      } catch (e) {}
+    }
 
-    <script>
-        const translations = {
-            'pt': { 
-                'hero-title': 'Arquitetura Digital de Alto Padrão.', 
-                'cta-button': 'Ver Planos', 
-                'bio-label': 'Kaleb Nunes', 
-                'bio-p1': 'Engenheiro de Software focado em viabilizar ativos digitais de alto valor e Infraestrutura Digital de Alta Performance.', 
-                'bio-quote': '"Não entregamos apenas pixels. Entregamos a arquitetura digital que posiciona sua marca no topo."', 
-                'price-label': 'Governança & Performance', 
-                'price-title': 'Infraestrutura Jurídica e Técnica', 
-                'p1-sub': 'Ideal para estruturar e validar sua presença digital de forma ágil. Infraestrutura enxuta e de alta conversão para captura de demanda.', 
-                'p2-sub': 'Arquitetura robusta para escala. Estruturação multiplataforma, otimização de busca (SEO) e adequação jurídica para operações em crescimento.', 
-                'p3-sub': 'Solução enterprise sob medida. Integrações de ecossistema, internacionalização e engenharia de dados avançada com governança total.', 
-                'p3-consult': 'Sob Consulta' 
-            },
-            'en': { 
-                'hero-title': 'High-End Digital Architecture.', 
-                'cta-button': 'See Plans', 
-                'bio-label': 'Kaleb Nunes', 
-                'bio-p1': 'Software Engineer focused on enabling high-value digital assets and High-Performance Digital Infrastructure.', 
-                'bio-quote': '"We do not just deliver pixels. We deliver the digital architecture that positions your brand at the top."', 
-                'price-label': 'Governance & Performance', 
-                'price-title': 'Legal and Technical Infrastructure', 
-                'p1-sub': 'Ideal for validating your digital presence quickly. Lean, high-conversion infrastructure for professional contact and lead capture.', 
-                'p2-sub': 'Robust architecture for scalability. Complete multi-page structure, SEO optimization, and legal compliance for growing operations.', 
-                'p3-sub': 'Custom enterprise solution. Complex integrations, internationalization, and advanced data engineering for total governance.', 
-                'p3-consult': 'By Quote' 
-            },
-            'es': { 
-                'hero-title': 'Arquitectura Digital de Alto Nivel.', 
-                'cta-button': 'Ver Planes', 
-                'bio-label': 'Kaleb Nunes', 
-                'bio-p1': 'Ingeniero de Software enfocado en viabilizar activos digitales de alto valor e Infraestructura Digital de Alto Rendimiento.', 
-                'bio-quote': '"No solo entregamos píxeles. Entregamos la arquitectura digital que posiciona su marca en la cima."', 
-                'price-label': 'Gobernanza y Rendimiento', 
-                'price-title': 'Infraestrutura Jurídica e Técnica', 
-                'p1-sub': 'Ideal para validar su presencia digital rápidamente. Infraestructura ágil y de alta conversión para captura de leads.', 
-                'p2-sub': 'Arquitectura robusta para escalabilidad. Estructura multipágina completa, optimización SEO y cumplimiento legal para empresas.', 
-                'p3-sub': 'Solución empresarial a medida. Integraciones complejas, internacionalización e ingeniería de datos avanzada para gobernanza total.', 
-                'p3-consult': 'Bajo Consulta' 
-            }
-        };
-        
-        function changeLanguage(lang) {
-            document.querySelectorAll('[data-key]').forEach(elem => { const key = elem.getAttribute('data-key'); if (translations[lang] && translations[lang][key]) elem.innerHTML = translations[lang][key]; });
-            document.querySelectorAll('.flag-btn').forEach(btn => btn.classList.remove('active'));
-            document.getElementById('btn-' + lang).classList.add('active');
+    // CARROSSEL DRAG
+    document.addEventListener('DOMContentLoaded', () => {
+      const slider = document.getElementById('drag-carousel');
+      if (!slider) return;
+      const cards = Array.from(slider.children);
+      if (cards.length === 0) return;
+
+      const cardWidth = cards[0].offsetWidth;
+      const gap = parseFloat(window.getComputedStyle(slider).gap) || 24; 
+      const singleSetWidth = (cardWidth + gap) * cards.length;
+      slider.innerHTML += slider.innerHTML;
+
+      let isDown = false, startX, scrollLeft, exactScrollLeft = 0, animationId;
+      const speed = 0.5; 
+
+      const animate = () => {
+        if (!isDown) {
+          exactScrollLeft += speed;
+          if (exactScrollLeft >= singleSetWidth) { exactScrollLeft -= singleSetWidth; }
+          slider.scrollLeft = exactScrollLeft;
         }
+        animationId = requestAnimationFrame(animate);
+      };
+      animationId = requestAnimationFrame(animate);
 
-        let planoAtual = '';
+      slider.addEventListener('mouseenter', () => { if (!isDown) cancelAnimationFrame(animationId); });
+      slider.addEventListener('mouseleave', () => {
+        if (isDown) { isDown = false; slider.classList.remove('cursor-grabbing'); }
+        cancelAnimationFrame(animationId); animationId = requestAnimationFrame(animate);
+      });
+      slider.addEventListener('mousedown', (e) => {
+        isDown = true; cancelAnimationFrame(animationId);
+        slider.classList.add('cursor-grabbing');
+        startX = e.pageX - slider.offsetLeft; scrollLeft = slider.scrollLeft; exactScrollLeft = scrollLeft; 
+      });
+      slider.addEventListener('mouseup', () => {
+        isDown = false; slider.classList.remove('cursor-grabbing');
+        cancelAnimationFrame(animationId); animationId = requestAnimationFrame(animate);
+      });
+      slider.addEventListener('mousemove', (e) => {
+        if (!isDown) return; e.preventDefault();
+        const x = e.pageX - slider.offsetLeft; const walk = (x - startX) * 2;
+        slider.scrollLeft = scrollLeft - walk; exactScrollLeft = slider.scrollLeft;
+      });
+      slider.querySelectorAll('a').forEach(link => { link.addEventListener('click', (e) => { if (isDown) e.preventDefault(); }); });
+    });
 
-        function iniciarFluxoSeguro(plano) {
-            planoAtual = plano;
-            document.getElementById('application-plan-name').innerText = plano;
-            
-            document.getElementById('secure-overlay').classList.remove('hidden');
-            document.getElementById('modal-lgpd').classList.remove('hidden');
-        }
+    // TERMINAL RADAR & SANITIZAÇÃO
+    function sanitizeInput(str) { return str ? str.replace(/<[^>]*>?/gm, '').replace(/[&"'\\]/g, '') : ''; }
 
-        function validarCheckboxLGPD() {
-            const isChecked = document.getElementById('lgpd-checkbox').checked;
-            const btn = document.getElementById('btn-agree-lgpd');
-            const icon = document.getElementById('lgpd-check-icon');
-            
-            if(isChecked) {
-                icon.classList.remove('hidden');
-                btn.disabled = false;
-                btn.classList.remove('bg-white/5', 'text-gray-500');
-                btn.classList.add('bg-gold-400', 'text-black', 'hover:bg-white');
-            } else {
-                icon.classList.add('hidden');
-                btn.disabled = true;
-                btn.classList.add('bg-white/5', 'text-gray-500');
-                btn.classList.remove('bg-gold-400', 'text-black', 'hover:bg-white');
-            }
-        }
+    function avancarStep(current, next) {
+      let valid = true;
+      let data = {};
 
-        function aceitarLGPDAvancar() {
-            document.getElementById('modal-lgpd').classList.add('hidden');
-            document.getElementById('modal-compliance').classList.remove('hidden');
-            document.getElementById('modal-compliance').classList.add('flex');
+      if(current === 1) {
+        const n = document.getElementById('step1-nicho').value;
+        const t = document.getElementById('step1-ticket').value;
+        if(!n || !t) valid = false;
+        data = { nicho: n, ticket: t };
+      } else if(current === 2) {
+        const s = document.getElementById('step2-site').value;
+        const a = document.getElementById('step2-ads').value;
+        if(!s || !a) valid = false;
+        data = { site: s, ads: a };
+      } else if(current === 3) {
+        const o = document.getElementById('step3-objetivo').value;
+        const p = document.getElementById('step3-prazo').value;
+        if(!o || !p) valid = false;
+        data = { objetivo: o, prazo: p };
+      }
 
-            setTimeout(() => {
-                document.getElementById('modal-compliance').classList.add('hidden');
-                document.getElementById('modal-compliance').classList.remove('flex');
-                document.getElementById('modal-application').classList.remove('hidden');
-            }, 1800); 
-        }
+      if(!valid) { alert('Sintaxe incompleta. Preencha os campos para prosseguir.'); return; }
 
-        function fecharFluxoSeguro() {
-            document.getElementById('secure-overlay').classList.add('hidden');
-            document.getElementById('modal-lgpd').classList.add('hidden');
-            document.getElementById('modal-application').classList.add('hidden');
-            document.getElementById('modal-politica-privacidade').classList.add('hidden');
-            document.getElementById('lgpd-checkbox').checked = false;
-            validarCheckboxLGPD();
-        }
+      trackEvent(`radar_step_${current}_completed`, data);
+      
+      document.getElementById(`step-${current}`).classList.remove('active', 'block');
+      document.getElementById(`step-${current}`).classList.add('hidden');
+      
+      document.getElementById(`step-${next}`).classList.remove('hidden');
+      document.getElementById(`step-${next}`).classList.add('active', 'block');
+      
+      document.getElementById('progress-bar').style.width = (next * 25) + '%';
+    }
 
-        function enviarAplicacaoParaEspecialista(event) {
-            event.preventDefault(); 
+    function voltarStep(current, prev) {
+      document.getElementById(`step-${current}`).classList.remove('active', 'block');
+      document.getElementById(`step-${current}`).classList.add('hidden');
+      
+      document.getElementById(`step-${prev}`).classList.remove('hidden');
+      document.getElementById(`step-${prev}`).classList.add('active', 'block');
+      
+      document.getElementById('progress-bar').style.width = (prev * 25) + '%';
+    }
 
-            const nome = document.getElementById('app-name').value.trim();
-            const empresa = document.getElementById('app-company').value.trim();
-            const whatsapp = document.getElementById('app-whatsapp').value.trim();
-            const desafio = document.getElementById('app-goal').value.trim();
+    function finalizarStepper() {
+      const nome = sanitizeInput(document.getElementById('step4-nome').value.trim());
+      const wpp = sanitizeInput(document.getElementById('step4-whatsapp').value.trim());
 
-            const mensagem = `*DUE DILIGENCE | KALEB STUDIO*%0A%0A` +
-                             `Olá Kaleb, passei pela verificação de compliance do site e desejo aplicar para o plano *${planoAtual}*.%0A%0A` +
-                             `*👤 Gestor:* ${nome}%0A` +
-                             `*🏢 Empresa:* ${empresa}%0A` +
-                             `*📱 Contato:* ${whatsapp}%0A%0A` +
-                             `*🎯 Desafio/Objetivo:*%0A${desafio}%0A%0A` +
-                             `_Aguardo seu contato para alinhamento de escopo e orçamento._`;
+      if(!nome || !wpp) { alert('Identidade requerida. Preencha Nome e WhatsApp.'); return; }
 
-            const telefoneKaleb = "5547988901616";
-            const urlWhatsApp = `https://wa.me/${telefoneKaleb}?text=${mensagem}`;
+      const n = sanitizeInput(document.getElementById('step1-nicho').value);
+      const t = sanitizeInput(document.getElementById('step1-ticket').value);
+      const s = sanitizeInput(document.getElementById('step2-site').value);
+      const h = sanitizeInput(document.getElementById('step2-ads').value);
+      const o = sanitizeInput(document.getElementById('step3-objetivo').value);
+      const p = sanitizeInput(document.getElementById('step3-prazo').value);
 
-            window.location.href = urlWhatsApp;
-            fecharFluxoSeguro();
-        }
+      trackEvent('radar_lead_generated', { nicho: n, ticket: t, site: s });
 
-        function abrirModalPolitica(event) {
-            event.preventDefault();
-            document.getElementById('secure-overlay').classList.remove('hidden');
-            document.getElementById('modal-lgpd').classList.add('hidden');
-            document.getElementById('modal-application').classList.add('hidden');
-            document.getElementById('modal-compliance').classList.add('hidden');
-            document.getElementById('modal-politica-privacidade').classList.remove('hidden');
-        }
+      const msg = `*RADAR CORPORATIVO KNS*\n\n*Executivo:* ${nome}\n*WhatsApp:* ${wpp}\n\n*Cenário:*\n- Negócio: ${n} (Ticket: ${t})\n- Status Web: ${s}\n- Motor de Ads: ${h}\n- Foco Primário: ${o}\n- Timeline: ${p}\n\nKaleb, aguardo o laudo de engenharia.`;
 
-        function fecharModalPolitica() {
-            document.getElementById('secure-overlay').classList.add('hidden');
-            document.getElementById('modal-politica-privacidade').classList.add('hidden');
-        }
-    </script>
+      document.getElementById('progress-bar').classList.add('bg-green-500');
+      document.getElementById('progress-bar').classList.remove('bg-brand-gold');
+      
+      setTimeout(() => { window.location.href = `https://wa.me/554796923971?text=${encodeURIComponent(msg)}`; }, 350);
+    }
+  </script>
 </body>
 </html>
