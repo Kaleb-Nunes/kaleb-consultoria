@@ -2,23 +2,20 @@
 <html lang="pt-BR" class="scroll-smooth bg-black">
 <head>
   <meta charset="UTF-8" />
-  <!-- A tag viewport com maximum-scale=1.0 previne distorções em mudanças de orientação no mobile -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>KNS Studio | Corporate Tech Solutions</title>
-  
+
   <meta name="description" content="Ecossistema de software avançado e infraestrutura web para holdings e operações de alta escala sob o Protocolo 09." />
   <meta property="og:title" content="KNS Studio | Corporate Tech Solutions" />
   <meta property="og:description" content="O cérebro único para sua operação. O fim das planilhas e a era da performance de software industrial." />
   <meta property="og:type" content="website" />
 
-  <!-- Favicon Premium Stack (Compatibilidade iOS, Android, PWA) -->
   <link rel="icon" type="image/png" sizes="32x32" href="./logo_kns.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="./logo_kns.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="./logo_kns.png" />
   <link rel="shortcut icon" href="./logo_kns.png" />
   <meta name="apple-mobile-web-app-title" content="KNS Studio" />
   <meta name="application-name" content="KNS Studio" />
-  <!-- Força a barra do navegador no mobile a ficar preta -->
   <meta name="theme-color" content="#000000" />
 
   <script src="https://cdn.tailwindcss.com"></script>
@@ -39,62 +36,62 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-  
+
   <style>
-    :root { 
-      --gold: #2563EB; 
-      --bg: #000000; 
-    }
-    
-    body { 
-      background-color: var(--bg); 
-      color: white; 
-      font-family: 'Inter', sans-serif; 
-      overflow-x: hidden;
-    }
-    
-    .gold-gradient { 
-      background: linear-gradient(90deg, #2563EB 0%, #60A5FA 50%, #2563EB 100%); 
-    }
-    
-    .glass { 
-      background: rgba(255, 255, 255, 0.02); 
-      backdrop-filter: blur(12px); 
-      -webkit-backdrop-filter: blur(12px); /* Suporte nativo Safari */
-      border: 1px solid rgba(255, 255, 255, 0.05); 
-    }
-    
-    .terminal-font { 
-      font-family: 'JetBrains Mono', monospace; 
-    }
-    
-    .mockup-window { 
-      background: #0a0a0a; 
-      border: 1px solid #222; 
-      border-radius: 12px; 
-    }
-    
-    .mockup-header { 
-      background: #111; 
-      padding: 10px; 
-      display: flex; 
-      gap: 8px; 
-      border-bottom: 1px solid #222; 
-    }
-    
-    .dot { 
-      width: 10px; 
-      height: 10px; 
-      border-radius: 50%; 
-    }
-    
-    .focus-ring:focus { 
-      outline: none; 
-      box-shadow: 0 0 0 2px var(--gold); 
-      border-color: transparent; 
+    :root {
+      --gold: #2563EB;
+      --bg: #000000;
     }
 
-    /* Solução Cross-Browser para Dropdowns no Safari/iOS */
+    body {
+      background-color: var(--bg);
+      color: white;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+
+    .gold-gradient {
+      background: linear-gradient(90deg, #2563EB 0%, #60A5FA 50%, #2563EB 100%);
+    }
+
+    .glass {
+      background: rgba(255, 255, 255, 0.02);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .terminal-font {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .mockup-window {
+      background: #0a0a0a;
+      border: 1px solid #222;
+      border-radius: 12px;
+    }
+
+    .mockup-header {
+      background: #111;
+      padding: 10px;
+      display: flex;
+      gap: 8px;
+      border-bottom: 1px solid #222;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    .focus-ring:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px var(--gold);
+      border-color: transparent;
+    }
+
+    /* dropdown arrow needs to be drawn manually — Safari ignores the native one */
     .custom-select {
       appearance: none;
       -webkit-appearance: none;
@@ -105,7 +102,7 @@
       background-size: 1em;
       padding-right: 2.5rem;
     }
-    
+
     .custom-select option {
       background-color: #121214;
       color: white;
@@ -115,23 +112,22 @@
       0% { transform: translateX(0); }
       100% { transform: translateX(-50%); }
     }
-    
+
     .animate-scroll {
       display: flex;
       width: max-content;
       animation: scroll 40s linear infinite;
     }
-    
+
     .animate-scroll:hover {
       animation-play-state: paused;
     }
-    
+
     .mask-edges {
       mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
       -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
     }
-    
-    /* Pulso para LEDs da arquitetura original */
+
     .led-pulse {
       box-shadow: 0 0 8px currentColor;
       animation: pulse 2s infinite;
@@ -145,9 +141,8 @@
 </head>
 <body>
 
-  <!-- NAVEGAÇÃO -->
-  <header 
-    class="w-full h-[72px] border-b border-white/5 bg-black/80 backdrop-blur-md fixed top-0 z-50 flex items-center justify-between px-6 lg:px-12" 
+  <header
+    class="w-full h-[72px] border-b border-white/5 bg-black/80 backdrop-blur-md fixed top-0 z-50 flex items-center justify-between px-6 lg:px-12"
     aria-label="Navegação Principal"
   >
     <a class="flex items-center gap-3 group z-50" href="#home">
@@ -169,7 +164,6 @@
     </nav>
 
     <div class="hidden md:flex items-center gap-4">
-      <!-- Ancora direta para o id="diagnostico" -->
       <a class="p-2 inline-flex h-9 items-center justify-center rounded-lg px-2.5 text-sm transition-all hover:bg-white/5 text-[#2563EB] hover:text-[#1D4ED8] font-bold" href="#diagnostico">
         Simulador ROI
       </a>
@@ -187,7 +181,6 @@
     </button>
   </header>
 
-  <!-- OVERLAY MENU MOBILE -->
   <div id="mobile-menu" class="fixed inset-0 bg-black/95 z-[100] hidden flex-col items-center justify-center backdrop-blur-lg transition-all duration-300">
     <button id="close-menu-btn" class="absolute top-6 right-6 text-gray-400 hover:text-white p-2 focus:outline-none" aria-label="Fechar menu">
       <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -199,7 +192,6 @@
       <a href="#nexohub" class="text-2xl font-bold text-gray-300 hover:text-white transition-colors mobile-link">Produtos</a>
       <a href="#cases" class="text-2xl font-bold text-gray-300 hover:text-white transition-colors mobile-link">Cases</a>
       <a href="#planos" class="text-2xl font-bold text-gray-300 hover:text-white transition-colors mobile-link">Pricing</a>
-      <!-- Ancora mobile corrigida -->
       <a href="#diagnostico" class="text-2xl font-bold text-[#2563EB] mobile-link">Simulador ROI</a>
       <a href="https://wa.me/5547988901616" target="_blank" rel="noopener noreferrer" class="mt-6 w-full py-4 bg-[#2563EB] text-white rounded-lg font-bold text-sm uppercase tracking-widest mobile-link shadow-[0_0_15px_rgba(37,99,235,0.4)]">
         Falar com Executivo
@@ -208,8 +200,7 @@
   </div>
 
   <main class="pt-[72px]">
-    
-    <!-- HOME HERO -->
+
     <section id="home" class="relative py-24 md:min-h-[85vh] flex items-center">
       <video autoplay muted loop playsinline webkit-playsinline poster="https://www.emetcode.com.br/images/emethero.jpg" class="absolute inset-0 w-full h-full object-cover opacity-90 brightness-125 z-0">
         <source src="https://www.emetcode.com.br/videos/emethero.mp4" type="video/mp4">
@@ -230,10 +221,10 @@
       </div>
     </section>
 
-    <!-- OS 4 CARDS FLUTUANTES (LINKS CORRIGIDOS) -->
+    <!-- cards flutuantes sobrepondo o hero -->
     <div class="relative z-30 max-w-7xl mx-auto px-6 md:px-8 mt-[-60px] md:mt-[-100px] mb-12">
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 max-w-7xl w-full">
-        
+
         <a class="glass group hover:border-[#2563EB]/40 hover:shadow-[0_10px_30px_rgba(37,99,235,0.15)] rounded-2xl p-6 transition-all" href="kns-erp.html">
           <div class="h-full flex flex-col justify-between">
             <div>
@@ -309,52 +300,23 @@
       </div>
     </div>
 
-    <!-- TECH STACK & SLA: SLIDER INFINITO -->
+    <!-- faixa de stack/parceiros; o loop é montado em JS pra não duplicar o markup à mão -->
     <div class="w-full bg-[#050505] border-b border-white/5 py-8 z-20 relative overflow-hidden mt-12">
       <div class="max-w-[90rem] mx-auto px-6 flex flex-col xl:flex-row items-center gap-8">
-        
+
         <div class="flex items-center gap-3 shrink-0 z-10 bg-[#050505] xl:pr-6">
           <div class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
           <span class="text-[10px] font-mono text-emerald-500 uppercase tracking-widest">SLA Garantido de 99.99%</span>
         </div>
-        
+
         <div class="flex-1 overflow-hidden relative mask-edges w-full">
-          <div class="animate-scroll items-center">
-            
-            <!-- TRACK 1 -->
-            <div class="flex gap-10 md:gap-16 items-center min-w-max px-4 md:px-8">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" alt="AWS" title="Amazon Web Services" class="h-6 md:h-10 object-contain cursor-help transition-transform hover:scale-110 bg-white/90 px-2 rounded-sm" />
-              <img src="https://cdn.simpleicons.org/vercel/FFFFFF" alt="Vercel" title="Vercel Edge Network" class="h-5 md:h-7 object-contain cursor-help transition-transform hover:scale-110" />
-              <img src="https://cdn.simpleicons.org/cisco/1BA0D7" alt="Cisco" title="Cisco Networking" class="h-6 md:h-9 object-contain cursor-help transition-transform hover:scale-110" />
-              <span class="text-lg md:text-2xl font-black tracking-widest text-[#00C48C] cursor-help transition-transform hover:scale-110 drop-shadow-[0_0_8px_rgba(0,196,140,0.3)]" title="Asaas Payment Gateway">ASAAS</span>
-              <img src="https://cdn.simpleicons.org/docker/2496ED" alt="Docker" title="Docker Containers" class="h-6 md:h-9 object-contain cursor-help transition-transform hover:scale-110" />
-              <img src="https://cdn.simpleicons.org/cloudflare/F38020" alt="Cloudflare" title="Cloudflare Security" class="h-6 md:h-9 object-contain cursor-help transition-transform hover:scale-110" />
-              <img src="https://cdn.simpleicons.org/hostinger/673DE6" alt="Hostinger" title="Hostinger" class="h-6 md:h-9 object-contain cursor-help transition-transform hover:scale-110" />
-              <span class="text-lg md:text-2xl font-black tracking-widest text-[#F2C94C] cursor-help transition-transform hover:scale-110 drop-shadow-[0_0_8px_rgba(242,201,76,0.3)]" title="Registro.br">Registro.br</span>
-              <img src="https://cdn.simpleicons.org/googleads/4285F4" alt="Google Ads" title="Google Ads" class="h-6 md:h-9 object-contain cursor-help transition-transform hover:scale-110" />
-              <img src="https://cdn.simpleicons.org/github/FFFFFF" alt="GitHub" title="GitHub" class="h-6 md:h-9 object-contain cursor-help transition-transform hover:scale-110" />
-            </div>
-
-            <!-- TRACK 2 -->
-            <div class="flex gap-10 md:gap-16 items-center min-w-max px-4 md:px-8">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" alt="AWS" title="Amazon Web Services" class="h-6 md:h-10 object-contain cursor-help transition-transform hover:scale-110 bg-white/90 px-2 rounded-sm" />
-              <img src="https://cdn.simpleicons.org/vercel/FFFFFF" alt="Vercel" title="Vercel Edge Network" class="h-5 md:h-7 object-contain cursor-help transition-transform hover:scale-110" />
-              <img src="https://cdn.simpleicons.org/cisco/1BA0D7" alt="Cisco" title="Cisco Networking" class="h-6 md:h-9 object-contain cursor-help transition-transform hover:scale-110" />
-              <span class="text-lg md:text-2xl font-black tracking-widest text-[#00C48C] cursor-help transition-transform hover:scale-110 drop-shadow-[0_0_8px_rgba(0,196,140,0.3)]" title="Asaas Payment Gateway">ASAAS</span>
-              <img src="https://cdn.simpleicons.org/docker/2496ED" alt="Docker" title="Docker Containers" class="h-6 md:h-9 object-contain cursor-help transition-transform hover:scale-110" />
-              <img src="https://cdn.simpleicons.org/cloudflare/F38020" alt="Cloudflare" title="Cloudflare Security" class="h-6 md:h-9 object-contain cursor-help transition-transform hover:scale-110" />
-              <img src="https://cdn.simpleicons.org/hostinger/673DE6" alt="Hostinger" title="Hostinger" class="h-6 md:h-9 object-contain cursor-help transition-transform hover:scale-110" />
-              <span class="text-lg md:text-2xl font-black tracking-widest text-[#F2C94C] cursor-help transition-transform hover:scale-110 drop-shadow-[0_0_8px_rgba(242,201,76,0.3)]" title="Registro.br">Registro.br</span>
-              <img src="https://cdn.simpleicons.org/googleads/4285F4" alt="Google Ads" title="Google Ads" class="h-6 md:h-9 object-contain cursor-help transition-transform hover:scale-110" />
-              <img src="https://cdn.simpleicons.org/github/FFFFFF" alt="GitHub" title="GitHub" class="h-6 md:h-9 object-contain cursor-help transition-transform hover:scale-110" />
-            </div>
-
+          <div id="stack-track" class="animate-scroll items-center">
+            <div class="flex gap-10 md:gap-16 items-center min-w-max px-4 md:px-8" data-track></div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- ARQUITETURA DE SEGURANÇA -->
     <section id="paradoxo" class="relative w-full px-6 py-20 md:py-24 bg-[#050505] border-b border-white/5">
       <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 lg:gap-24 items-center reveal">
         <div class="flex-1 space-y-6">
@@ -382,7 +344,6 @@
       </div>
     </section>
 
-    <!-- NEXOHUB ERP -->
     <section id="nexohub" class="py-24 md:py-32 px-6">
       <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
         <div class="space-y-8">
@@ -418,7 +379,6 @@
       </div>
     </section>
 
-    <!-- OMNI PROJECTS -->
     <section id="omni" class="py-24 md:py-32 px-6 bg-[#050505]">
        <div class="max-w-7xl mx-auto">
          <h2 class="text-4xl md:text-5xl font-black uppercase mb-12 text-center">OMNI PROJECTS: <span class="text-brand-gold block md:inline mt-2 md:mt-0">Velocity Stack</span></h2>
@@ -442,7 +402,6 @@
        </div>
     </section>
 
-    <!-- FIRECRM -->
     <section id="firecrm" class="py-24 md:py-32 px-6">
        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div class="order-2 lg:order-1">
@@ -462,7 +421,6 @@
        </div>
     </section>
 
-    <!-- ARQUITETURAS VALIDADAS (CASES) -->
     <section id="cases" class="relative bg-black py-24 md:py-32 overflow-hidden border-b border-white/5">
       <div class="absolute inset-0 z-0 flex items-center justify-center overflow-hidden">
         <video autoplay loop muted playsinline webkit-playsinline poster="/images/herosites-poster.jpg" class="w-full h-full object-contain opacity-80 brightness-150 pointer-events-none">
@@ -470,7 +428,7 @@
         </video>
         <div class="absolute inset-0 bg-black/30 pointer-events-none"></div>
       </div>
-      
+
       <div class="relative mx-auto max-w-[90rem] px-6 z-10">
         <div class="text-center mb-16 reveal">
           <span class="text-[10px] font-extrabold uppercase tracking-[.3em] text-[#2563EB] mb-3 block drop-shadow-[0_0_10px_rgba(37,99,235,0.5)]">Track Record</span>
@@ -547,7 +505,6 @@
       </div>
     </section>
 
-    <!-- AVALIAÇÕES GOOGLE -->
     <section class="bg-pure-800 py-24 border-b border-white/5 overflow-hidden relative">
       <div class="mx-auto max-w-[90rem] px-6 relative z-10">
         <div class="flex flex-col items-center gap-12 w-full">
@@ -556,7 +513,7 @@
             <h2 class="text-3xl md:text-4xl font-black text-white tracking-tight uppercase">100% das avaliações no Google são 5 estrelas</h2>
             <p class="mt-4 text-sm text-gray-400 font-light leading-relaxed">A excelência técnica validada publicamente. Nenhuma arquitetura se sustenta sem resultados reais.</p>
           </div>
-          
+
           <div class="relative w-full reveal delay-100">
             <div id="drag-carousel" class="flex flex-nowrap items-stretch gap-4 md:gap-6 overflow-x-auto cursor-grab active:cursor-grabbing pb-8 select-none mask-edges">
               <a href="https://www.google.com/maps/contrib/106366314779371299041/reviews?hl=pt-BR" target="_blank" rel="noopener noreferrer" class="shrink-0 w-[280px] md:w-[340px] bg-white rounded-[1.5rem] p-6 md:p-8 shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col border border-transparent hover:border-brand-gold/50">
@@ -601,7 +558,6 @@
       </div>
     </section>
 
-    <!-- LANDING PAGES -->
     <section class="bg-[#050505] py-24 md:py-32 px-6 relative overflow-hidden border-t border-b border-white/5">
       <div class="absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-[#2563EB]/10 blur-[120px] pointer-events-none rounded-full"></div>
       <div class="max-w-[90rem] mx-auto grid lg:grid-cols-[1fr_1fr] gap-12 lg:gap-24 items-center relative z-10">
@@ -663,7 +619,6 @@
       </div>
     </section>
 
-    <!-- SITES CORPORATIVOS -->
     <section class="bg-[#050505] py-24 md:py-32 px-6 relative overflow-hidden border-b border-white/5">
       <div class="absolute top-1/2 right-0 -translate-y-1/2 w-[500px] h-[500px] bg-[#2563EB]/10 blur-[120px] pointer-events-none rounded-full"></div>
       <div class="max-w-[90rem] mx-auto grid lg:grid-cols-[1fr_1fr] gap-12 lg:gap-24 items-center relative z-10">
@@ -725,7 +680,6 @@
       </div>
     </section>
 
-    <!-- MISSÃO -->
     <section class="w-full bg-[#F5F5F5] py-24 text-[#171717] px-6 md:px-8 border-b border-black/5 relative overflow-hidden">
       <div class="max-w-7xl mx-auto relative z-10 flex flex-col md:flex-row gap-12 items-start">
         <div class="max-w-3xl">
@@ -755,12 +709,12 @@
             <div class="absolute bottom-4 left-4 z-10"><span class="text-[10px] font-mono bg-[#2563EB] px-2 py-0.5 rounded text-white font-bold uppercase tracking-wider">Vault Secure</span></div>
           </div>
         </div>
-        
+
         <div class="space-y-6">
           <span class="text-xs font-bold uppercase tracking-widest text-[#06B6D4] drop-shadow-md">Segurança & Hardening</span>
           <h2 class="text-4xl md:text-5xl font-black uppercase leading-tight drop-shadow-lg">Infraestrutura sob o Protocolo 09</h2>
           <p class="text-sm text-zinc-300 leading-relaxed">Seus dados operacionais e fiscais são blindados sob as diretrizes estritas de nossa engenharia interna. Implementamos isolamento absoluto físico e lógico por projeto.</p>
-          
+
           <div class="grid grid-cols-2 gap-6 pt-4 text-xs font-mono text-zinc-200">
             <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#2563EB] shadow-[0_0_8px_#2563EB]"></span>Isolamento Físico</div>
             <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#10B981] shadow-[0_0_8px_#10B981]"></span>Zero Hardcoded Credentials</div>
@@ -771,7 +725,6 @@
       </div>
     </section>
 
-    <!-- PLANOS -->
     <section id="planos" class="bg-[#050505] py-32 border-t border-white/5 relative overflow-hidden pt-40">
       <div class="absolute inset-0 z-0 opacity-20 pointer-events-none">
         <div class="absolute w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-[120px] top-0 left-0"></div>
@@ -788,7 +741,7 @@
             Neste momento, não praticamos preços de prateleira. Estamos em fase Beta, atendendo clientes selecionados com <strong class="text-white">máxima personalização</strong>, valores acessíveis e onboarding exclusivo com os desenvolvedores para garantir o sucesso absoluto da implantação.
           </p>
         </div>
-        
+
         <div class="mt-20 grid gap-8 lg:grid-cols-3 max-w-6xl mx-auto">
           <article class="bg-[#111111] border border-white/5 rounded-3xl p-10 reveal delay-100 flex flex-col shadow-2xl relative mt-4">
              <h3 class="text-2xl font-bold text-white tracking-wide">Essencial</h3>
@@ -806,7 +759,7 @@
                <li class="flex items-start gap-3"><svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Suporte direto e humanizado</li>
              </ul>
           </article>
-          
+
           <article class="bg-[#111111] border border-white/20 rounded-3xl p-10 relative transform lg:-translate-y-4 reveal delay-500 flex flex-col shadow-[0_0_30px_rgba(255,255,255,0.05)]">
              <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-white text-black text-[10px] font-black px-4 py-1.5 rounded-full uppercase tracking-wider shadow-lg">Mais Escolhido</div>
              <h3 class="text-2xl font-bold text-white tracking-wide mt-2">Growth</h3>
@@ -823,7 +776,7 @@
                <li class="flex items-start gap-3"><svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Múltiplas integrações (PDVs, iFood, etc)</li>
              </ul>
           </article>
-          
+
           <article class="bg-[#0A120D] border border-emerald-500/20 rounded-3xl p-10 relative reveal delay-300 flex flex-col shadow-2xl mt-4">
              <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-yellow-500 to-amber-400 text-black text-[10px] font-black px-4 py-1.5 rounded-full uppercase tracking-wider shadow-lg">Premium</div>
              <h3 class="text-2xl font-bold text-emerald-500 tracking-wide mt-2">Omni</h3>
@@ -846,7 +799,6 @@
       </div>
     </section>
 
-    <!-- FORMULÁRIO DE DIAGNÓSTICO -->
     <section id="diagnostico" class="bg-[#000000] py-24 md:py-32 relative overflow-hidden">
       <div class="absolute inset-0 z-0 flex items-center justify-center">
         <video autoplay loop muted playsinline webkit-playsinline poster="/fallback.jpg" class="min-w-full min-h-full object-cover opacity-50 pointer-events-none scale-105">
@@ -857,7 +809,7 @@
       </div>
 
       <div class="mx-auto grid max-w-[90rem] gap-12 lg:gap-16 px-6 lg:grid-cols-[0.8fr_1.2fr] items-start relative z-10">
-        
+
         <div class="sticky top-24 md:top-32 reveal">
           <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-brand-gold/10 border border-brand-gold/20 text-brand-gold text-[8.5px] font-black uppercase tracking-[0.25em] mb-6 shadow-[0_0_15px_rgba(37,99,235,0.1)]">
             <span class="w-1.5 h-1.5 rounded-full bg-brand-gold animate-pulse"></span> Análise Operacional
@@ -878,8 +830,8 @@
           </div>
 
           <form id="stepper-form" class="w-full">
-            
-            <div id="step-1" class="step-content active block w-full">
+
+            <div id="step-1" class="step-content active block w-full" data-step="1">
               <h3 class="text-lg md:text-xl font-bold text-white mb-6 border-b border-white/5 pb-4 uppercase tracking-wide">1. Matriz do Negócio</h3>
               <div class="space-y-5">
                 <label class="block">
@@ -905,11 +857,11 @@
                 </label>
               </div>
               <div class="mt-8 flex justify-end">
-                <button type="button" onclick="avancarStep(1, 2)" class="focus-ring rounded-lg bg-brand-gold px-6 md:px-8 py-3.5 md:py-4 text-[10px] md:text-xs font-extrabold uppercase tracking-[.2em] text-white transition-all w-full sm:w-auto">Avançar Etapa →</button>
+                <button type="button" data-next="2" class="stepper-next focus-ring rounded-lg bg-brand-gold px-6 md:px-8 py-3.5 md:py-4 text-[10px] md:text-xs font-extrabold uppercase tracking-[.2em] text-white transition-all w-full sm:w-auto">Avançar Etapa →</button>
               </div>
             </div>
 
-            <div id="step-2" class="step-content hidden w-full">
+            <div id="step-2" class="step-content hidden w-full" data-step="2">
               <h3 class="text-lg md:text-xl font-bold text-white mb-6 border-b border-white/5 pb-4 uppercase tracking-wide">2. Arquitetura Atual</h3>
               <div class="space-y-5">
                 <label class="block">
@@ -933,12 +885,12 @@
                 </label>
               </div>
               <div class="mt-8 flex justify-between items-center gap-4">
-                <button type="button" onclick="voltarStep(2, 1)" class="focus-ring rounded p-2 text-gray-500 hover:text-white text-[10px] font-extrabold uppercase tracking-[.2em] transition-colors shrink-0">← Voltar</button>
-                <button type="button" onclick="avancarStep(2, 3)" class="focus-ring rounded-lg bg-brand-gold px-6 md:px-8 py-3.5 md:py-4 text-[10px] md:text-xs font-extrabold uppercase tracking-[.2em] text-white transition-all flex-1 sm:flex-none">Avançar Etapa →</button>
+                <button type="button" data-prev="1" class="stepper-prev focus-ring rounded p-2 text-gray-500 hover:text-white text-[10px] font-extrabold uppercase tracking-[.2em] transition-colors shrink-0">← Voltar</button>
+                <button type="button" data-next="3" class="stepper-next focus-ring rounded-lg bg-brand-gold px-6 md:px-8 py-3.5 md:py-4 text-[10px] md:text-xs font-extrabold uppercase tracking-[.2em] text-white transition-all flex-1 sm:flex-none">Avançar Etapa →</button>
               </div>
             </div>
 
-            <div id="step-3" class="step-content hidden w-full">
+            <div id="step-3" class="step-content hidden w-full" data-step="3">
               <h3 class="text-lg md:text-xl font-bold text-white mb-6 border-b border-white/5 pb-4 uppercase tracking-wide">3. Foco do Engenheiro</h3>
               <div class="space-y-5">
                 <label class="block">
@@ -962,12 +914,12 @@
                 </label>
               </div>
               <div class="mt-8 flex justify-between items-center gap-4">
-                <button type="button" onclick="voltarStep(3, 2)" class="focus-ring rounded p-2 text-gray-500 hover:text-white text-[10px] font-extrabold uppercase tracking-[.2em] transition-colors shrink-0">← Voltar</button>
-                <button type="button" onclick="avancarStep(3, 4)" class="focus-ring rounded-lg bg-brand-gold px-6 md:px-8 py-3.5 md:py-4 text-[10px] md:text-xs font-extrabold uppercase tracking-[.2em] text-white transition-all flex-1 sm:flex-none">Concluir Matriz →</button>
+                <button type="button" data-prev="2" class="stepper-prev focus-ring rounded p-2 text-gray-500 hover:text-white text-[10px] font-extrabold uppercase tracking-[.2em] transition-colors shrink-0">← Voltar</button>
+                <button type="button" data-next="4" class="stepper-next focus-ring rounded-lg bg-brand-gold px-6 md:px-8 py-3.5 md:py-4 text-[10px] md:text-xs font-extrabold uppercase tracking-[.2em] text-white transition-all flex-1 sm:flex-none">Concluir Matriz →</button>
               </div>
             </div>
 
-            <div id="step-4" class="step-content hidden w-full">
+            <div id="step-4" class="step-content hidden w-full" data-step="4">
               <h3 class="text-lg md:text-xl font-bold text-white mb-2 uppercase tracking-wide">4. Roteamento</h3>
               <p class="text-[10px] md:text-xs text-gray-400 font-light mb-6 border-b border-white/5 pb-4">Identidade para recebimento do projeto técnico.</p>
               <div class="space-y-5">
@@ -985,8 +937,8 @@
                 <strong>Consentimento LGPD:</strong> Autorizo o processamento de dados sob a <a href="/privacidade" class="text-[#2563EB] hover:underline cursor-pointer focus-ring rounded">Política de Privacidade</a>.
               </div>
               <div class="mt-2 flex flex-col sm:flex-row justify-between items-center gap-4">
-                <button type="button" onclick="voltarStep(4, 3)" class="focus-ring rounded p-2 text-gray-500 hover:text-white text-[10px] font-extrabold uppercase tracking-[.2em] transition-colors order-2 sm:order-1 w-full sm:w-auto text-left sm:text-center">← Voltar</button>
-                <button type="button" onclick="finalizarStepper()" class="focus-ring inline-flex items-center justify-center gap-2 bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-extrabold px-6 md:px-8 py-3.5 md:py-4 rounded-lg uppercase tracking-[0.2em] text-[10px] transition-all duration-300 shadow-[0_0_20px_rgba(37,99,235,0.3)] order-1 sm:order-2 w-full sm:w-auto">
+                <button type="button" data-prev="3" class="stepper-prev focus-ring rounded p-2 text-gray-500 hover:text-white text-[10px] font-extrabold uppercase tracking-[.2em] transition-colors order-2 sm:order-1 w-full sm:w-auto text-left sm:text-center">← Voltar</button>
+                <button type="button" id="stepper-submit" class="focus-ring inline-flex items-center justify-center gap-2 bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-extrabold px-6 md:px-8 py-3.5 md:py-4 rounded-lg uppercase tracking-[0.2em] text-[10px] transition-all duration-300 shadow-[0_0_20px_rgba(37,99,235,0.3)] order-1 sm:order-2 w-full sm:w-auto">
                    Disparar Radar <span aria-hidden="true">✓</span>
                 </button>
               </div>
@@ -1005,7 +957,7 @@
     </div>
 
     <div class="mx-auto max-w-[90rem] px-6 lg:px-12 relative z-10 reveal">
-      
+
       <div class="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12 border-b border-white/10 pb-16">
         <div class="md:col-span-12 lg:col-span-4 lg:pr-12">
           <div class="flex items-center gap-3 mb-6">
@@ -1050,7 +1002,7 @@
               </svg>
               <span class="text-[#2563EB]">WhatsApp Executivo</span>
             </a>
-            
+
             <div class="mt-8 flex gap-5">
               <a href="https://www.linkedin.com/in/kalebnunes" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="text-gray-500 hover:text-brand-gold transition-transform hover:scale-110 focus-ring rounded p-1">
                 <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
@@ -1089,202 +1041,311 @@
       <strong class="text-white">Aviso de Privacidade e Cookies:</strong> Utilizamos cookies e tecnologias semelhantes para métricas de performance (GA4) e para aprimorar sua experiência. Ao continuar navegando, você concorda com a nossa <a href="privacidade.html" class="text-[#2563EB] hover:underline focus-ring rounded">Política de Privacidade</a> e <a href="termos-de-uso.html" class="text-[#2563EB] hover:underline focus-ring rounded">Termos de Uso</a>, em conformidade com a LGPD (Lei nº 13.709/2018).
     </div>
     <div class="flex items-center gap-3 shrink-0">
-      <button onclick="acceptCookies()" class="bg-[#2563EB] hover:bg-[#1D4ED8] text-white text-xs font-bold px-6 py-2.5 rounded transition-colors uppercase tracking-wider focus-ring">Aceitar Todos</button>
-      <button onclick="declineCookies()" class="bg-transparent border border-white/20 hover:bg-white/5 text-gray-300 text-xs font-bold px-4 py-2.5 rounded transition-colors uppercase tracking-wider focus-ring">Recusar</button>
+      <button id="cookie-accept" class="bg-[#2563EB] hover:bg-[#1D4ED8] text-white text-xs font-bold px-6 py-2.5 rounded transition-colors uppercase tracking-wider focus-ring">Aceitar Todos</button>
+      <button id="cookie-decline" class="bg-transparent border border-white/20 hover:bg-white/5 text-gray-300 text-xs font-bold px-4 py-2.5 rounded transition-colors uppercase tracking-wider focus-ring">Recusar</button>
     </div>
   </div>
 
   <script>
-    // MOBILE MENU LOGIC
-    document.addEventListener('DOMContentLoaded', () => {
-      const mobileBtn = document.getElementById('mobile-menu-btn');
-      const closeMenuBtn = document.getElementById('close-menu-btn');
-      const mobileMenu = document.getElementById('mobile-menu');
-      const mobileLinks = document.querySelectorAll('.mobile-link');
+  (function () {
+    'use strict';
 
-      function toggleMenu() {
-        if (mobileMenu.classList.contains('hidden')) {
-          mobileMenu.classList.remove('hidden');
-          mobileMenu.classList.add('flex');
-          document.body.style.overflow = 'hidden'; 
-        } else {
-          mobileMenu.classList.add('hidden');
-          mobileMenu.classList.remove('flex');
-          document.body.style.overflow = '';
-        }
-      }
+    // --- menu mobile ---
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const closeMenuBtn = document.getElementById('close-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
 
-      if (mobileBtn && closeMenuBtn && mobileMenu) {
-        mobileBtn.addEventListener('click', toggleMenu);
-        closeMenuBtn.addEventListener('click', toggleMenu);
-        mobileLinks.forEach(link => { link.addEventListener('click', toggleMenu); });
-      }
-    });
-
-    // CONTROLE DE COOKIES
-    document.addEventListener('DOMContentLoaded', () => {
-      if (!localStorage.getItem('kns_cookie_consent')) {
-        setTimeout(() => { document.getElementById('cookie-banner').classList.remove('translate-y-full'); }, 1000);
-      }
-    });
-
-    function acceptCookies() {
-      localStorage.setItem('kns_cookie_consent', 'accepted');
-      document.getElementById('cookie-banner').classList.add('translate-y-full');
+    function toggleMenu() {
+      const isOpen = !mobileMenu.classList.contains('hidden');
+      mobileMenu.classList.toggle('hidden', isOpen);
+      mobileMenu.classList.toggle('flex', !isOpen);
+      document.body.style.overflow = isOpen ? '' : 'hidden';
     }
 
-    function declineCookies() {
-      localStorage.setItem('kns_cookie_consent', 'declined');
-      document.getElementById('cookie-banner').classList.add('translate-y-full');
+    mobileBtn?.addEventListener('click', toggleMenu);
+    closeMenuBtn?.addEventListener('click', toggleMenu);
+    document.querySelectorAll('.mobile-link').forEach((link) => link.addEventListener('click', toggleMenu));
+
+    // --- cookies (LGPD) ---
+    const COOKIE_KEY = 'kns_cookie_consent';
+    const cookieBanner = document.getElementById('cookie-banner');
+
+    if (!localStorage.getItem(COOKIE_KEY)) {
+      setTimeout(() => cookieBanner?.classList.remove('translate-y-full'), 1000);
     }
 
-    // REVEAL ANIMATIONS 
-    document.addEventListener('DOMContentLoaded', () => {
-      const observer = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('active');
-            obs.unobserve(entry.target);
-          }
-        });
-      }, { root: null, rootMargin: '0px', threshold: 0.15 });
-      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    document.getElementById('cookie-accept')?.addEventListener('click', () => {
+      localStorage.setItem(COOKIE_KEY, 'accepted');
+      cookieBanner?.classList.add('translate-y-full');
     });
 
-    // ENGINE GA4
+    document.getElementById('cookie-decline')?.addEventListener('click', () => {
+      localStorage.setItem(COOKIE_KEY, 'declined');
+      cookieBanner?.classList.add('translate-y-full');
+    });
+
     function trackEvent(eventName, params = {}) {
+      if (localStorage.getItem(COOKIE_KEY) !== 'accepted') return;
       try {
-        if(localStorage.getItem('kns_cookie_consent') === 'accepted') {
-          if (typeof gtag === 'function') gtag('event', eventName, Object.assign({ event_category: 'engagement' }, params));
-          if (window.dataLayer) window.dataLayer.push(Object.assign({ event: eventName }, params));
-        }
-      } catch (e) {}
+        if (typeof gtag === 'function') gtag('event', eventName, { event_category: 'engagement', ...params });
+        window.dataLayer?.push({ event: eventName, ...params });
+      } catch (err) {
+        // GA4 não carregou / bloqueado por adblock — segue o jogo
+      }
     }
 
-    // CARROSSEL DRAG AVALIACOES
-    document.addEventListener('DOMContentLoaded', () => {
+    // --- reveal on scroll ---
+    const revealObserver = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('active');
+          obs.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.15 }
+    );
+    document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
+
+    // --- faixa de stack/parceiros ---
+    const stackLogos = [
+      { type: 'img', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg', alt: 'AWS', title: 'Amazon Web Services', class: 'h-6 md:h-10 bg-white/90 px-2 rounded-sm' },
+      { type: 'img', src: 'https://cdn.simpleicons.org/vercel/FFFFFF', alt: 'Vercel', title: 'Vercel Edge Network', class: 'h-5 md:h-7' },
+      { type: 'img', src: 'https://cdn.simpleicons.org/cisco/1BA0D7', alt: 'Cisco', title: 'Cisco Networking', class: 'h-6 md:h-9' },
+      { type: 'text', label: 'ASAAS', title: 'Asaas Payment Gateway', color: '#00C48C' },
+      { type: 'img', src: 'https://cdn.simpleicons.org/docker/2496ED', alt: 'Docker', title: 'Docker Containers', class: 'h-6 md:h-9' },
+      { type: 'img', src: 'https://cdn.simpleicons.org/cloudflare/F38020', alt: 'Cloudflare', title: 'Cloudflare Security', class: 'h-6 md:h-9' },
+      { type: 'img', src: 'https://cdn.simpleicons.org/hostinger/673DE6', alt: 'Hostinger', title: 'Hostinger', class: 'h-6 md:h-9' },
+      { type: 'text', label: 'Registro.br', title: 'Registro.br', color: '#F2C94C' },
+      { type: 'img', src: 'https://cdn.simpleicons.org/googleads/4285F4', alt: 'Google Ads', title: 'Google Ads', class: 'h-6 md:h-9' },
+      { type: 'img', src: 'https://cdn.simpleicons.org/github/FFFFFF', alt: 'GitHub', title: 'GitHub', class: 'h-6 md:h-9' },
+    ];
+
+    function renderStackLogo(logo) {
+      if (logo.type === 'text') {
+        const span = document.createElement('span');
+        span.title = logo.title;
+        span.textContent = logo.label;
+        span.className = 'text-lg md:text-2xl font-black tracking-widest cursor-help transition-transform hover:scale-110';
+        span.style.color = logo.color;
+        span.style.textShadow = `0 0 8px ${logo.color}4d`;
+        return span;
+      }
+      const img = document.createElement('img');
+      img.src = logo.src;
+      img.alt = logo.alt;
+      img.title = logo.title;
+      img.loading = 'lazy';
+      img.className = `${logo.class} object-contain cursor-help transition-transform hover:scale-110`;
+      return img;
+    }
+
+    const stackTrack = document.querySelector('[data-track]');
+    if (stackTrack) {
+      stackLogos.forEach((logo) => stackTrack.appendChild(renderStackLogo(logo)));
+      // duplica pra criar o loop infinito sem cortes
+      stackTrack.parentElement.appendChild(stackTrack.cloneNode(true));
+    }
+
+    function bindDraggableMarquee(el, { speed = null } = {}) {
+      if (!el) return;
+      let isDown = false;
+      let startX = 0;
+      let scrollStart = 0;
+
+      if (speed !== null) {
+        // versão CSS-animation (logos) — só precisa pausar/retomar
+        el.addEventListener('mouseenter', () => { el.style.animationPlayState = 'paused'; });
+        el.addEventListener('mouseleave', () => { if (!isDown) el.style.animationPlayState = 'running'; });
+        el.addEventListener('mousedown', (e) => {
+          isDown = true;
+          el.style.animationPlayState = 'paused';
+          el.classList.add('cursor-grabbing');
+          startX = e.pageX - el.offsetLeft;
+          scrollStart = el.scrollLeft;
+        });
+        el.addEventListener('mouseup', () => {
+          isDown = false;
+          el.classList.remove('cursor-grabbing');
+          el.style.animationPlayState = 'running';
+        });
+        el.addEventListener('mousemove', (e) => {
+          if (!isDown) return;
+          e.preventDefault();
+          const walk = (e.pageX - el.offsetLeft - startX) * 2;
+          el.scrollLeft = scrollStart - walk;
+        });
+      }
+    }
+
+    bindDraggableMarquee(document.querySelector('.animate-scroll'), { speed: true });
+
+    // --- carrossel de avaliações (auto-scroll + drag manual) ---
+    (function setupReviewsCarousel() {
       const slider = document.getElementById('drag-carousel');
       if (!slider) return;
+
       const cards = Array.from(slider.children);
-      if (cards.length === 0) return;
+      if (!cards.length) return;
 
       const cardWidth = cards[0].offsetWidth;
-      const gap = parseFloat(window.getComputedStyle(slider).gap) || 24; 
-      const singleSetWidth = (cardWidth + gap) * cards.length;
-      slider.innerHTML += slider.innerHTML;
+      const gap = parseFloat(window.getComputedStyle(slider).gap) || 24;
+      const loopWidth = (cardWidth + gap) * cards.length;
+      slider.innerHTML += slider.innerHTML; // duplica pro loop contínuo
 
-      let isDown = false, startX, scrollLeft, exactScrollLeft = 0, animationId;
-      const speed = 0.5; 
+      const AUTO_SCROLL_SPEED = 0.5;
+      let isDragging = false;
+      let dragStartX = 0;
+      let dragScrollStart = 0;
+      let position = 0;
+      let rafId = null;
 
-      const animate = () => {
-        if (!isDown) {
-          exactScrollLeft += speed;
-          if (exactScrollLeft >= singleSetWidth) { exactScrollLeft -= singleSetWidth; }
-          slider.scrollLeft = exactScrollLeft;
+      function tick() {
+        if (!isDragging) {
+          position += AUTO_SCROLL_SPEED;
+          if (position >= loopWidth) position -= loopWidth;
+          slider.scrollLeft = position;
         }
-        animationId = requestAnimationFrame(animate);
-      };
-      animationId = requestAnimationFrame(animate);
+        rafId = requestAnimationFrame(tick);
+      }
+      rafId = requestAnimationFrame(tick);
 
-      slider.addEventListener('mouseenter', () => { if (!isDown) cancelAnimationFrame(animationId); });
+      slider.addEventListener('mouseenter', () => { if (!isDragging) cancelAnimationFrame(rafId); });
       slider.addEventListener('mouseleave', () => {
-        if (isDown) { isDown = false; slider.classList.remove('cursor-grabbing'); }
-        cancelAnimationFrame(animationId); animationId = requestAnimationFrame(animate);
+        if (isDragging) {
+          isDragging = false;
+          slider.classList.remove('cursor-grabbing');
+        }
+        cancelAnimationFrame(rafId);
+        rafId = requestAnimationFrame(tick);
       });
       slider.addEventListener('mousedown', (e) => {
-        isDown = true; cancelAnimationFrame(animationId);
+        isDragging = true;
+        cancelAnimationFrame(rafId);
         slider.classList.add('cursor-grabbing');
-        startX = e.pageX - slider.offsetLeft; scrollLeft = slider.scrollLeft; exactScrollLeft = scrollLeft; 
+        dragStartX = e.pageX - slider.offsetLeft;
+        dragScrollStart = slider.scrollLeft;
+        position = dragScrollStart;
       });
       slider.addEventListener('mouseup', () => {
-        isDown = false; slider.classList.remove('cursor-grabbing');
-        cancelAnimationFrame(animationId); animationId = requestAnimationFrame(animate);
+        isDragging = false;
+        slider.classList.remove('cursor-grabbing');
+        cancelAnimationFrame(rafId);
+        rafId = requestAnimationFrame(tick);
       });
       slider.addEventListener('mousemove', (e) => {
-        if (!isDown) return; e.preventDefault();
-        const x = e.pageX - slider.offsetLeft; const walk = (x - startX) * 2;
-        slider.scrollLeft = scrollLeft - walk; exactScrollLeft = slider.scrollLeft;
+        if (!isDragging) return;
+        e.preventDefault();
+        const walk = (e.pageX - slider.offsetLeft - dragStartX) * 2;
+        slider.scrollLeft = dragScrollStart - walk;
+        position = slider.scrollLeft;
       });
-      slider.querySelectorAll('a').forEach(link => { link.addEventListener('click', (e) => { if (isDown) e.preventDefault(); }); });
-    });
-
-    // SLIDER MARQUEE LOGOS
-    document.addEventListener('DOMContentLoaded', () => {
-      const slider = document.querySelector('.animate-scroll');
-      if (!slider) return;
-      let isDown = false, startX, scrollLeft;
-      slider.addEventListener('mouseenter', () => { slider.style.animationPlayState = 'paused'; });
-      slider.addEventListener('mouseleave', () => { if(!isDown) slider.style.animationPlayState = 'running'; });
-      slider.addEventListener('mousedown', (e) => {
-        isDown = true; slider.style.animationPlayState = 'paused'; slider.classList.add('cursor-grabbing');
-        startX = e.pageX - slider.offsetLeft; scrollLeft = slider.scrollLeft;
+      slider.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', (e) => { if (isDragging) e.preventDefault(); });
       });
-      slider.addEventListener('mouseup', () => {
-        isDown = false; slider.classList.remove('cursor-grabbing'); slider.style.animationPlayState = 'running';
-      });
-      slider.addEventListener('mousemove', (e) => {
-        if (!isDown) return; e.preventDefault();
-        const x = e.pageX - slider.offsetLeft; const walk = (x - startX) * 2; slider.scrollLeft = scrollLeft - walk;
-      });
-    });
+    })();
 
-    // TERMINAL RADAR & SANITIZAÇÃO
-    function sanitizeInput(str) { return str ? str.replace(/<[^>]*>?/gm, '').replace(/[&"'\\]/g, '') : ''; }
+    // --- formulário de diagnóstico (radar de leads) ---
+    (function setupDiagnosticForm() {
+      const form = document.getElementById('stepper-form');
+      if (!form) return;
 
-    function avancarStep(current, next) {
-      let valid = true; let data = {};
+      const progressBar = document.getElementById('progress-bar');
 
-      if(current === 1) {
-        const n = document.getElementById('step1-nicho').value; const t = document.getElementById('step1-ticket').value;
-        if(!n || !t) valid = false; data = { nicho: n, ticket: t };
-      } else if(current === 2) {
-        const s = document.getElementById('step2-site').value; const a = document.getElementById('step2-ads').value;
-        if(!s || !a) valid = false; data = { site: s, ads: a };
-      } else if(current === 3) {
-        const o = document.getElementById('step3-objetivo').value; const p = document.getElementById('step3-prazo').value;
-        if(!o || !p) valid = false; data = { objetivo: o, prazo: p };
+      const stepFields = {
+        1: { nicho: 'step1-nicho', ticket: 'step1-ticket' },
+        2: { site: 'step2-site', ads: 'step2-ads' },
+        3: { objetivo: 'step3-objetivo', prazo: 'step3-prazo' },
+      };
+
+      function sanitize(value) {
+        return value ? value.replace(/<[^>]*>?/gm, '').replace(/[&"'\\]/g, '') : '';
       }
 
-      if(!valid) { alert('Sintaxe incompleta. Preencha os campos para prosseguir.'); return; }
+      function readStep(step) {
+        const fields = stepFields[step];
+        if (!fields) return {};
+        const values = {};
+        let complete = true;
+        for (const [key, id] of Object.entries(fields)) {
+          const value = document.getElementById(id).value;
+          values[key] = value;
+          if (!value) complete = false;
+        }
+        return { values, complete };
+      }
 
-      trackEvent(`radar_step_${current}_completed`, data);
-      document.getElementById(`step-${current}`).classList.remove('active', 'block');
-      document.getElementById(`step-${current}`).classList.add('hidden');
-      document.getElementById(`step-${next}`).classList.remove('hidden');
-      document.getElementById(`step-${next}`).classList.add('active', 'block');
-      document.getElementById('progress-bar').style.width = (next * 25) + '%';
-    }
+      function showStep(step) {
+        document.querySelectorAll('.step-content').forEach((el) => {
+          const isTarget = el.id === `step-${step}`;
+          el.classList.toggle('hidden', !isTarget);
+          el.classList.toggle('active', isTarget);
+          el.classList.toggle('block', isTarget);
+        });
+        progressBar.style.width = `${step * 25}%`;
+      }
 
-    function voltarStep(current, prev) {
-      document.getElementById(`step-${current}`).classList.remove('active', 'block');
-      document.getElementById(`step-${current}`).classList.add('hidden');
-      document.getElementById(`step-${prev}`).classList.remove('hidden');
-      document.getElementById(`step-${prev}`).classList.add('active', 'block');
-      document.getElementById('progress-bar').style.width = (prev * 25) + '%';
-    }
+      function goToStep(current, next) {
+        const { values, complete } = readStep(current);
+        if (!complete) {
+          alert('Sintaxe incompleta. Preencha os campos para prosseguir.');
+          return;
+        }
+        trackEvent(`radar_step_${current}_completed`, values);
+        showStep(next);
+      }
 
-    function finalizarStepper() {
-      const nome = sanitizeInput(document.getElementById('step4-nome').value.trim());
-      const wpp = sanitizeInput(document.getElementById('step4-whatsapp').value.trim());
+      form.addEventListener('click', (e) => {
+        const nextBtn = e.target.closest('[data-next]');
+        if (nextBtn) {
+          const current = Number(nextBtn.closest('.step-content').dataset.step);
+          goToStep(current, Number(nextBtn.dataset.next));
+          return;
+        }
+        const prevBtn = e.target.closest('[data-prev]');
+        if (prevBtn) {
+          showStep(Number(prevBtn.dataset.prev));
+        }
+      });
 
-      if(!nome || !wpp) { alert('Identidade requerida. Preencha Nome e WhatsApp.'); return; }
+      document.getElementById('stepper-submit').addEventListener('click', () => {
+        const nome = sanitize(document.getElementById('step4-nome').value.trim());
+        const whatsapp = sanitize(document.getElementById('step4-whatsapp').value.trim());
 
-      const n = sanitizeInput(document.getElementById('step1-nicho').value);
-      const t = sanitizeInput(document.getElementById('step1-ticket').value);
-      const s = sanitizeInput(document.getElementById('step2-site').value);
-      const h = sanitizeInput(document.getElementById('step2-ads').value);
-      const o = sanitizeInput(document.getElementById('step3-objetivo').value);
-      const p = sanitizeInput(document.getElementById('step3-prazo').value);
+        if (!nome || !whatsapp) {
+          alert('Identidade requerida. Preencha Nome e WhatsApp.');
+          return;
+        }
 
-      trackEvent('radar_lead_generated', { nicho: n, ticket: t, site: s });
+        const { values: step1 } = readStep(1);
+        const { values: step2 } = readStep(2);
+        const { values: step3 } = readStep(3);
 
-      const msg = `*RADAR CORPORATIVO KNS*\n\n*Executivo:* ${nome}\n*WhatsApp:* ${wpp}\n\n*Cenário:*\n- Negócio: ${n} (Ticket: ${t})\n- Status Web: ${s}\n- Motor de Ads: ${h}\n- Foco Primário: ${o}\n- Timeline: ${p}\n\nKaleb, aguardo o laudo de engenharia.`;
+        trackEvent('radar_lead_generated', { nicho: step1.nicho, ticket: step1.ticket, site: step2.site });
 
-      document.getElementById('progress-bar').classList.add('bg-green-500');
-      document.getElementById('progress-bar').classList.remove('bg-brand-gold');
-      
-      setTimeout(() => { window.location.href = `https://wa.me/5547988901616?text=${encodeURIComponent(msg)}`; }, 350);
-    }
+        const message = [
+          '*RADAR CORPORATIVO KNS*',
+          '',
+          `*Executivo:* ${nome}`,
+          `*WhatsApp:* ${whatsapp}`,
+          '',
+          '*Cenário:*',
+          `- Negócio: ${sanitize(step1.nicho)} (Ticket: ${sanitize(step1.ticket)})`,
+          `- Status Web: ${sanitize(step2.site)}`,
+          `- Motor de Ads: ${sanitize(step2.ads)}`,
+          `- Foco Primário: ${sanitize(step3.objetivo)}`,
+          `- Timeline: ${sanitize(step3.prazo)}`,
+          '',
+          'Kaleb, aguardo o laudo de engenharia.',
+        ].join('\n');
+
+        progressBar.classList.replace('bg-brand-gold', 'bg-green-500');
+        setTimeout(() => {
+          window.location.href = `https://wa.me/5547988901616?text=${encodeURIComponent(message)}`;
+        }, 350);
+      });
+    })();
+  })();
   </script>
 </body>
 </html>
