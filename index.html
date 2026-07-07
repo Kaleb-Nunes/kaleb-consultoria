@@ -842,13 +842,12 @@
           <h3 class="text-2xl text-red-500 font-black mb-3 uppercase tracking-tight drop-shadow">Vazamento Identificado</h3>
           <p class="text-white text-lg mb-6 font-medium">Baseado na sua volumetria, a ausência de um ecossistema sólido e automações pode estar custando à sua operação aproximadamente <span id="valorPerda" class="font-black text-red-400 text-2xl tracking-tight block mt-2"></span> anualmente em custos de atrito e contratos perdidos.</p>
           
-          <div class="flex flex-col md:flex-row gap-4 mt-2">
+          <div class="flex flex-col md:flex-row items-center gap-6 mt-6">
             <a href="https://wa.me/5547988901616" target="_blank" class="inline-flex items-center justify-center w-full md:w-auto gap-3 bg-red-600 hover:bg-red-700 text-white font-extrabold uppercase tracking-widest px-8 py-4 rounded-xl transition-all shadow-[0_0_20px_rgba(220,38,38,0.4)]">
               Blindar Operação Agora →
             </a>
-            <button id="btnRecalcular" type="button" class="inline-flex items-center justify-center w-full md:w-auto gap-3 bg-transparent border border-red-500/30 hover:bg-red-500/20 text-red-400 font-extrabold uppercase tracking-widest px-8 py-4 rounded-xl transition-all">
-             <button id="btnRecalcular" type="button" class="inline-flex items-center justify-center w-full md:w-auto gap-3 bg-transparent border border-red-500/30 hover:bg-red-500/20 text-red-400 font-extrabold uppercase tracking-widest px-8 py-4 rounded-xl transition-all">
-              ← Recalcular
+            <button id="btnRecalcular" type="button" class="text-gray-400 hover:text-white text-xs font-bold uppercase tracking-widest transition-colors flex items-center gap-2 outline-none">
+              ← Retornar ao ROI
             </button>
           </div>
         </div>
@@ -1261,16 +1260,25 @@
   </script>
 </body>
 <script>
-  document.getElementById('roiForm')?.addEventListener('submit', function(e) {
-    e.preventDefault();
-    const faturamento = parseFloat(document.getElementById('faturamento').value);
-    
-    // Cálculo financeiro do vazamento de lucro (15% anualizado)
-    const perdaEstimada = (faturamento * 12) * 0.15; 
-    
-    document.getElementById('valorPerda').innerText = perdaEstimada.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-    this.classList.add('hidden');
-    document.getElementById('roiResult').classList.remove('hidden');
+  document.addEventListener('DOMContentLoaded', function() {
+    // 1. Lógica de cálculo e exibição
+    document.getElementById('roiForm')?.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const faturamento = parseFloat(document.getElementById('faturamento').value);
+      const perdaEstimada = (faturamento * 12) * 0.15; 
+      
+      document.getElementById('valorPerda').innerText = perdaEstimada.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+      this.classList.add('hidden');
+      document.getElementById('roiResult').classList.remove('hidden');
+    });
+
+    // 2. Lógica de retorno ao menu (Reset)
+    document.getElementById('btnRecalcular')?.addEventListener('click', function() {
+      document.getElementById('roiResult').classList.add('hidden');
+      const form = document.getElementById('roiForm');
+      form.classList.remove('hidden');
+      form.reset();
+    });
   });
 </script>
 </html>
