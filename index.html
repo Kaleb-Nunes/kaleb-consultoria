@@ -157,13 +157,13 @@
       </span>
     </a>
 
-    <nav class="hidden md:flex relative flex-1 items-center justify-center">
+    <nav class="hidden md:flex relative flex-1 items-center justify-start ml-8 lg:ml-16">
       <ul class="flex list-none items-center gap-1">
-  <li><a class="p-2 inline-flex h-9 items-center justify-center rounded-lg px-2.5 text-sm font-medium transition-all hover:bg-white/5 text-gray-300 hover:text-white" href="#home">Home</a></li>
-  <li><a class="p-2 inline-flex h-9 items-center justify-center rounded-lg px-2.5 text-sm font-medium transition-all hover:bg-white/5 text-gray-300 hover:text-white" href="#nexohub">Produtos</a></li>
-  <li><a class="p-2 inline-flex h-9 items-center justify-center rounded-lg px-2.5 text-sm font-medium transition-all hover:bg-white/5 text-gray-300 hover:text-white" href="#cases">Cases</a></li>
-  <li><a class="p-2 inline-flex h-9 items-center justify-center rounded-lg px-2.5 text-sm font-medium transition-all hover:bg-white/5 text-gray-300 hover:text-white" href="#diagnostico">Diagnóstico Corporativo</a></li>
-</ul>
+        <li><a class="p-2 inline-flex h-9 items-center justify-center rounded-lg px-2.5 text-sm font-medium transition-all hover:bg-white/5 text-gray-300 hover:text-white" href="#home">Home</a></li>
+        <li><a class="p-2 inline-flex h-9 items-center justify-center rounded-lg px-2.5 text-sm font-medium transition-all hover:bg-white/5 text-gray-300 hover:text-white" href="#nexohub">Produtos</a></li>
+        <li><a class="p-2 inline-flex h-9 items-center justify-center rounded-lg px-2.5 text-sm font-medium transition-all hover:bg-white/5 text-gray-300 hover:text-white" href="#cases">Cases</a></li>
+        <li><a class="p-2 inline-flex h-9 items-center justify-center rounded-lg px-2.5 text-sm font-medium transition-all hover:bg-white/5 text-gray-300 hover:text-white" href="#diagnostico">Diagnóstico Corporativo</a></li>
+      </ul>
     </nav>
 
     <div class="hidden md:flex items-center gap-4">
@@ -224,7 +224,6 @@
       </div>
     </section>
 
-    <!-- cards flutuantes sobrepondo o hero -->
     <div class="relative z-30 max-w-7xl mx-auto px-6 md:px-8 mt-[-60px] md:mt-[-100px] mb-12">
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 max-w-7xl w-full">
 
@@ -303,7 +302,6 @@
       </div>
     </div>
 
-    <!-- faixa de stack/parceiros; o loop é montado em JS pra não duplicar o markup à mão -->
     <div class="w-full bg-[#050505] border-b border-white/5 py-8 z-20 relative overflow-hidden mt-12">
       <div class="max-w-[90rem] mx-auto px-6 flex flex-col xl:flex-row items-center gap-8">
 
@@ -803,7 +801,6 @@
     </section>
 
     <section id="diagnostico" class="bg-[#000000] py-24 md:py-32 relative overflow-hidden border-t border-white/5">
-      <!-- Fundo de Vídeo Mantido -->
       <div class="absolute inset-0 z-0 flex items-center justify-center">
         <video width="1920" height="1080" autoplay loop muted playsinline webkit-playsinline poster="/fallback.jpg" class="min-w-full min-h-full object-cover opacity-50 pointer-events-none scale-105">
           <source src="https://www.emetcode.com.br/videos/trespilares.mp4" type="video/mp4">
@@ -812,7 +809,6 @@
         <div class="absolute inset-0 bg-gradient-to-r from-black via-transparent to-black/90"></div>
       </div>
 
-      <!-- Simulador ROI Sobreposto (z-10) -->
       <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
         <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-red-500/10 border border-red-500/20 text-red-500 text-[10px] font-extrabold uppercase tracking-[0.25em] mb-6">
           <span class="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span> Simulador de Vazamento de Lucro
@@ -864,15 +860,15 @@
     <div class="mx-auto max-w-[90rem] px-6 lg:px-12 relative z-10 reveal">
 
       <div class="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12 border-b border-white/10 pb-16">
-  <div class="md:col-span-12 lg:col-span-4 lg:pr-12">
-    <a class="flex items-center gap-3 group w-fit mb-6" href="#home">
-      <div class="w-8 h-8 md:w-10 md:h-10 rounded bg-[#2563EB] flex items-center justify-center font-black text-white text-lg md:text-xl shadow-[0_0_15px_rgba(37,99,235,0.3)] transition-transform duration-300 group-hover:scale-105">
-        K
-      </div>
-      <span class="font-extrabold text-xl md:text-2xl tracking-tight text-white transition-all duration-300">
-        KNS <span class="text-[#2563EB] font-light">Studio</span>
-      </span>
-    </a>
+        <div class="md:col-span-12 lg:col-span-4 lg:pr-12">
+          <a class="flex items-center gap-3 group w-fit mb-6" href="#home">
+            <div class="w-8 h-8 md:w-10 md:h-10 rounded bg-[#2563EB] flex items-center justify-center font-black text-white text-lg md:text-xl shadow-[0_0_15px_rgba(37,99,235,0.3)] transition-transform duration-300 group-hover:scale-105">
+              K
+            </div>
+            <span class="font-extrabold text-xl md:text-2xl tracking-tight text-white transition-all duration-300">
+              KNS <span class="text-[#2563EB] font-light">Studio</span>
+            </span>
+          </a>
           <p class="text-[9px] md:text-[10px] font-extrabold uppercase tracking-[.3em] text-[#2563EB] mb-6">Engenharia de Performance</p>
           <p class="text-xs md:text-sm leading-relaxed text-gray-400 font-light">Transformamos presenças digitais falhas em ativos corporativos inquebráveis. Foco implacável em UX Premium e rastreamento de dados de alta precisão via Protocolo 09.</p>
         </div>
@@ -1153,115 +1149,11 @@
         link.addEventListener('click', (e) => { if (isDragging) e.preventDefault(); });
       });
     })();
+    
+  })(); // Fecha a função principal do site
 
-    // --- formulário de diagnóstico (radar de leads) ---
-    (function setupDiagnosticForm() {
-      const form = document.getElementById('stepper-form');
-      if (!form) return;
-
-      const progressBar = document.getElementById('progress-bar');
-
-      const stepFields = {
-        1: { nicho: 'step1-nicho', ticket: 'step1-ticket' },
-        2: { site: 'step2-site', ads: 'step2-ads' },
-        3: { objetivo: 'step3-objetivo', prazo: 'step3-prazo' },
-      };
-
-      function sanitize(value) {
-        return value ? value.replace(/<[^>]*>?/gm, '').replace(/[&"'\\]/g, '') : '';
-      }
-
-      function readStep(step) {
-        const fields = stepFields[step];
-        if (!fields) return {};
-        const values = {};
-        let complete = true;
-        for (const [key, id] of Object.entries(fields)) {
-          const value = document.getElementById(id).value;
-          values[key] = value;
-          if (!value) complete = false;
-        }
-        return { values, complete };
-      }
-
-      function showStep(step) {
-        document.querySelectorAll('.step-content').forEach((el) => {
-          const isTarget = el.id === `step-${step}`;
-          el.classList.toggle('hidden', !isTarget);
-          el.classList.toggle('active', isTarget);
-          el.classList.toggle('block', isTarget);
-        });
-        const percent = step * 25;
-        progressBar.style.width = `${percent}%`;
-        progressBar.parentElement.setAttribute('aria-valuenow', percent);
-      }
-
-      function goToStep(current, next) {
-        const { values, complete } = readStep(current);
-        if (!complete) {
-          alert('Sintaxe incompleta. Preencha os campos para prosseguir.');
-          return;
-        }
-        trackEvent(`radar_step_${current}_completed`, values);
-        showStep(next);
-      }
-
-      form.addEventListener('click', (e) => {
-        const nextBtn = e.target.closest('[data-next]');
-        if (nextBtn) {
-          const current = Number(nextBtn.closest('.step-content').dataset.step);
-          goToStep(current, Number(nextBtn.dataset.next));
-          return;
-        }
-        const prevBtn = e.target.closest('[data-prev]');
-        if (prevBtn) {
-          showStep(Number(prevBtn.dataset.prev));
-        }
-      });
-
-      document.getElementById('stepper-submit').addEventListener('click', () => {
-        const nome = sanitize(document.getElementById('step4-nome').value.trim());
-        const whatsapp = sanitize(document.getElementById('step4-whatsapp').value.trim());
-
-        if (!nome || !whatsapp) {
-          alert('Identidade requerida. Preencha Nome e WhatsApp.');
-          return;
-        }
-
-        const { values: step1 } = readStep(1);
-        const { values: step2 } = readStep(2);
-        const { values: step3 } = readStep(3);
-
-        trackEvent('radar_lead_generated', { nicho: step1.nicho, ticket: step1.ticket, site: step2.site });
-
-        const message = [
-          '*RADAR CORPORATIVO KNS*',
-          '',
-          `*Executivo:* ${nome}`,
-          `*WhatsApp:* ${whatsapp}`,
-          '',
-          '*Cenário:*',
-          `- Negócio: ${sanitize(step1.nicho)} (Ticket: ${sanitize(step1.ticket)})`,
-          `- Status Web: ${sanitize(step2.site)}`,
-          `- Motor de Ads: ${sanitize(step2.ads)}`,
-          `- Foco Primário: ${sanitize(step3.objetivo)}`,
-          `- Timeline: ${sanitize(step3.prazo)}`,
-          '',
-          'Kaleb, aguardo o laudo de engenharia.',
-        ].join('\n');
-
-        progressBar.classList.replace('bg-brand-gold', 'bg-green-500');
-        setTimeout(() => {
-          window.location.href = `https://wa.me/5547988901616?text=${encodeURIComponent(message)}`;
-        }, 350);
-      });
-    })();
-  })();
-  </script>
-</body>
-<script>
+  // --- Simulador ROI ---
   document.addEventListener('DOMContentLoaded', function() {
-    // 1. Lógica de cálculo e exibição
     document.getElementById('roiForm')?.addEventListener('submit', function(e) {
       e.preventDefault();
       const faturamento = parseFloat(document.getElementById('faturamento').value);
@@ -1272,7 +1164,6 @@
       document.getElementById('roiResult').classList.remove('hidden');
     });
 
-    // 2. Lógica de retorno ao menu (Reset)
     document.getElementById('btnRecalcular')?.addEventListener('click', function() {
       document.getElementById('roiResult').classList.add('hidden');
       const form = document.getElementById('roiForm');
@@ -1281,4 +1172,4 @@
     });
   });
 </script>
-</html>
+</body>
